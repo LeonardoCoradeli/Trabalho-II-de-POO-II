@@ -69,11 +69,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="GUI\" />
-    <Folder Include="Models\" />
-    <Folder Include="Utilitaries\" />
+    <Content Include="Controllers\TextFile1.txt" />
+    <Content Include="GUI\TextFile1.txt" />
+    <Content Include="Models\TextFile1.txt" />
+    <Content Include="Utilitaries\TextFile1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
