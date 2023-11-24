@@ -9,10 +9,11 @@ namespace Trabalho_II_de_POO_II.GUI
     public abstract class Pagamento
     {
         public int CodigoNota { get; set; }
+        public string Tipo { get; set; }
 
         public Pagamento() { }
 
-        public Pagamento(int codigoNota)
+        public Pagamento(int codigoNota,string tipo)
         {
             CodigoNota = codigoNota;
         }

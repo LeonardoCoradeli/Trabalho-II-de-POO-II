@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Trabalho_II_de_POO_II.GUI
 {
-    public abstract class Jogo
+    //Criar a interface simplesmente para poder criar variaveis do tipo IJogo, vai ser util na factory
+    public interface IJogo
+    {
+        float CalcularValor();
+    }
+
+    public abstract class Jogo : IJogo
     {
         protected int Codigo { get; set; }
         protected string Nome { get; set; }
@@ -18,10 +24,11 @@ namespace Trabalho_II_de_POO_II.GUI
         protected float Avaliacao { get; set; }
         protected string Comentarios { get; set; }
         protected bool Disponivel { get; set; }
+        protected string Tipo { get; set; }
 
         public Jogo() { }
 
-        public Jogo(int codigo, string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, float valor, string requisitosMinimos, float avaliacao, string comentarios, bool disponivel)
+        public Jogo(int codigo, string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, float valor, string requisitosMinimos, float avaliacao, string comentarios, bool disponivel,string tipo)
         {
             Codigo = codigo;
             Nome = nome;
@@ -33,6 +40,7 @@ namespace Trabalho_II_de_POO_II.GUI
             Avaliacao = avaliacao;
             Comentarios = comentarios;
             Disponivel = disponivel;
+            Tipo = tipo;
         }
 
         public abstract float CalcularValor();

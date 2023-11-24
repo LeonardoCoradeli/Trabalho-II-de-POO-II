@@ -1,17 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Trabalho_II_de_POO_II.GUI
 {
     public static class FactoryJogo
     {
-        public static Jogo factoryMethod(string tipoJogo)
+        public static List<int> controleCodigo = new List<int>();
+
+        static int gerar()
         {
-            // Implement your factory method logic here
-            // For example:
+            Random random = new Random();
+            int codigoJogo = random.Next(0, 10);
+            while(controleCodigo.Contains(codigoJogo))
+            {
+                codigoJogo = random.Next(0, 10);
+            }
+            controleCodigo.Add(codigoJogo);
+            return codigoJogo;
+        }
+
+        public static Jogo factoryMethod(string tipoJogo, string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, float valor, string requisitosMinimos, float avaliacao, string comentarios, bool disponivel)
+        {
+            int codigoJogo = FactoryJogo.gerar();
+            return null;
+            // Implemente a lógica da fábrica aqui
+            // Por exemplo:
             // switch (tipoJogo)
             // {
             //     case "SomeGameType":
@@ -20,5 +33,6 @@ namespace Trabalho_II_de_POO_II.GUI
             //         return null;
             // }
         }
+
     }
 }
