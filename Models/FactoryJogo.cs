@@ -33,6 +33,19 @@ namespace Trabalho_II_de_POO_II.GUI
             //         return null;
             // }
         }
+        public IJogo CriarJogo(string tipo, params object[] parametros)
+        {
+            switch (tipo)
+            {
+                case "JogoTipo1":
+                    return new JogoTipo1(parametros);
+                case "JogoTipo2":
+                    return new JogoTipo2(parametros);
+                // Adicione mais casos conforme necessário
+                default:
+                    throw new ArgumentException("Tipo de jogo desconhecido");
+            }
+        }
 
     }
 }
