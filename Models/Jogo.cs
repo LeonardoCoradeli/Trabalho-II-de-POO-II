@@ -15,20 +15,20 @@ namespace Trabalho_II_de_POO_II.GUI
     public abstract class Jogo : IJogo
     {
         protected int Codigo { get; set; }
-        protected string Nome { get; set; }
+        public string Nome { get; protected set; }
         protected string Descricao { get; set; }
         protected Desenvolvedora Desenvolvedora { get; set; }
         protected DateTime DataLancamento { get; set; }
         protected float Valor { get; set; }
         protected string RequisitosMinimos { get; set; }
-        protected float Avaliacao { get; set; }
+        public float Avaliacao { get; protected set; }
         protected string Comentarios { get; set; }
         protected bool Disponivel { get; set; }
         protected string Tipo { get; set; }
 
         public Jogo() { }
 
-        public Jogo(int codigo, string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, float valor, string requisitosMinimos, float avaliacao, string comentarios, bool disponivel,string tipo)
+        protected Jogo(string tipo,int codigo, string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, float valor, string requisitosMinimos, float avaliacao, string comentarios, bool disponivel)
         {
             Codigo = codigo;
             Nome = nome;
@@ -65,8 +65,8 @@ namespace Trabalho_II_de_POO_II.GUI
     {
         public Acao() { }
 
-        public Acao(int codigo, string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, float valor, string requisitosMinimos, float avaliacao, string comentarios, bool disponivel)
-            : base(codigo, nome, descricao, desenvolvedora, dataLancamento, valor, requisitosMinimos, avaliacao, comentarios, disponivel)
+        public Acao(string tipo, int codigo, string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, float valor, string requisitosMinimos, float avaliacao, string comentarios, bool disponivel)
+            : base(tipo, codigo, nome, descricao, desenvolvedora, dataLancamento, valor, requisitosMinimos, avaliacao, comentarios, disponivel)
         {
         }
 
@@ -85,8 +85,8 @@ namespace Trabalho_II_de_POO_II.GUI
     {
         public Aventura() { }
 
-        public Aventura(int codigo, string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, float valor, string requisitosMinimos, float avaliacao, string comentarios, bool disponivel)
-            : base(codigo, nome, descricao, desenvolvedora, dataLancamento, valor, requisitosMinimos, avaliacao, comentarios, disponivel)
+        public Aventura(string tipo, int codigo, string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, float valor, string requisitosMinimos, float avaliacao, string comentarios, bool disponivel)
+            : base(tipo, codigo, nome, descricao, desenvolvedora, dataLancamento, valor, requisitosMinimos, avaliacao, comentarios, disponivel)
         {
         }
 
@@ -105,8 +105,7 @@ namespace Trabalho_II_de_POO_II.GUI
     {
         public RPG() { }
 
-        public RPG(int codigo, string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, float valor, string requisitosMinimos, float avaliacao, string comentarios, bool disponivel)
-            : base(codigo, nome, descricao, desenvolvedora, dataLancamento, valor, requisitosMinimos, avaliacao, comentarios, disponivel)
+        public RPG(string tipo, int codigo, string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, float valor, string requisitosMinimos, float avaliacao, string comentarios, bool disponivel) : base(tipo, codigo, nome, descricao, desenvolvedora, dataLancamento, valor, requisitosMinimos, avaliacao, comentarios, disponivel)
         {
         }
 
@@ -125,8 +124,8 @@ namespace Trabalho_II_de_POO_II.GUI
     {
         public Esporte() { }
 
-        public Esporte(int codigo, string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, float valor, string requisitosMinimos, float avaliacao, string comentarios, bool disponivel)
-            : base(codigo, nome, descricao, desenvolvedora, dataLancamento, valor, requisitosMinimos, avaliacao, comentarios, disponivel)
+        public Esporte(string tipo, int codigo, string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, float valor, string requisitosMinimos, float avaliacao, string comentarios, bool disponivel)
+            : base(tipo, codigo, nome, descricao, desenvolvedora, dataLancamento, valor, requisitosMinimos, avaliacao, comentarios, disponivel)
         {
         }
 
@@ -145,8 +144,8 @@ namespace Trabalho_II_de_POO_II.GUI
     {
         public Corrida() { }
 
-        public Corrida(int codigo, string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, float valor, string requisitosMinimos, float avaliacao, string comentarios, bool disponivel)
-            : base(codigo, nome, descricao, desenvolvedora, dataLancamento, valor, requisitosMinimos, avaliacao, comentarios, disponivel)
+        public Corrida(string tipo, int codigo, string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, float valor, string requisitosMinimos, float avaliacao, string comentarios, bool disponivel)
+            : base(tipo, codigo, nome, descricao, desenvolvedora, dataLancamento, valor, requisitosMinimos, avaliacao, comentarios, disponivel)
         {
         }
 
