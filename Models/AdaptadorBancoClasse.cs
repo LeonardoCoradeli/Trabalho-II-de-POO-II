@@ -10,25 +10,30 @@ namespace Trabalho_II_de_POO_II.Models
 { 
     public class AdaptadorBancoDados
     {
-        private readonly SQLiteConnection _conexaoSqlite;
 
-        public AdaptadorBancoDados(string stringConexao)
+        public AdaptadorBancoDados()
         {
-            _conexaoSqlite = new SQLiteConnection(stringConexao);
         }
 
-        public string ConverterParaFormatoBancoDados(object obj)
+        public (string, string) ConverterObjetoParaBanco(object obj)
         {
             var propriedades = obj.GetType().GetProperties();
-            string resultado = string.Empty;
+            string nomesPropriedades = string.Empty;
+            string valores = string.Empty;
+
             foreach (var prop in propriedades)
             {
-                resultado += $"{prop.Name}={prop.GetValue (obj)},";
+                nomesPropriedades += $"{prop.Name},";
+                valores += $"{prop.GetValue(obj)},";
             }
-            return resultado.TrimEnd(',');
+
+            nomesPropriedades = nomesPropriedades.TrimEnd(',');
+            valores = valores.TrimEnd(',');
+
+            return (nomesPropriedades, valores);
         }
 
-        public T ConverterDeFormatoBancoDados<T>(string dadosBd)
+        public T ConverterBancoParaObjeto<T>(string dadosBd)
         {
             // Supondo que dadosBd seja uma string de pares chave=valor separados por vírgulas
             var paresChaveValor = dadosBd.Split(',');

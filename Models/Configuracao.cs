@@ -40,12 +40,14 @@ namespace Trabalho_II_de_POO_II.GUI
             private void InicializarBanco()
             {
                 string assemblyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                Console.WriteLine(assemblyPath);
 
                 // Combina o caminho relativo com o diretório do assembly
-                string databasePath = Path.Combine(assemblyPath, "Models", "Banco.sqlite3");
+                //string databasePath = Path.Combine(Path.GetDirectoryName(assemblyPath), "Models", "Banco.sqlite3");
+
 
                 // Configura a conexão com o banco de dados SQLite usando o caminho relativo
-                string connectionString = $"Data Source={databasePath};Version=3;";
+                string connectionString = $"Data Source=Banco.sqlite3";
                 connection = new SQLiteConnection(connectionString);
 
                 // Abrir a conexão
@@ -70,14 +72,21 @@ namespace Trabalho_II_de_POO_II.GUI
             }
 
             // Método para adicionar um novo item
-            public void AddNewItem(string itemName)
+            public void adicionar((string propiedades,string valores) ObjetoFormatado, string tabela)
             {
-                string query = $"INSERT INTO MyTable (Name) VALUES ('{itemName}');";
-
-                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                try
                 {
-                    command.ExecuteNonQuery();
+                    string query = $"INSERT INTO {tabela} ({ObjetoFormatado.propiedades} VALUES ({ObjetoFormatado.valores})";
+                    using (SQLiteCommand comando = new SQLiteCommand(query, connection))
+                    {
+                        comando.ExecuteNonQuery();
+                    }
                 }
+                catch (SQLiteException ex)
+                {
+                    Console.WriteLine($"Erro de SQL: {ex.Message}");
+                }
+                
             }
         }
 }

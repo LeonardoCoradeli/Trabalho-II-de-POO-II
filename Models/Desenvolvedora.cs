@@ -18,9 +18,9 @@ namespace Trabalho_II_de_POO_II.GUI
 
         public Desenvolvedora() { }
 
-        public Desenvolvedora(int codigo, string cnpj, string nome, string email, string site, string redeSocial, string endereco)
+        public Desenvolvedora(string cnpj, string nome, string email, string site, string redeSocial, string endereco)
         {
-            Codigo = codigo;
+            Codigo = NumAleatorio.Gerar<Desenvolvedora>();
             Cnpj = cnpj;
             Nome = nome;
             Email = email;

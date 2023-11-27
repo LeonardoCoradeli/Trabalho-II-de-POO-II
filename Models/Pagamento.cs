@@ -9,13 +9,14 @@ namespace Trabalho_II_de_POO_II.GUI
     public abstract class Pagamento
     {
         public int CodigoNota { get; set; }
-        public string Tipo { get; set; }
+        public Type Tipo { get; set; }
 
         public Pagamento() { }
 
-        public Pagamento(int codigoNota,string tipo)
+        public Pagamento(int codigoNota,Type tipo)
         {
             CodigoNota = codigoNota;
+            Tipo = tipo;
         }
 
         public abstract override string ToString();
@@ -26,7 +27,7 @@ namespace Trabalho_II_de_POO_II.GUI
 
         public Boleto() { }
 
-        public Boleto(int codigoNota, string numero) : base(codigoNota)
+        public Boleto(int codigoNota, string numero) : base(codigoNota,typeof(Boleto))
         {
             Numero = numero;
         }
@@ -49,7 +50,7 @@ namespace Trabalho_II_de_POO_II.GUI
 
         public CartaoCredito() { }
 
-        public CartaoCredito(int codigoNota, string nome, string bandeira, string numero) : base(codigoNota)
+        public CartaoCredito(int codigoNota, string nome, string bandeira, string numero) : base(codigoNota, typeof(CartaoCredito))
         {
             Nome = nome;
             Bandeira = bandeira;
@@ -68,7 +69,7 @@ namespace Trabalho_II_de_POO_II.GUI
 
         public Pix() { }
 
-        public Pix(int codigoNota, string nome, string codigoPix) : base(codigoNota)
+        public Pix(int codigoNota, string nome, string codigoPix) : base(codigoNota, typeof(Pagamento))
         {
             Nome = nome;
             CodigoPix = codigoPix;

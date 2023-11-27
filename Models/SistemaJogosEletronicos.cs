@@ -15,7 +15,7 @@ namespace Trabalho_II_de_POO_II.GUI
         public List<Transportadora> Transportadoras { get; set; }
         public List<Usuario> Clientes { get; set; }
         public List<Usuario> Gerentes { get; set; }
-        public Configuracao Configuracoes { get; set; }
+        public BancoDeDados BD { get; set; }
 
     }
 }

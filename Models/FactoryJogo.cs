@@ -5,35 +5,23 @@ namespace Trabalho_II_de_POO_II.GUI
 {
     public static class FactoryJogo
     {
-        public static List<int> controleCodigo = new List<int>();
 
-        static int gerar()
+        public static Jogo CreateJogo(string tipo, string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, double valor, string requesitosminimos, double avaliacao, string comentarios, bool disponivel)
         {
-            Random random = new Random();
-            int codigoJogo = random.Next(0, 10);
-            while (controleCodigo.Contains(codigoJogo))
-            {
-                codigoJogo = random.Next(0, 10);
-            }
-            controleCodigo.Add(codigoJogo);
-            return codigoJogo;
-        }
-
-        public static Jogo CreateJogo(string tipo, string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, float valor, string requesitosminimos, float avaliacao, string comentarios, bool disponivel)
-        {
-            int retorno = gerar();
+            //gera um código aleatório para cada jogo criado
+            int codigo = NumAleatorio.Gerar<Jogo>();
             switch (tipo)
             {
                 case "Ação":
-                    return new Acao(tipo, retorno, nome, descricao, desenvolvedora, dataLancamento, valor, requesitosminimos, avaliacao, comentarios, disponivel);
+                    return new Acao(codigo,nome, descricao, desenvolvedora, dataLancamento, (float)valor, requesitosminimos, (float)avaliacao, comentarios, disponivel,typeof(Acao));
                 case "Aventura":
-                    return new Aventura(tipo, retorno, nome, descricao, desenvolvedora, dataLancamento, valor, requesitosminimos, avaliacao, comentarios, disponivel);
+                    return new Aventura(codigo, nome, descricao, desenvolvedora, dataLancamento, (float)valor, requesitosminimos, (float)avaliacao, comentarios, disponivel, typeof(Aventura));
                 case "RPG":
-                    return new RPG(tipo, retorno, nome, descricao, desenvolvedora, dataLancamento, valor, requesitosminimos, avaliacao, comentarios, disponivel);
+                    return new RPG(codigo, nome, descricao, desenvolvedora, dataLancamento, (float)valor, requesitosminimos, (float)avaliacao, comentarios, disponivel, typeof(RPG));
                 case "Esporte":
-                    return new Esporte(tipo, retorno, nome, descricao, desenvolvedora, dataLancamento, valor, requesitosminimos, avaliacao, comentarios, disponivel);
+                    return new Esporte(codigo, nome, descricao, desenvolvedora, dataLancamento, (float)valor, requesitosminimos, (float)avaliacao, comentarios, disponivel, typeof(Esporte));
                 case "Corrida":
-                    return new Corrida(tipo, retorno, nome, descricao, desenvolvedora, dataLancamento, valor, requesitosminimos, avaliacao, comentarios, disponivel);
+                    return new Corrida(codigo, nome, descricao, desenvolvedora, dataLancamento, (float)valor, requesitosminimos, (float)avaliacao, comentarios, disponivel, typeof(Corrida));
                 default:
                     throw new ArgumentException("Tipo de jogo inválido");
             }
