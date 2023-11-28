@@ -72,13 +72,21 @@ namespace Trabalho_II_de_POO_II.GUI
             }
 
             // Método para adicionar um novo item
-            public void adicionar((string propiedades,string valores) ObjetoFormatado, string tabela)
+            public void Adicionar((List<string> propriedades, List<object> valores) objetoFormatado, string tabela)
             {
                 try
                 {
-                    string query = $"INSERT INTO {tabela} ({ObjetoFormatado.propiedades} VALUES ({ObjetoFormatado.valores})";
+                string colunas = string.Join(", ", objetoFormatado.propriedades);
+                string parametros = string.Join(", ", objetoFormatado.propriedades.Select(p => "@" + p));
+
+                string query = $"INSERT INTO {tabela} ({colunas}) VALUES ({parametros})";
                     using (SQLiteCommand comando = new SQLiteCommand(query, connection))
                     {
+                        for (int i = 0; i < objetoFormatado.propriedades.Count; i++)
+                        {
+                            comando.Parameters.AddWithValue("@" + objetoFormatado.propriedades[i], objetoFormatado.valores[i]);
+                        }
+
                         comando.ExecuteNonQuery();
                     }
                 }
@@ -86,7 +94,6 @@ namespace Trabalho_II_de_POO_II.GUI
                 {
                     Console.WriteLine($"Erro de SQL: {ex.Message}");
                 }
-                
             }
-        }
+    }
 }
