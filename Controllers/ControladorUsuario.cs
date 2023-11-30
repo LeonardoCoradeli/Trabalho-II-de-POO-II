@@ -16,7 +16,7 @@ namespace Trabalho_II_de_POO_II.Controllers
         }
         public void CadastrarCliente(string nome, string cpf, string rg, DateTime dataNascimento, string endereco, string cep, string email, DateTime dataCadastro, int nivel, bool clienteEpico)
         {
-            sistemaJogosEletronicos.cadastrarCliente(nome, cpf, rg, dataNascimento, endereco, cep, email, dataCadastro, nivel, clienteEpico);
+            sistemaJogosEletronicos.CadastrarCliente(nome, cpf, rg, dataNascimento, endereco, cep, email, dataCadastro, nivel, clienteEpico);
         }
         public void CadastrarGerente(string nome, string cpf, string rg, DateTime dataNascimento, string endereco, string cep, string email, DateTime dataAdmissao, double salario, string senha)
         {
@@ -30,45 +30,45 @@ namespace Trabalho_II_de_POO_II.Controllers
         {
             sistemaJogosEletronicos.CadastrarTransportadora(nome, cnpj, endereco, cep, email, dataCadastro, telefone);
         }
-        public void buscarCliente(int codigo)
+        public void BuscarCliente(int codigo)
         {
-            sistemaJogosEletronicos.buscarCliente(codigo);
+            sistemaJogosEletronicos.BuscarCliente(codigo);
         }
-        public void buscarGerente(int codigo)
+        public void BuscarGerente(int codigo)
         {
-            sistemaJogosEletronicos.buscarGerente(codigo);
+            sistemaJogosEletronicos.BuscarGerente(codigo);
         }
-        public void buscarDesenvolvedora(int codigo)
+        public void BuscarDesenvolvedora(int codigo)
         {
-            sistemaJogosEletronicos.buscarDesenvolvedora(codigo);
+            sistemaJogosEletronicos.BuscarDesenvolvedora(codigo);
         }
-        public void buscarTransportadora(int codigo)
+        public void BuscarTransportadora(int codigo)
         {
-            sistemaJogosEletronicos.buscarTransportadora(codigo);
+            sistemaJogosEletronicos.BuscarTransportadora(codigo);
         }
-        public void removerCliente(int codigo)
+        public void RemoverCliente(int codigo)
         {
-            sistemaJogosEletronicos.removerCliente(codigo);
+            sistemaJogosEletronicos.RemoverCliente(codigo);
         }
-        public void removerGerente(int codigo)
+        public void RemoverGerente(int codigo)
         {
-            sistemaJogosEletronicos.removerGerente(codigo);
+            sistemaJogosEletronicos.RemoverGerente(codigo);
         }
-        public void removerDesenvolvedora(int codigo)
+        public void RemoverDesenvolvedora(int codigo)
         {
-            sistemaJogosEletronicos.removerDesenvolvedora(codigo);
+            sistemaJogosEletronicos.RemoverDesenvolvedora(codigo);
         }
-        public void removerTransportadora(int codigo)
+        public void RemoverTransportadora(int codigo)
         {
-            sistemaJogosEletronicos.removerTransportadora(codigo);
+            sistemaJogosEletronicos.RemoverTransportadora(codigo);
         }
         public void listarDesenvolvedoras()
         {
             sistemaJogosEletronicos.ListarDesenvolvedorasCadastradas();
         }
-        public void listarDesenvolvedorasMaisVendidas()
+        public void listarDesenvolvedorasMaisVendidos()
         {
-            sistemaJogosEletronicos.ListarDesenvolvedorasMaisVendidas();
+            sistemaJogosEletronicos.ListarDesenvolvedorasMaisVendidos();
         }
         public void ListarDesenvolvedorasComMaiorLucro()
         {
@@ -76,7 +76,7 @@ namespace Trabalho_II_de_POO_II.Controllers
         }
         public void listarTransportadoras()
         {
-            sistemaJogosEletronicos.ListarTransportadorasCadastradas();
+            sistemaJogosEletronicos.ListarTodasTransportadoras();
         }
         public void listarGerentes()
         {
