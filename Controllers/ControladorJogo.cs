@@ -27,45 +27,45 @@ namespace Trabalho_II_de_POO_II.Controllers
         {
             sistemaJogosEletronicos.removerJogo(codigo);
         }
-        public sistemaJogosEletronicos.Vendas GetTodosJogos()
+        public List<Jogo> GetTodosJogos()
         {            
-            sistemaJogosEletronicos.GetTodosJogos();
+            return sistemaJogosEletronicos.GetTodosJogos();
         }
-        public sistemaJogosEletronicos.Jogos ListarJogosDeAcao(sistemaJogosEletronicos.Jogos jogos)
+        public List<Jogo> ListarJogosDeAcao(sistemaJogosEletronicos.Jogos jogos)
         {
-            sistemaJogosEletronicos.ListarJogosDeAcao(jogos);
+            return sistemaJogosEletronicos.ListarJogosDeAcao(jogos);
         }
-        public sistemaJogosEletronicos.Jogos ListarJogosDeAventura(sistemaJogosEletronicos.Jogos jogos)
+        public List<Jogo> ListarJogosDeAventura(sistemaJogosEletronicos.Jogos jogos)
         {
-            sistemaJogosEletronicos.ListarJogosDeAventura(jogos);
+            return sistemaJogosEletronicos.ListarJogosDeAventura(jogos);
         }
-        public sistemaJogosEletronicos.Jogos ListarJogosDeCorrida(sistemaJogosEletronicos.Jogos jogos)
+        public List<Jogo> ListarJogosDeCorrida(sistemaJogosEletronicos.Jogos jogos)
         {
-            sistemaJogosEletronicos.ListarJogosDeCorrida(jogos);
+            return sistemaJogosEletronicos.ListarJogosDeCorrida(jogos);
         }
-        public sistemaJogosEletronicos.Jogos ListarJogosDeEsporte(sistemaJogosEletronicos.Jogos jogos)
+        public List<Jogo> ListarJogosDeEsporte(sistemaJogosEletronicos.Jogos jogos)
         {
-            sistemaJogosEletronicos.ListarJogosDeEsporte(jogos);
+            return sistemaJogosEletronicos.ListarJogosDeEsporte(jogos);
         }
-        public sistemaJogosEletronicos.Jogos ListarJogosDeRPG(sistemaJogosEletronicos.Jogos jogos)
+        public List<Jogo> ListarJogosDeRPG(sistemaJogosEletronicos.Jogos jogos)
         {
-            sistemaJogosEletronicos.ListarJogosDeRPG(jogos);
+            return sistemaJogosEletronicos.ListarJogosDeRPG(jogos);
         }
-        public sistemaJogosEletronicos.Jogos ListarTop10JogosMaisCaros(sistemaJogosEletronicos.Jogos jogos)
+        public List<Jogo> ListarTop10JogosMaisCaros(sistemaJogosEletronicos.Jogos jogos)
         {
-            sistemaJogosEletronicos.ListarTop10JogosMaisCaros(jogos);
+            return sistemaJogosEletronicos.ListarTop10JogosMaisCaros(jogos);
         }
-        public sistemaJogosEletronicos.Jogos ListarTop10JogosMenorPreco(sistemaJogosEletronicos.Jogos jogos)
+        public List<Jogo> ListarTop10JogosMenorPreco(sistemaJogosEletronicos.Jogos jogos)
         {
-            sistemaJogosEletronicos.ListarTop10JogosMenorPreco(jogos);
+            return sistemaJogosEletronicos.ListarTop10JogosMenorPreco(jogos);
         }
         public List<string> ListarNomesOrdenadosPorAvaliacao1(sistemaJogosEletronicos.Jogos jogos)
         {
-            sistemaJogosEletronicos.ListarNomesOrdenadosPorAvaliacao1(jogos);
+            return sistemaJogosEletronicos.ListarNomesOrdenadosPorAvaliacao1(jogos);
         }
         public List<string> ListarNomesOrdenadosPorAvaliacao2(sistemaJogosEletronicos.Jogos jogos)
         {
-            sistemaJogosEletronicos.ListarNomesOrdenadosPorAvaliacao2(jogos);
+            return sistemaJogosEletronicos.ListarNomesOrdenadosPorAvaliacao2(jogos);
         }
     }
 }

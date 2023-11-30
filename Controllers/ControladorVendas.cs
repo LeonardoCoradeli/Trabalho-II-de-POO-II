@@ -34,7 +34,7 @@ namespace Trabalho_II_de_POO_II.Controllers
         {
             sistemaJogosEletronicos.ListarTodasVendas();
         }
-        public (decimal, sistemaJogosEletronicos.Vendas) CalcularLucroEListarVendasMesEspecifico(sistemaJogosEeltronicos.Vendas, int mes)
+        public (decimal, sistemaJogosEletronicos.Vendas) CalcularLucroEListarVendasMesEspecifico(List<Venda> vendas, int mes)
         {
             sistemaJogosEletronicos.CalcularLucroEListarVendasMesEspecifico(sistemaJogosEeltronicos.Vendas, mes);
         }
@@ -42,17 +42,17 @@ namespace Trabalho_II_de_POO_II.Controllers
         {
             sistemaJogosEletronicos.ListarVendasECalcularLucroDesenvolvedoraMesEspecifico(nomeDesenvolvedora, mes);
         }
-        public sistemaJogosEletronicos.Vendas ListarVendasComFormaPagamentoBoleto(sistemasJogosEletronicos.Vendas)
+        public List<Venda> ListarVendasComFormaPagamentoBoleto(List<Venda> vendas)
         {
-            sistemaJogosEletronicos.ListarVendasComFormaPagamentoBoleto(sistemasJogosEletronicos.Vendas);
+            return sistemaJogosEletronicos.ListarVendasComFormaPagamentoBoleto(sistemasJogosEletronicos.Vendas);
         }
-        public sistemaJogosEletronicos.Vendas ListarVendasComFormaPagamentoCartaoCredito(sistemasJogosEletronicos.Vendas)
+        public List<Venda> ListarVendasComFormaPagamentoCartaoCredito(List<Venda> vendas)
         {
-            sistemaJogosEletronicos.ListarVendasComFormaPagamentoCartaoCredito(sistemasJogosEletronicos.Vendas);
+            return sistemaJogosEletronicos.ListarVendasComFormaPagamentoCartaoCredito(sistemasJogosEletronicos.Vendas);
         }
-        public sistemaJogosEeltronicos.Vendas ListarVendasComFormaPagamentoPix(sistemasJogosEletronicos.Vendas)
+        public List<Venda> ListarVendasComFormaPagamentoPix(List<Venda> vendas)
         {
-            sistemaJogosEletronicos.ListarVendasComFormaPagamentoPix(sistemasJogosEletronicos.Vendas);
+            return sistemaJogosEletronicos.ListarVendasComFormaPagamentoPix(sistemasJogosEletronicos.Vendas);
         }
     }
 }
