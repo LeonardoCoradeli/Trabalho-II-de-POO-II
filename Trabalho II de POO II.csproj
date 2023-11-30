@@ -65,13 +65,6 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="GUI\Tela.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\Tela.Designer.cs">
-      <DependentUpon>Tela.cs</DependentUpon>
-    </Compile>
     <Compile Include="Models\AdaptadorBancoClasse.cs" />
     <Compile Include="Models\Configuracao.cs" />
     <Compile Include="Models\Desenvolvedora.cs" />
