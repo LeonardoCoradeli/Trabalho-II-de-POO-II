@@ -9,7 +9,6 @@ namespace Trabalho_II_de_POO_II.GUI
     //Criar a interface simplesmente para poder criar variaveis do tipo IJogo, vai ser util na factory
     public interface IJogo
     {
-        Desenvolvedora Desenvolvedora { get; }
 
         float CalcularValor();
 
@@ -20,7 +19,7 @@ namespace Trabalho_II_de_POO_II.GUI
         protected int Codigo { get; set; }
         public string Nome { get; protected set; }
         protected string Descricao { get; set; }
-        protected Desenvolvedora Desenvolvedora { get; set; }
+        public  Desenvolvedora Desenvolvedora { get; protected set; }
         protected DateTime DataLancamento { get; set; }
         protected float Valor { get; set; }
         protected string RequisitosMinimos { get; set; }
@@ -29,7 +28,6 @@ namespace Trabalho_II_de_POO_II.GUI
         protected bool Disponivel { get; set; }
         public Type Tipo { get; set; }
 
-        Desenvolvedora IJogo.Desenvolvedora => Desenvolvedora;
 
         public Jogo() { }
 

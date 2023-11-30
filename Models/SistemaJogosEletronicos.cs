@@ -11,13 +11,13 @@ namespace Trabalho_II_de_POO_II.GUI
     {
         public string NomePlataforma { get; set; }
         public List<Venda> Vendas { get; set; }
-        public List<IJogo> Jogos { get; set; }
+        public List<Jogo> Jogos { get; set; }
         public List<Desenvolvedora> Desenvolvedoras { get; set; }
         public List<Transportadora> Transportadoras { get; set; }
         public List<Cliente> Clientes { get; set; }
         public List<Gerente> Gerentes { get; set; }
         public BancoDeDados BD { get; set; }
-        public List<IJogo> ListarTodosJogos()
+        public List<Jogo> ListarTodosJogos()
         {
             return Jogos;
         }
@@ -107,14 +107,14 @@ namespace Trabalho_II_de_POO_II.GUI
         {
             return Clientes;
         }
-        public List<ICliente> ListarClientesEpicos(List<ICliente> clientes)
+        public List<Cliente> ListarClientesEpicos(List<Cliente> clientes)
         {
-            List<ICliente> clientesEpicos = clientes.Where(cliente => cliente.ClienteEpico).ToList();
+            List<Cliente> clientesEpicos = clientes.Where(cliente => cliente.ClienteEpico).ToList();
             return clientesEpicos;
         }
-        public List<ICliente> ListarTop10ClientesMaiorNivel(List<ICliente> clientes)
+        public List<Cliente> ListarTop10ClientesMaiorNivel(List<Cliente> clientes)
         {
-            List<ICliente> top10ClientesMaiorNivel = clientes.OrderByDescending(cliente => cliente.Nivel).Take(10).ToList();
+            List<Cliente> top10ClientesMaiorNivel = clientes.OrderByDescending(cliente => cliente.Nivel).Take(10).ToList();
             return top10ClientesMaiorNivel;
         }
         public List<Venda> ListarHistoricoVendasCliente(Usuario cliente)

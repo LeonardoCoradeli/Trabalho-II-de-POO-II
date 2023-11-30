@@ -6,12 +6,7 @@ using System.Threading.Tasks;
 
 namespace Trabalho_II_de_POO_II.GUI
 {
-    public interface ICliente
-    {
-        bool ClienteEpico { get; }
-        float Nivel { get; }
-
-    }
+ 
 
     public abstract class Usuario
     {
@@ -44,14 +39,12 @@ namespace Trabalho_II_de_POO_II.GUI
             return $"Usuario: {Nome}, CPF: {Cpf}, RG: {Rg}, Data de Nascimento: {DataNascimento}, Endereço: {Endereco}, CEP: {Cep}, Email: {Email}";
         }
     }
-    public class Cliente : Usuario, ICliente
+    public class Cliente : Usuario
     {
         protected DateTime DataCadastro { get; set; }
-        protected float Nivel { get; set; }
-        protected bool ClienteEpico { get; set; }
+        public float Nivel { get; protected set; }
+        public bool ClienteEpico {  get; protected set; }
 
-        bool ICliente.ClienteEpico => ClienteEpico;
-        float ICliente.Nivel => Nivel;
 
         public Cliente() { }
 
