@@ -66,6 +66,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ControladorJogo.cs" />
+    <Compile Include="Controllers\ControladorUsuario.cs" />
+    <Compile Include="Controllers\ControladorVendas.cs" />
     <Compile Include="GUI\Cliente_Especifico.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +123,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="bin\Debug\Banco.sqlite3" />
+    <None Include="Models\SistemaJogosEletronicos.cspublic string VendaToString%28Venda venda%29{return venda.ToString%28%29%3b}```" />
     <None Include="packages.config" />
     <None Include="packages\EntityFramework.6.4.4\.signature.p7s" />
     <None Include="packages\EntityFramework.6.4.4\buildTransitive\EntityFramework.props" />
