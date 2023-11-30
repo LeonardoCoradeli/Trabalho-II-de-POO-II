@@ -3,116 +3,65 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Trabalho_II_de_POO_II.Models;
 
 namespace Trabalho_II_de_POO_II.GUI
 {
-    public class SistemaJogosEletronicos : IJogosService
+    public class SistemaJogosEletronicos
     {
         public string NomePlataforma { get; set; }
         public List<Venda> Vendas { get; set; }
-        public List<Jogo> Jogos { get; set; }
+        public List<IJogo> Jogos { get; set; }
         public List<Desenvolvedora> Desenvolvedoras { get; set; }
         public List<Transportadora> Transportadoras { get; set; }
-        public List<Usuario> Clientes { get; set; }
-        public List<Usuario> Gerentes { get; set; }
+        public List<Cliente> Clientes { get; set; }
+        public List<Gerente> Gerentes { get; set; }
         public BancoDeDados BD { get; set; }
-        public List<Jogo> GetTodosJogos()
+        public List<IJogo> ListarTodosJogos()
         {
             return Jogos;
         }
-        public List<Jogo> ListarJogosDeAcao(List<Jogo> jogos)
+
+        public List<Jogo> ListarJogosPorTipo(List<Jogo> jogos, Type tipo)
         {
-            List<Jogo> jogosDeAcao = new List<Jogo>();
+            List<Jogo> jogosFiltrados = new List<Jogo>();
 
             foreach (Jogo jogo in jogos)
             {
-                if (jogo.Categoria == "Acao")
+                if (jogo.Tipo == tipo)
                 {
-                    jogosDeAcao.Add(jogo);
+                    jogosFiltrados.Add(jogo);
                 }
             }
 
-            return jogosDeAcao;
+            return jogosFiltrados;
         }
 
-        public List<Jogo> ListarJogosDeAventura(List<Jogo> jogos)
-        {
-            List<Jogo> jogosDeAventura = new List<Jogo>();
 
-            foreach (Jogo jogo in jogos)
-            {
-                if (jogo.Categoria == "Aventura")
-                {
-                    jogosDeAventura.Add(jogo);
-                }
-            }
-
-            return jogosDeAventura;
-        }
-
-        public List<Jogo> ListarJogosDeCorrida(List<Jogo> jogos)
-        {
-            List<Jogo> jogosDeCorrida = new List<Jogo>();
-
-            foreach (Jogo jogo in jogos)
-            {
-                if (jogo.Categoria == "Corrida")
-                {
-                    jogosDeCorrida.Add(jogo);
-                }
-            }
-
-            return jogosDeCorrida;
-        }
-
-        public List<Jogo> ListarJogosDeEsporte(List<Jogo> jogos)
-        {
-            List<Jogo> jogosDeEsporte = new List<Jogo>();
-
-            foreach (Jogo jogo in jogos)
-            {
-                if (jogo.Categoria == "Esporte")
-                {
-                    jogosDeEsporte.Add(jogo);
-                }
-            }
-
-            return jogosDeEsporte;
-        }
-        public List<Jogo> ListarJogosDeRPG(List<Jogo> jogos)
-        {
-            List<Jogo> jogosDeRPG = new List<Jogo>();
-
-            foreach (Jogo jogo in jogos)
-            {
-                if (jogo.Categoria == "RPG")
-                {
-                    jogosDeRPG.Add(jogo);
-                }
-            }
-
-            return jogosDeRPG;
-        }
         public List<Jogo> ListarTop10JogosMaisCaros(List<Jogo> jogos)
         {
-            List<Jogo> top10JogosMaisCaros = jogos.OrderByDescending(jogo => jogo.Preco).Take(10).ToList();
+            List<Jogo> top10JogosMaisCaros = jogos.OrderByDescending(jogo => jogo.CalcularValor()).Take(10).ToList();
             return top10JogosMaisCaros;
         }
         public List<Jogo> ListarTop10JogosMenorPreco(List<Jogo> jogos)
         {
-            List<Jogo> top10JogosMenorPreco = jogos.OrderBy(jogo => jogo.Preco).Take(10).ToList();
+            List<Jogo> top10JogosMenorPreco = jogos.OrderBy(jogo => jogo.CalcularValor()).Take(10).ToList();
             return top10JogosMenorPreco;
         }
         public List<string> ListarNomesOrdenadosPorAvaliacao1(List<Jogo> jogos)
         {
-            OrdenacaoStrategy.MetodoOrganizacao1(jogos);
-            List<string> nomesOrdenados = jogos.Select(jogo => jogo.Nome).ToList();
+            ContextoOrganizacao contexto = new ContextoOrganizacao(new MetodoOrganizacao1());
+            List <Jogo> jogosOrdenados = contexto.Organizar(jogos);
+            List<string> nomesOrdenados = jogosOrdenados.Select(jogo => jogo.Nome).ToList();
+            //Ver se vai realmente precisar so do nome
             return nomesOrdenados;
         }
         public List<string> ListarNomesOrdenadosPorAvaliacao2(List<Jogo> jogos)
         {
-            OrdenacaoStrategy.MetodoOrganizacao2(jogos);
-            List<string> nomesOrdenados = jogos.Select(jogo => jogo.Nome).ToList();
+            ContextoOrganizacao contexto = new ContextoOrganizacao(new MetodoOrganizacao2());
+            List<Jogo> jogosOrdenados = contexto.Organizar(jogos);
+            List<string> nomesOrdenados = jogosOrdenados.Select(jogo => jogo.Nome).ToList();
+            //Ver se vai realmente precisar so do nome
             return nomesOrdenados;
         }
         public List<Desenvolvedora> ListarDesenvolvedorasCadastradas()
@@ -138,7 +87,7 @@ namespace Trabalho_II_de_POO_II.GUI
                 .Select(grupo => new
                 {
                     Desenvolvedora = grupo.Key,
-                    Lucro = grupo.Sum(jogo => jogo.Preco)
+                    Lucro = grupo.Sum(jogo => jogo.CalcularValor())
                 })
                 .OrderByDescending(item => item.Lucro)
                 .Select(item => item.Desenvolvedora)
@@ -150,22 +99,22 @@ namespace Trabalho_II_de_POO_II.GUI
         {
             return Transportadoras;
         }
-        public List<Usuario> ListarGerentesCadastrados()
+        public List<Gerente> ListarGerentesCadastrados()
         {
             return Gerentes;
         }
-        public List<Usuario> ListarClientesCadastrados()
+        public List<Cliente> ListarClientesCadastrados()
         {
             return Clientes;
         }
-        public List<Usuario> ListarClientesEpicos(List<Usuario> clientes)
+        public List<ICliente> ListarClientesEpicos(List<ICliente> clientes)
         {
-            List<Usuario> clientesEpicos = clientes.Where(cliente => cliente.ClienteEpico == true).ToList();
+            List<ICliente> clientesEpicos = clientes.Where(cliente => cliente.ClienteEpico).ToList();
             return clientesEpicos;
         }
-        public List<Usuario> ListarTop10ClientesMaiorNivel(List<Usuario> clientes)
+        public List<ICliente> ListarTop10ClientesMaiorNivel(List<ICliente> clientes)
         {
-            List<Usuario> top10ClientesMaiorNivel = clientes.OrderByDescending(cliente => cliente.Nivel).Take(10).ToList();
+            List<ICliente> top10ClientesMaiorNivel = clientes.OrderByDescending(cliente => cliente.Nivel).Take(10).ToList();
             return top10ClientesMaiorNivel;
         }
         public List<Venda> ListarHistoricoVendasCliente(Usuario cliente)

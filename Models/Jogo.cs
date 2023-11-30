@@ -9,7 +9,10 @@ namespace Trabalho_II_de_POO_II.GUI
     //Criar a interface simplesmente para poder criar variaveis do tipo IJogo, vai ser util na factory
     public interface IJogo
     {
+        Desenvolvedora Desenvolvedora { get; }
+
         float CalcularValor();
+
     }
 
     public abstract class Jogo : IJogo
@@ -24,7 +27,9 @@ namespace Trabalho_II_de_POO_II.GUI
         public float Avaliacao { get; protected set; }
         protected string Comentarios { get; set; }
         protected bool Disponivel { get; set; }
-        protected Type Tipo { get; set; }
+        public Type Tipo { get; set; }
+
+        Desenvolvedora IJogo.Desenvolvedora => Desenvolvedora;
 
         public Jogo() { }
 
@@ -45,9 +50,9 @@ namespace Trabalho_II_de_POO_II.GUI
 
         public abstract float CalcularValor();
 
-        public float AtualizarAvaliacao()
+        public float AtualizarAvaliacao(int avaliacao)
         {
-            // Implement the logic to update the rating here
+            Avaliacao = avaliacao;
             return Avaliacao;
         }
 

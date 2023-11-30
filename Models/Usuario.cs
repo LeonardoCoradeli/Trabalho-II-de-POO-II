@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace Trabalho_II_de_POO_II.GUI
 {
+    public interface ICliente
+    {
+        bool ClienteEpico { get; }
+        float Nivel { get; }
+
+    }
+
     public abstract class Usuario
     {
         protected int Codigo { get; set; }
@@ -16,6 +23,7 @@ namespace Trabalho_II_de_POO_II.GUI
         protected string Endereco { get; set; }
         protected string Cep { get; set; }
         protected string Email { get; set; }
+
 
         public Usuario() { }
 
@@ -36,19 +44,22 @@ namespace Trabalho_II_de_POO_II.GUI
             return $"Usuario: {Nome}, CPF: {Cpf}, RG: {Rg}, Data de Nascimento: {DataNascimento}, Endereço: {Endereco}, CEP: {Cep}, Email: {Email}";
         }
     }
-    public class Cliente : Usuario
+    public class Cliente : Usuario, ICliente
     {
         protected DateTime DataCadastro { get; set; }
-        protected int Nivel { get; set; }
+        protected float Nivel { get; set; }
         protected bool ClienteEpico { get; set; }
+
+        bool ICliente.ClienteEpico => ClienteEpico;
+        float ICliente.Nivel => Nivel;
 
         public Cliente() { }
 
-        public Cliente(int codigo, string nome, string cpf, string rg, DateTime dataNascimento, string endereco, string cep, string email, DateTime dataCadastro, int nivel, bool clienteEpico)
-        : base(codigo, nome, cpf, rg, dataNascimento, endereco, cep, email)
+        public Cliente(string nome, string cpf, string rg, DateTime dataNascimento, string endereco, string cep, string email, DateTime dataCadastro, double nivel, bool clienteEpico)
+        : base(NumAleatorio.Gerar<Cliente>(), nome, cpf, rg, dataNascimento, endereco, cep, email)
         {
             DataCadastro = dataCadastro;
-            Nivel = nivel;
+            Nivel = (float)nivel;
             ClienteEpico = clienteEpico;
         }
 
@@ -67,8 +78,8 @@ namespace Trabalho_II_de_POO_II.GUI
 
             public Gerente() { }
 
-            public Gerente(int codigo, string nome, string cpf, string rg, DateTime dataNascimento, string endereco, string cep, string email, float salario, string pis, DateTime dataAdmissao)
-                : base(codigo, nome, cpf, rg, dataNascimento, endereco, cep, email)
+            public Gerente(string nome, string cpf, string rg, DateTime dataNascimento, string endereco, string cep, string email, float salario, string pis, DateTime dataAdmissao)
+                : base(NumAleatorio.Gerar<Gerente>(), nome, cpf, rg, dataNascimento, endereco, cep, email)
             {
                 Salario = salario;
                 Pis = pis;
