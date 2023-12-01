@@ -17,6 +17,17 @@ namespace Trabalho_II_de_POO_II.GUI
         public List<Usuario> Clientes { get; set; }
         public List<Usuario> Gerentes { get; set; }
         public Arquivos Arquivo { get; set; }
+        
+        public SistemaJogosEletronicos()
+        {
+            Arquivo = Arquivos.Instance;
+            Vendas = Arquivo.RecuperarVendas();
+            Jogos = Arquivo.RecuperarJogos();
+            Desenvolvedoras = Arquivo.RecuperarDesenvolvedora();
+            Transportadoras = Arquivo.RecuperarTransportadoras();
+            Clientes = Arquivo.RecuperarClientes();
+            Gerentes = Arquivo.RecuperarGerentes();
+        }
         public List<Jogo> ListarTodosJogos()
         {
             return Jogos;

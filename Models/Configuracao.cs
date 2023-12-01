@@ -87,24 +87,24 @@ public sealed class Arquivos
         return RecuperarLista<Venda>(caminhoArquivoVenda);
     }
 
-    public void SalvarClientes(List<Cliente> listaClientes)
+    public void SalvarClientes(List<Usuario> listaClientes)
     {
         SalvarLista(listaClientes, caminhoArquivoCliente);
     }
 
-    public List<Cliente> RecuperarClientes()
+    public List<Usuario> RecuperarClientes()
     {
-        return RecuperarLista<Cliente>(caminhoArquivoCliente);
+        return RecuperarLista<Usuario>(caminhoArquivoCliente);
     }
 
-    public void SalvarGerentes(List<Gerente> listaGerentes)
+    public void SalvarGerentes(List<Usuario> listaGerentes)
     {
         SalvarLista(listaGerentes, caminhoArquivoGerente);
     }
 
-    public List<Gerente> RecuperarGerentes()
+    public List<Usuario> RecuperarGerentes()
     {
-        return RecuperarLista<Gerente>(caminhoArquivoGerente);
+        return RecuperarLista<Usuario>(caminhoArquivoGerente);
     }
 
 
