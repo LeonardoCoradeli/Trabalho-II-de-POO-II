@@ -30,45 +30,45 @@ namespace Trabalho_II_de_POO_II.Controllers
         {
             CadastrarTransportadora(nome, cnpj, endereco, cep, email, dataCadastro, telefone);
         }
-        public void BuscarCliente(int codigo)
+        public string BuscarCliente(int codigo)
         {
-            sistemaJogosEletronicos.BuscarCliente(codigo);
+            return sistemaJogosEletronicos.BuscarCliente(codigo);
         }
-        public void BuscarGerente(int codigo)
+        public string BuscarGerente(int codigo)
         {
-            sistemaJogosEletronicos.BuscarGerente(codigo);
+            return sistemaJogosEletronicos.BuscarGerente(codigo);
         }
-        public void BuscarDesenvolvedora(int codigo)
+        public string BuscarDesenvolvedora(int codigo)
         {
-            sistemaJogosEletronicos.BuscarDesenvolvedora(codigo);
+            return sistemaJogosEletronicos.BuscarDesenvolvedora(codigo);
         }
-        public void BuscarTransportadora(int codigo)
+        public string BuscarTransportadora(int codigo)
         {
-            sistemaJogosEletronicos.BuscarTransportadora(codigo);
+            return sistemaJogosEletronicos.BuscarTransportadora(codigo);
         }
-        public void listarDesenvolvedoras()
+        public List<Desenvolvedora> listarDesenvolvedoras()
         {
-            sistemaJogosEletronicos.ListarDesenvolvedorasCadastradas();
+            return sistemaJogosEletronicos.ListarDesenvolvedorasCadastradas();
         }
-        public void listarDesenvolvedorasMaisVendidos()
+        public List<Desenvolvedora> listarDesenvolvedorasMaisVendidos()
         {
-            sistemaJogosEletronicos.ListarDesenvolvedorasMaisVendidos();
+            return sistemaJogosEletronicos.ListarDesenvolvedorasMaisVendidos();
         }
-        public void ListarDesenvolvedorasComMaiorLucro()
+        public List<Desenvolvedora> ListarDesenvolvedorasComMaiorLucro()
         {
-            sistemaJogosEletronicos.ListarDesenvolvedorasComMaiorLucro();
+            return sistemaJogosEletronicos.ListarDesenvolvedorasComMaiorLucro();
         }
-        public void listarTransportadoras()
+        public List<Transportadora> listarTransportadoras()
         {
-            sistemaJogosEletronicos.ListarTodasTransportadoras();
+            return sistemaJogosEletronicos.ListarTodasTransportadoras();
         }
-        public void listarGerentes()
+        public List<Usuario> listarGerentes()
         {
-            sistemaJogosEletronicos.ListarGerentesCadastrados();
+            return sistemaJogosEletronicos.ListarGerentesCadastrados();
         }
-        public void listarClientes()
+        public List<Usuario> listarClientes()
         {
-            sistemaJogosEletronicos.ListarClientesCadastrados();
+            return sistemaJogosEletronicos.ListarClientesCadastrados();
         }
         public List<Cliente> listarClientesEpicos(List<Cliente> clientes)
         {
