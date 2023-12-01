@@ -36,7 +36,7 @@ namespace Trabalho_II_de_POO_II.GUI
             // 
             // btnDesenvolvedoraEspecifica
             // 
-            this.btnDesenvolvedoraEspecifica.Location = new System.Drawing.Point(6, 52);
+            this.btnDesenvolvedoraEspecifica.Location = new System.Drawing.Point(66, 52);
             this.btnDesenvolvedoraEspecifica.Name = "btnDesenvolvedoraEspecifica";
             this.btnDesenvolvedoraEspecifica.Size = new System.Drawing.Size(75, 23);
             this.btnDesenvolvedoraEspecifica.TabIndex = 8;
@@ -46,29 +46,30 @@ namespace Trabalho_II_de_POO_II.GUI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 9);
+            this.label1.Location = new System.Drawing.Point(63, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 13);
             this.label1.TabIndex = 7;
             this.label1.Text = "Desenvolvedora";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // CBDesenvolvedoraEspecifica
             // 
             this.CBDesenvolvedoraEspecifica.FormattingEnabled = true;
-            this.CBDesenvolvedoraEspecifica.Location = new System.Drawing.Point(6, 25);
+            this.CBDesenvolvedoraEspecifica.Location = new System.Drawing.Point(44, 25);
             this.CBDesenvolvedoraEspecifica.Name = "CBDesenvolvedoraEspecifica";
             this.CBDesenvolvedoraEspecifica.Size = new System.Drawing.Size(121, 21);
             this.CBDesenvolvedoraEspecifica.TabIndex = 6;
             // 
-            // DE
+            // Desenvolvedora_Especifico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(144, 82);
+            this.ClientSize = new System.Drawing.Size(198, 99);
             this.Controls.Add(this.btnDesenvolvedoraEspecifica);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CBDesenvolvedoraEspecifica);
-            this.Name = "DE";
+            this.Name = "Desenvolvedora_Especifico";
             this.Text = "DE";
             this.ResumeLayout(false);
             this.PerformLayout();

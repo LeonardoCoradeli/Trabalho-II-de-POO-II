@@ -10,14 +10,19 @@ using System.Windows.Forms;
 
 namespace Trabalho_II_de_POO_II.GUI
 {
-    public partial class Desenvolvedora_Especifico : Form
+    public partial class Cartao : Form
     {
-        public Desenvolvedora_Especifico()
+        public Cartao()
         {
             InitializeComponent();
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }

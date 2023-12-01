@@ -60,15 +60,15 @@ namespace Trabalho_II_de_POO_II.GUI
             this.CBClienteEspecifico.Size = new System.Drawing.Size(121, 21);
             this.CBClienteEspecifico.TabIndex = 3;
             // 
-            // CE
+            // Cliente_Especifico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(157, 83);
+            this.ClientSize = new System.Drawing.Size(188, 110);
             this.Controls.Add(this.btnClienteEspecifico);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CBClienteEspecifico);
-            this.Name = "CE";
+            this.Name = "Cliente_Especifico";
             this.Text = "CE";
             this.ResumeLayout(false);
             this.PerformLayout();
