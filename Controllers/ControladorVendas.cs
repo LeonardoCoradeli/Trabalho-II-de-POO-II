@@ -18,17 +18,17 @@ namespace Trabalho_II_de_POO_II.Controllers
         {
             sistemaJogosEletronicos.CadastrarVenda(codCliente, codGerente, dataVenda, itensVenda, formaPagamento, transportadora);
         }
-        public void buscarVenda(int codigo)
+        public string buscarVenda(int codigo)
         {
-            sistemaJogosEletronicos.buscarVenda(codigo);
+            return sistemaJogosEletronicos.buscarVenda(codigo);
         }
-        public void ListarHistoricoVendasCliente(Usuario cliente)
+        public List<Venda> ListarHistoricoVendasCliente(Usuario cliente)
         {
-            sistemaJogosEletronicos.ListarHistoricoVendasCliente(cliente);
+            return sistemaJogosEletronicos.ListarHistoricoVendasCliente(cliente);
         }
-        public void ListarTodasVendas()
+        public List<Venda> ListarTodasVendas()
         {
-            sistemaJogosEletronicos.ListarTodasVendas();
+            return sistemaJogosEletronicos.ListarTodasVendas();
         }
         public (float lucro, List<Venda>) CalcularLucroEListarVendasMesEspecifico(int mes, List<Venda> vendas)
         {

@@ -19,9 +19,9 @@ namespace Trabalho_II_de_POO_II.Controllers
         {
             sistemaJogosEletronicos.CadastrarJogo(nome, descricao, desenvolvedora, dataLancamento, valor, requisitosMinimos, avaliacao, comentarios, disponivel, tipo);
         }
-        public void buscarJogo(int codigo)
+        public string buscarJogo(int codigo)
         {
-            sistemaJogosEletronicos.BuscarJogo(codigo);
+            return sistemaJogosEletronicos.BuscarJogo(codigo);
         }
         public List<Jogo> GetTodosJogos()
         {            
