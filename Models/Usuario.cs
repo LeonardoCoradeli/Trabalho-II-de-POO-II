@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 namespace Trabalho_II_de_POO_II.GUI
 {
  
-
+    [Serializable]
     public abstract class Usuario
     {
-        protected int Codigo { get; set; }
+        public int Codigo { get; protected set; }
         protected string Nome { get; set; }
-        protected string Cpf { get; set; }
-        protected string Rg { get; set; }
+        protected string CPF { get; set; }
+        protected string RG { get; set; }
         protected DateTime DataNascimento { get; set; }
         protected string Endereco { get; set; }
         protected string Cep { get; set; }
@@ -26,8 +26,8 @@ namespace Trabalho_II_de_POO_II.GUI
         {
             Codigo = codigo;
             Nome = nome;
-            Cpf = cpf;
-            Rg = rg;
+            CPF = cpf;
+            RG = rg;
             DataNascimento = dataNascimento;
             Endereco = endereco;
             Cep = cep;
@@ -36,9 +36,11 @@ namespace Trabalho_II_de_POO_II.GUI
 
         public override string ToString()
         {
-            return $"Usuario: {Nome}, CPF: {Cpf}, RG: {Rg}, Data de Nascimento: {DataNascimento}, Endereço: {Endereco}, CEP: {Cep}, Email: {Email}";
+            return $"Usuario: {Nome}, CPF: {CPF}, RG: {RG}, Data de Nascimento: {DataNascimento}, Endereço: {Endereco}, CEP: {Cep}, Email: {Email}";
         }
     }
+
+    [Serializable]
     public class Cliente : Usuario
     {
         protected DateTime DataCadastro { get; set; }
@@ -48,8 +50,8 @@ namespace Trabalho_II_de_POO_II.GUI
 
         public Cliente() { }
 
-        public Cliente(string nome, string cpf, string rg, DateTime dataNascimento, string endereco, string cep, string email, DateTime dataCadastro, double nivel, bool clienteEpico)
-        : base(NumAleatorio.Gerar<Cliente>(), nome, cpf, rg, dataNascimento, endereco, cep, email)
+        public Cliente(int codigo,string nome, string cpf, string rg, DateTime dataNascimento, string endereco, string cep, string email, DateTime dataCadastro, double nivel, bool clienteEpico)
+        : base((codigo == -1)? NumAleatorio.Gerar<Cliente>(): codigo, nome, cpf, rg, dataNascimento, endereco, cep, email)
         {
             DataCadastro = dataCadastro;
             Nivel = (float)nivel;
@@ -62,7 +64,7 @@ namespace Trabalho_II_de_POO_II.GUI
         }
     }
 
-
+    [Serializable]
     public class Gerente : Usuario
         {
             protected float Salario { get; set; }
@@ -71,17 +73,17 @@ namespace Trabalho_II_de_POO_II.GUI
 
             public Gerente() { }
 
-            public Gerente(string nome, string cpf, string rg, DateTime dataNascimento, string endereco, string cep, string email, float salario, string pis, DateTime dataAdmissao)
-                : base(NumAleatorio.Gerar<Gerente>(), nome, cpf, rg, dataNascimento, endereco, cep, email)
+            public Gerente(int codigo,string nome, string cpf, string rg, DateTime dataNascimento, string endereco, string cep, string email, double salario, string pis, DateTime dataAdmissao)
+                : base((codigo == -1)? NumAleatorio.Gerar<Gerente>(): codigo, nome, cpf, rg, dataNascimento, endereco, cep, email)
             {
-                Salario = salario;
+                Salario = (float)salario;
                 Pis = pis;
                 DataAdmissao = dataAdmissao;
             }
 
             public override string ToString()
             {
-                return $"Gerente: {Nome}, CPF: {Cpf}, RG: {Rg}, Data de Nascimento: {DataNascimento}, Endereço: {Endereco}, CEP: {Cep}, Email: {Email}, Salario: {Salario}, PIS: {Pis}, Data de Admissão: {DataAdmissao}";
+                return $"Gerente: {Nome}, CPF: {CPF}, RG: {RG}, Data de Nascimento: {DataNascimento}, Endereço: {Endereco}, CEP: {Cep}, Email: {Email}, Salario: {Salario}, PIS: {Pis}, Data de Admissão: {DataAdmissao}";
             }
         }
 

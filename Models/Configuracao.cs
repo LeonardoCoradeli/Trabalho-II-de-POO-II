@@ -1,99 +1,157 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
-using System.Data.SQLite;
 using System.IO;
-using System.Reflection;
+using System.Runtime.Serialization.Formatters.Binary;
+using Trabalho_II_de_POO_II.GUI;
+using Trabalho_II_de_POO_II.Models;
 
-namespace Trabalho_II_de_POO_II.GUI
+public sealed class Arquivos
 {
+    private static Arquivos instance;
+    private static readonly object padlock = new object();
+    private string caminhoArquivoJogo = "listaJogos.bin";
+    private string caminhoArquivoDesenvolvedora = "listaDesenvolvedoras.bin";
+    private string caminhoArquivoPagamento = "listaPagamentos.bin";
+    private string caminhoArquivotransportadora = "listaTransportadoras.bin";
+    private string caminhoArquivoCliente = "listaClientes.bin";
+    private string caminhoArquivoGerente = "listaGerentes.bin";
+    private string caminhoArquivoVenda = "listaVenda.bin";
 
-    public sealed class BancoDeDados
+    private Arquivos() { }
+
+    public static Arquivos Instance
+    {
+        get
         {
-            private static BancoDeDados instance;
-            private static readonly object padlock = new object();
-            private SQLiteConnection connection;
-
-            private BancoDeDados()
+            if (instance == null)
             {
-                InicializarBanco();
-            }
-
-            public static BancoDeDados Instance
-            {
-                get
+                lock (padlock)
                 {
-                    lock (padlock)
+                    if (instance == null)
                     {
-                        if (instance == null)
-                        {
-                            instance = new BancoDeDados();
-                        }
-                        return instance;
+                        instance = new Arquivos();
                     }
                 }
             }
-
-            private void InicializarBanco()
-            {
-                string assemblyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                Console.WriteLine(assemblyPath);
-
-                // Combina o caminho relativo com o diretório do assembly
-                //string databasePath = Path.Combine(Path.GetDirectoryName(assemblyPath), "Models", "Banco.sqlite3");
-
-
-                // Configura a conexão com o banco de dados SQLite usando o caminho relativo
-                string connectionString = $"Data Source=Banco.sqlite3";
-                connection = new SQLiteConnection(connectionString);
-
-                // Abrir a conexão
-                connection.Open();
-
+            return instance;
         }
+    }
 
-            public SQLiteConnection GetConnection()
+    public void SalvarJogos(List<Jogo> listaJogos)
+    {
+        SalvarLista(listaJogos, caminhoArquivoJogo);
+    }
+
+    public List<Jogo> RecuperarJogos()
+    {
+        return RecuperarLista<Jogo>(caminhoArquivoJogo);
+    }
+
+    public void SalvarDesenvolvedoras(List<Desenvolvedora> listaDesenvolvedoras)
+    {
+        SalvarLista(listaDesenvolvedoras, caminhoArquivoDesenvolvedora);
+    }
+
+    public List<Desenvolvedora> RecuperarDesenvolvedora()
+    {
+        return RecuperarLista<Desenvolvedora>(caminhoArquivoDesenvolvedora);
+    }
+
+    public void SalvarTransportadoras(List<Transportadora> listaTransportadoras)
+    {
+        SalvarLista(listaTransportadoras, caminhoArquivotransportadora);
+    }
+
+    public List<Transportadora> RecuperarTransportadoras()
+    {
+        return RecuperarLista<Transportadora>(caminhoArquivotransportadora);
+    }
+
+    public void SalvarPagamentos(List<Pagamento> listaPagamentos)
+    {
+        SalvarLista(listaPagamentos, caminhoArquivoPagamento);
+    }
+
+    public List<Pagamento> RecuperarPagamentos()
+    {
+        return RecuperarLista<Pagamento>(caminhoArquivoPagamento);
+    }
+
+    public void SalvarVendas(List<Venda> listaVendas)
+    {
+        SalvarLista(listaVendas, caminhoArquivoVenda);
+    }
+
+    public List<Venda> RecuperarVendas()
+    {
+        return RecuperarLista<Venda>(caminhoArquivoVenda);
+    }
+
+    public void SalvarClientes(List<Cliente> listaClientes)
+    {
+        SalvarLista(listaClientes, caminhoArquivoCliente);
+    }
+
+    public List<Cliente> RecuperarClientes()
+    {
+        return RecuperarLista<Cliente>(caminhoArquivoCliente);
+    }
+
+    public void SalvarGerentes(List<Gerente> listaGerentes)
+    {
+        SalvarLista(listaGerentes, caminhoArquivoGerente);
+    }
+
+    public List<Gerente> RecuperarGerentes()
+    {
+        return RecuperarLista<Gerente>(caminhoArquivoGerente);
+    }
+
+
+    private void SalvarLista<T>(List<T> lista, string caminhoArquivo)
+    {
+        try
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+
+            using (FileStream stream = new FileStream(caminhoArquivo, FileMode.Create))
             {
-                return connection;
+                formatter.Serialize(stream, lista);
             }
 
-            // Método para excluir um item com base no código
-            public void DeleteItem(int id)
-            {
-                string query = $"DELETE FROM MyTable WHERE ID = {id};";
+            Console.WriteLine($"Lista de {typeof(T).Name}s salva com sucesso no arquivo binário.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Erro ao salvar a lista de {typeof(T).Name}s: {ex.Message}");
+        }
+    }
 
-                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+    private List<T> RecuperarLista<T>(string caminhoArquivo)
+    {
+        try
+        {
+            if (File.Exists(caminhoArquivo))
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+
+                using (FileStream stream = new FileStream(caminhoArquivo, FileMode.Open))
                 {
-                    command.ExecuteNonQuery();
+                    List<T> lista = (List<T>)formatter.Deserialize(stream);
+                    Console.WriteLine($"Lista de {typeof(T).Name}s recuperada com sucesso do arquivo binário.");
+                    return lista;
                 }
             }
-
-            // Método para adicionar um novo item
-            public void Adicionar((List<string> propriedades, List<object> valores) objetoFormatado, string tabela)
+            else
             {
-                try
-                {
-                string colunas = string.Join(", ", objetoFormatado.propriedades);
-                string parametros = string.Join(", ", objetoFormatado.propriedades.Select(p => "@" + p));
-
-                string query = $"INSERT INTO {tabela} ({colunas}) VALUES ({parametros})";
-                    using (SQLiteCommand comando = new SQLiteCommand(query, connection))
-                    {
-                        for (int i = 0; i < objetoFormatado.propriedades.Count; i++)
-                        {
-                            comando.Parameters.AddWithValue("@" + objetoFormatado.propriedades[i], objetoFormatado.valores[i]);
-                        }
-
-                        comando.ExecuteNonQuery();
-                    }
-                }
-                catch (SQLiteException ex)
-                {
-                    Console.WriteLine($"Erro de SQL: {ex.Message}");
-                }
+                Console.WriteLine($"Arquivo binário de {typeof(T).Name}s não encontrado. Retornando uma lista vazia.");
+                return new List<T>();
             }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Erro ao recuperar a lista de {typeof(T).Name}s: {ex.Message}");
+            return new List<T>();
+        }
     }
 }

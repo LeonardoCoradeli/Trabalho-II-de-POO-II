@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Trabalho_II_de_POO_II.GUI
 {
+    [Serializable]
     public class Venda
     {
         public int Codigo { get; set; }
@@ -20,21 +21,13 @@ namespace Trabalho_II_de_POO_II.GUI
         public Pagamento FormaPagamento { get; set; }
         public Transportadora Transportadora { get; set; }
 
-        public Venda()
-        {
-            ItensVenda = new List<ItemVenda>();
-        }
 
-        public Venda(int codigo, Cliente cliente, Gerente gerente, DateTime dataVenda, bool possuiItensFisicos, float valorComDesconto, Pagamento formaPagamento, Transportadora transportadora)
+        public Venda(int codigo,Cliente cliente, Gerente gerente, DateTime dataVenda)
         {
-            Codigo = codigo;
+            Codigo = (codigo == -1)? NumAleatorio.Gerar<Venda>(): codigo;
             Cliente = cliente;
             Gerente = gerente;
             DataVenda = dataVenda;
-            PossuiItensFisicos = possuiItensFisicos;
-            ValorComDesconto = valorComDesconto;
-            FormaPagamento = formaPagamento;
-            Transportadora = transportadora;
             ItensVenda = new List<ItemVenda>();
         }
 
@@ -45,12 +38,39 @@ namespace Trabalho_II_de_POO_II.GUI
             {
                 total += item.CalcularTotal();
             }
+            ValorTotal = total;
             return total;
         }
 
         public void CalcularDataEntrega()
         {
             DataDaEntrega = DataVenda.AddDays(Transportadora.TempoDeEntrega);
+        }
+
+        //se precisar mudar para boll
+        public bool possuiItemFisico()
+        {
+            foreach(ItemVenda itens in ItensVenda)
+            {
+                if (itens.Fisico)
+                {
+                    PossuiItensFisicos = true;
+                    return true;
+                }
+            }
+            PossuiItensFisicos = false;
+            return false;
+        }
+
+        public float CalcularValorComDesconto()
+        {
+            if (Cliente.ClienteEpico)
+            {
+                ValorComDesconto =(float) ValorTotal - (ValorTotal * (float)0.05);
+                return ValorComDesconto;
+            }
+            ValorComDesconto = ValorTotal;
+            return ValorComDesconto;
         }
 
         public void AddItemVenda(ItemVenda item)

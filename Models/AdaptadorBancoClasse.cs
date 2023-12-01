@@ -22,31 +22,60 @@ namespace Trabalho_II_de_POO_II.Models
             var propriedades = obj.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
             var nomesPropriedades = new List<string>();
             var valores = new List<object>();
-            List<Type> excessao = new List<Type> { typeof(Desenvolvedora), typeof(Cliente), typeof(Gerente), typeof(Transportadora)};
 
             foreach (var prop in propriedades)
             {
                 nomesPropriedades.Add(prop.Name);
-                var codigoProp = prop.PropertyType.GetProperty("Codigo", BindingFlags.Instance | BindingFlags.Public | BindingFlags.IgnoreCase | BindingFlags.NonPublic);
-                if (excessao.Contains(prop.PropertyType))
+
+                if (DeveExtrairCodigo(prop))
                 {
-                    if (codigoProp != null)
-                    {
-                        valores.Add(codigoProp.GetValue(prop.GetValue(obj)));
-                    }
-                    else
-                    {
-                        valores.Add(-1);
-                    }
+                    valores.Add(ExtrairCodigo(prop.GetValue(obj)));
                 }
                 else
                 {
-                    valores.Add(prop.GetValue(obj));
+                    valores.Add(LimparValor(prop.GetValue(obj)));
                 }
             }
 
             return (nomesPropriedades, valores);
         }
+
+        private string LimparValor(object valor)
+        {
+            // Lida com valores nulos
+            if (valor == null)
+            {
+                return null;
+            }
+
+            // Trata valores de texto (escapa as aspas simples)
+            if (valor is string)
+            {
+                return ((string)valor).Replace("'", "''");
+            }
+
+            return valor.ToString();
+        }
+
+        private bool DeveExtrairCodigo(PropertyInfo prop)
+        {
+            // Verifica se a propriedade é de uma das classes específicas e se o nome é 'codigo'
+            return ((prop.PropertyType == typeof(Jogo) ||
+                    prop.PropertyType == typeof(Pagamento) ||
+                    prop.PropertyType == typeof(Venda) ||
+                    prop.PropertyType == typeof(Desenvolvedora) ||
+                    prop.PropertyType == typeof(Transportadora)) &&
+                   prop.Name == "codigo");
+        }
+
+        private object ExtrairCodigo(object obj)
+        {
+            // Verifica se o objeto não é nulo e se tem uma propriedade chamada 'codigo'
+            var codigoProp = obj.GetType().GetProperty("codigo", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+
+            return codigoProp?.GetValue(obj);
+        }
+
 
 
         public T ConverterBancoParaObjeto<T>(string dadosBd)

@@ -13,9 +13,9 @@ namespace Trabalho_II_de_POO_II.GUI
 
         public Pagamento() { }
 
-        public Pagamento(int codigoNota,Type tipo)
+        public Pagamento(int codigo,Type tipo)
         {
-            CodigoNota = codigoNota;
+            CodigoNota = (codigo == -1)? NumAleatorio.Gerar<Pagamento>(): codigo;
             Tipo = tipo;
         }
 
@@ -23,13 +23,13 @@ namespace Trabalho_II_de_POO_II.GUI
     }
     public class Boleto : Pagamento
     {
-        public string Numero { get; set; }
+        public string NumeroBoleto { get; set; }
 
         public Boleto() { }
 
-        public Boleto(int codigoNota, string numero) : base(codigoNota,typeof(Boleto))
+        public Boleto(int codigo,string numero) : base(codigo,typeof(Boleto))
         {
-            Numero = numero;
+            NumeroBoleto = numero;
         }
 
         public void GerarCodigoBoleto()
@@ -39,27 +39,27 @@ namespace Trabalho_II_de_POO_II.GUI
 
         public override string ToString()
         {
-            return $"Boleto: {Numero}, CodigoNota: {CodigoNota}";
+            return $"Boleto: {NumeroBoleto}, CodigoNota: {CodigoNota}";
         }
     }
     public class CartaoCredito : Pagamento
     {
         public string Nome { get; set; }
         public string Bandeira { get; set; }
-        public string Numero { get; set; }
+        public string NumeroCartao { get; set; }
 
         public CartaoCredito() { }
 
-        public CartaoCredito(int codigoNota, string nome, string bandeira, string numero) : base(codigoNota, typeof(CartaoCredito))
+        public CartaoCredito(int codigo,string nome, string bandeira, string numero) : base(codigo,typeof(CartaoCredito))
         {
             Nome = nome;
             Bandeira = bandeira;
-            Numero = numero;
+            NumeroCartao = numero;
         }
 
         public override string ToString()
         {
-            return $"CartaoCredito: {Nome}, Bandeira: {Bandeira}, Numero: {Numero}, CodigoNota: {CodigoNota}";
+            return $"CartaoCredito: {Nome}, Bandeira: {Bandeira}, Numero: {NumeroCartao}, CodigoNota: {CodigoNota}";
         }
     }
     public class Pix : Pagamento
@@ -69,7 +69,7 @@ namespace Trabalho_II_de_POO_II.GUI
 
         public Pix() { }
 
-        public Pix(int codigoNota, string nome, string codigoPix) : base(codigoNota, typeof(Pagamento))
+        public Pix(int codigo,string nome, string codigoPix) : base(codigo,typeof(Pagamento))
         {
             Nome = nome;
             CodigoPix = codigoPix;

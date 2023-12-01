@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Trabalho_II_de_POO_II.GUI
 {
+    [Serializable]
     public class Desenvolvedora
     {
-        private int Codigo { get; set; }
+        public int Codigo { get; protected set; }
         private string Cnpj { get; set; }
         public string Nome { get; private set; }
         private string Email { get; set; }
@@ -18,9 +19,9 @@ namespace Trabalho_II_de_POO_II.GUI
 
         public Desenvolvedora() { }
 
-        public Desenvolvedora(string cnpj, string nome, string email, string site, string redeSocial, string endereco)
+        public Desenvolvedora(int codigo,string cnpj, string nome, string email, string site, string redeSocial, string endereco)
         {
-            Codigo = NumAleatorio.Gerar<Desenvolvedora>();
+            Codigo = (codigo == -1)? NumAleatorio.Gerar<Desenvolvedora>() : codigo;
             Cnpj = cnpj;
             Nome = nome;
             Email = email;

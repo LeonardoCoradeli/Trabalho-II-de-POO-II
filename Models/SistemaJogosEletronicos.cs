@@ -14,15 +14,15 @@ namespace Trabalho_II_de_POO_II.GUI
         public List<Jogo> Jogos { get; set; }
         public List<Desenvolvedora> Desenvolvedoras { get; set; }
         public List<Transportadora> Transportadoras { get; set; }
-        public List<Cliente> Clientes { get; set; }
-        public List<Gerente> Gerentes { get; set; }
-        public BancoDeDados BD { get; set; }
+        public List<Usuario> Clientes { get; set; }
+        public List<Usuario> Gerentes { get; set; }
+        public Arquivos Arquivo { get; set; }
         public List<Jogo> ListarTodosJogos()
         {
             return Jogos;
         }
 
-        public List<Jogo> ListarJogosPorTipo(List<Jogo> jogos, Type tipo)
+        public List<Jogo> ListarJogosPorTipo(List<Jogo> jogos, string tipo)
         {
             List<Jogo> jogosFiltrados = new List<Jogo>();
 
@@ -99,11 +99,11 @@ namespace Trabalho_II_de_POO_II.GUI
         {
             return Transportadoras;
         }
-        public List<Gerente> ListarGerentesCadastrados()
+        public List<Usuario> ListarGerentesCadastrados()
         {
             return Gerentes;
         }
-        public List<Cliente> ListarClientesCadastrados()
+        public List<Usuario> ListarClientesCadastrados()
         {
             return Clientes;
         }
@@ -126,18 +126,32 @@ namespace Trabalho_II_de_POO_II.GUI
         {
             return Vendas;
         }
-        public (decimal, List<Venda>) CalcularLucroEListarVendasMesEspecifico(List<Venda> vendas, int mes)
+        public (float lucro, List<Venda>) CalcularLucroEListarVendasMesEspecifico(int mes, List<Venda> vendas)
         {
-            List<Venda> vendasMesEspecifico = vendas.Where(venda => venda.Data.Month == mes).ToList();
-            decimal lucroMesEspecifico = vendasMesEspecifico.Sum(venda => venda.Lucro);
+            List<Venda> vendasMesEspecifico = vendas.Where(venda => venda.DataVenda.Month == mes).ToList();
+            float lucroMesEspecifico = vendasMesEspecifico.Sum(venda => venda.CalcularValorTotal());
             return (lucroMesEspecifico, vendasMesEspecifico);
         }
-        public (decimal, List<Venda>) ListarVendasECalcularLucroDesenvolvedoraMesEspecifico(string nomeDesenvolvedora, int mes)
+        public (float lucro, List<Venda> vendas) ListarVendasECalcularLucroDesenvolvedoraMesEspecifico(string nomeDesenvolvedora, int mes)
         {
-            List<Venda> vendasDesenvolvedoraMesEspecifico = Vendas.Where(venda => venda.Desenvolvedora == nomeDesenvolvedora && venda.Data.Month == mes).ToList();
-            decimal lucroDesenvolvedoraMesEspecifico = vendasDesenvolvedoraMesEspecifico.Sum(venda => venda.Lucro);
-            return (lucroDesenvolvedoraMesEspecifico, vendasDesenvolvedoraMesEspecifico);
+            List<Venda> vendasDaDesenvolvedoraNoMes = new List<Venda>();
+
+            foreach (var venda in Vendas)
+            {
+                foreach (var itemVenda in venda.ItensVenda)
+                {
+                    if (itemVenda.Jogo.Desenvolvedora.Nome == nomeDesenvolvedora && venda.DataVenda.Month == mes)
+                    {
+                        vendasDaDesenvolvedoraNoMes.Add(venda);
+                    }
+                }
+            }
+
+            float lucroTotal = vendasDaDesenvolvedoraNoMes.Sum(venda => venda.CalcularValorTotal());
+
+            return (lucroTotal, vendasDaDesenvolvedoraNoMes);
         }
+
         public List<Venda> ListarVendasComFormaPagamentoBoleto(List<Venda> vendas)
         {
             List<Venda> vendasComFormaPagamentoBoleto = vendas.Where(venda => venda.FormaPagamento is Boleto).ToList();
@@ -157,43 +171,45 @@ namespace Trabalho_II_de_POO_II.GUI
 
         public void CadastrarCliente(string nome, string cpf, string rg, DateTime dataNascimento, string endereco, string cep, string email, DateTime dataCadastro, int nivel, bool clienteEpico)
         {
-            Cliente cliente = new Cliente(nome, cpf, rg, dataNascimento, endereco, cep, email, dataCadastro, nivel, clienteEpico);
+            Cliente cliente = new Cliente(-1,nome, cpf, rg, dataNascimento, endereco, cep, email, dataCadastro, nivel, clienteEpico);
             Clientes.Add(cliente);
         }
-        public void CadastrarGerente(string nome, string cpf, string rg, DateTime dataNascimento, string endereco, string cep, string email, DateTime dataContratacao, double salario, string cargo)
+        public void CadastrarGerente(string nome, string cpf, string rg, DateTime dataNascimento, string endereco, string cep, string email, double salario, string cargo, DateTime dataContratacao)
         {
-            Gerente gerente = new Gerente(nome, cpf, rg, dataNascimento, endereco, cep, email, dataContratacao, salario, cargo);
+            Gerente gerente = new Gerente(-1,nome, cpf, rg, dataNascimento, endereco, cep, email, salario, cargo, dataContratacao);
             Gerentes.Add(gerente);
         }
         public void CadastrarDesenvolvedora(string nome, string cnpj, string endereco, string cep, string email, string telefone)
         {
-            Desenvolvedora desenvolvedora = new Desenvolvedora(nome, cnpj, endereco, cep, email, telefone);
-            sistemaJogosEletronicos.Desenvolvedoras.Add(desenvolvedora);
+            Desenvolvedora desenvolvedora = new Desenvolvedora(-1,nome, cnpj, endereco, cep, email, telefone);
+            Desenvolvedoras.Add(desenvolvedora);
         }
-        public void CadastrarTransportadora(string nome, string cnpj, string endereco, string cep, string email, string telefone)
+        public void CadastrarTransportadora(string cnpj, string nome, string email, string telefone, int tempo)
         {
-            Transportadora transportadora = new Transportadora(nome, cnpj, endereco, cep, email, telefone);
-            sistemaJogosEletronicos.Transportadoras.Add(transportadora);
+            Transportadora transportadora = new Transportadora(-1,cnpj, nome, email, telefone, email, tempo);
+            Transportadoras.Add(transportadora);
         }
-        public void CadastrarJogo(string nome, string categoria, string descricao, string desenvolvedora, double preco, int quantidade, int codigo)
+        public void CadastrarJogo(string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, double valor,string requisitosMinimos, double avaliacao, string comentarios, bool disponivel,string tipo)
         {
-            Jogo jogo = new Jogo(nome, categoria, descricao, desenvolvedora, preco, quantidade, codigo);
-            sistemaJogosEletronicos.Jogos.Add(jogo);
+            Jogos.Add(FactoryJogo.CreateJogo(-1,nome,descricao,desenvolvedora,dataLancamento,valor,requisitosMinimos,avaliacao,comentarios,disponivel,tipo));
         }
-        public void BuscarCliente(int codigo)
+        public string BuscarCliente(int codigo)
         {
-            foreach (Cliente cliente in sistemaJogosEletronicos.Clientes)
+            foreach (Cliente cliente in Clientes)
             {
-                if (cliente.Codigo == codigo)
                 {
-                    string clienteString = cliente.ToString();
-                    return clienteString;
+                    if (cliente.Codigo == codigo)
+                    {
+                        string clienteString = cliente.ToString();
+                        return clienteString;
+                    }
                 }
             }
+            return "Não encontrado";
         }
-        public void BuscarGerente(int codigo)
+        public string BuscarGerente(int codigo)
         {
-            foreach (Gerente gerente in sistemaJogosEletronicos.Gerentes)
+            foreach (Gerente gerente in Gerentes)
             {
                 if (gerente.Codigo == codigo)
                 {
@@ -201,10 +217,11 @@ namespace Trabalho_II_de_POO_II.GUI
                     return gerenteString;
                 }
             }
+            return "Não encontrado";
         }
-        public void BuscarDesenvolvedora(int codigo)
+        public string BuscarDesenvolvedora(int codigo)
         {
-            foreach (Desenvolvedora desenvolvedora in sistemaJogosEletronicos.Desenvolvedoras)
+            foreach (Desenvolvedora desenvolvedora in Desenvolvedoras)
             {
                 if (desenvolvedora.Codigo == codigo)
                 {
@@ -212,10 +229,11 @@ namespace Trabalho_II_de_POO_II.GUI
                     return desenvolvedoraString;
                 }
             }
+            return "Não encontrado";
         }
-        public void BuscarTransportadora(int codigo)
+        public string BuscarTransportadora(int codigo)
         {
-            foreach (Transportadora transportadora in sistemaJogosEletronicos.Transportadoras)
+            foreach (Transportadora transportadora in Transportadoras)
             {
                 if (transportadora.Codigo == codigo)
                 {
@@ -223,10 +241,11 @@ namespace Trabalho_II_de_POO_II.GUI
                     return transportadoraString;
                 }
             }
+            return "Não encontrado";
         }
-        public void BuscarJogo(int codigo)
+        public string BuscarJogo(int codigo)
         {
-            foreach (Jogo jogo in sistemaJogosEletronicos.Jogos)
+            foreach (Jogo jogo in Jogos)
             {
                 if (jogo.Codigo == codigo)
                 {
@@ -234,84 +253,27 @@ namespace Trabalho_II_de_POO_II.GUI
                     return jogoString;
                 }
             }
+            return "Não encontrado";
         }
-        public void RemoverCliente(int codigo)
+        public void CadastrarVenda(int codCliente, int codGerente, DateTime dataVenda, List<ItemVenda> itensVenda, Pagamento formaPagamento, Transportadora transportadora = null)
         {
-            foreach (Cliente cliente in sistemaJogosEletronicos.Clientes)
-            {
-                if (cliente.Codigo == codigo)
-                {
-                    sistemaJogosEletronicos.Clientes.Remove(cliente);
-                }
-            }
-        }
-        public void RemoverGerente(int codigo)
-        {
-            foreach (Gerente gerente in sistemaJogosEletronicos.Gerentes)
-            {
-                if (gerente.Codigo == codigo)
-                {
-                    sistemaJogosEletronicos.Gerentes.Remove(gerente);
-                }
-            }
-        }
-        public void RemoverDesenvolvedora(int codigo)
-        {
-            foreach (Desenvolvedora desenvolvedora in sistemaJogosEletronicos.Desenvolvedoras)
-            {
-                if (desenvolvedora.Codigo == codigo)
-                {
-                    sistemaJogosEletronicos.Desenvolvedoras.Remove(desenvolvedora);
-                }
-            }
-        }
-        public void RemoverTransportadora(int codigo)
-        {
-            foreach (Transportadora transportadora in sistemaJogosEletronicos.Transportadoras)
-            {
-                if (transportadora.Codigo == codigo)
-                {
-                    sistemaJogosEletronicos.Transportadoras.Remove(transportadora);
-                }
-            }
-        }
-        public void RemoverJogo(int codigo)
-        {
-            foreach (Jogo jogo in sistemaJogosEletronicos.Jogos)
-            {
-                if (jogo.Codigo == codigo)
-                {
-                    sistemaJogosEletronicos.Jogos.Remove(jogo);
-                }
-            }
-        }
-        public void CadastrarVenda(string nomeCliente, string nomeDesenvolvedora, string nomeTransportadora, string nomeJogo, string formaPagamento, int quantidade, DateTime data)
-        {
-            Usuario cliente = sistemaJogosEletronicos.Clientes.Find(cliente => cliente.Nome == nomeCliente);
-            Desenvolvedora desenvolvedora = sistemaJogosEletronicos.Desenvolvedoras.Find(desenvolvedora => desenvolvedora.Nome == nomeDesenvolvedora);
-            Transportadora transportadora = sistemaJogosEletronicos.Transportadoras.Find(transportadora => transportadora.Nome == nomeTransportadora);
-            Jogo jogo = sistemaJogosEletronicos.Jogos.Find(jogo => jogo.Nome == nomeJogo);
-            FormaPagamento formaPagamento = null;
+            Cliente cliente = (Cliente) Clientes.Find(escolherClente => escolherClente.Codigo == codCliente);
+            Gerente gerente = (Gerente) Gerentes.Find(escolherGerente => escolherGerente.Codigo == codGerente);
 
-            if (formaPagamento == "Boleto")
+            Venda venda = new Venda(-1,cliente,gerente,dataVenda);
+            venda.ItensVenda = itensVenda;
+            venda.CalcularValorTotal();
+            venda.CalcularValorComDesconto();
+            if (venda.possuiItemFisico())
             {
-                formaPagamento = new Boleto();
+                venda.Transportadora = transportadora;
+                venda.CalcularDataEntrega();
             }
-            else if (formaPagamento == "CartaoCredito")
-            {
-                formaPagamento = new CartaoCredito();
-            }
-            else if (formaPagamento == "Pix")
-            {
-                formaPagamento = new Pix();
-            }
-
-            Venda venda = new Venda(cliente, desenvolvedora, transportadora, jogo, formaPagamento, quantidade, data);
-            sistemaJogosEletronicos.Vendas.Add(venda);
         }
+
         public string buscarVenda(int codigo)
         {
-            foreach (Venda venda in sistemaJogosEletronicos.Vendas)
+            foreach (Venda venda in Vendas)
             {
                 if (venda.Codigo == codigo)
                 {
@@ -319,16 +281,7 @@ namespace Trabalho_II_de_POO_II.GUI
                     return vendaString;
                 }
             }
-        }
-        public void removerVenda(int codigo)
-        {
-            foreach (Venda venda in Vendas)
-            {
-                if (venda.Codigo == codigo)
-                {
-                    Vendas.Remove(venda);
-                }
-            }
+            return "Não encontrado";
         }
     }
 }

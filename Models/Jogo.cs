@@ -14,9 +14,10 @@ namespace Trabalho_II_de_POO_II.GUI
 
     }
 
+    [Serializable]
     public abstract class Jogo : IJogo
     {
-        protected int Codigo { get; set; }
+        public int Codigo { get; protected set; }
         public string Nome { get; protected set; }
         protected string Descricao { get; set; }
         public  Desenvolvedora Desenvolvedora { get; protected set; }
@@ -26,12 +27,12 @@ namespace Trabalho_II_de_POO_II.GUI
         public float Avaliacao { get; protected set; }
         protected string Comentarios { get; set; }
         protected bool Disponivel { get; set; }
-        public Type Tipo { get; set; }
+        public string Tipo { get; set; }
 
 
-        public Jogo() { }
+        public Jogo(){ }
 
-        protected Jogo(int codigo, string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, float valor, string requisitosMinimos, float avaliacao, string comentarios, bool disponivel, Type tipo)
+        protected Jogo(int codigo, string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, float valor, string requisitosMinimos, float avaliacao, string comentarios, bool disponivel, string tipo)
         {
             Codigo = codigo;
             Nome = nome;
@@ -64,11 +65,13 @@ namespace Trabalho_II_de_POO_II.GUI
             return $"Jogo: {Nome}, Descrição: {Descricao}, Desenvolvedora: {Desenvolvedora.Nome}, Data de Lançamento: {DataLancamento}, Valor: {Valor}, Requisitos Mínimos: {RequisitosMinimos}, Avaliação: {Avaliacao}, Comentários: {Comentarios}, Disponível: {Disponivel}";
         }
     }
+
+    [Serializable]
     public class Acao : Jogo
     {
         public Acao() { }
 
-        public Acao(int codigo, string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, float valor, string requisitosMinimos, float avaliacao, string comentarios, bool disponivel,Type tipo)
+        public Acao(int codigo, string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, float valor, string requisitosMinimos, float avaliacao, string comentarios, bool disponivel,string tipo)
             : base(codigo, nome, descricao, desenvolvedora, dataLancamento, valor, requisitosMinimos, avaliacao, comentarios, disponivel,tipo)
         {
         }
@@ -84,11 +87,13 @@ namespace Trabalho_II_de_POO_II.GUI
             return $"Ação: {Nome}, Descrição: {Descricao}, Desenvolvedora: {Desenvolvedora.Nome}, Data de Lançamento: {DataLancamento}, Valor: {Valor}, Requisitos Mínimos: {RequisitosMinimos}, Avaliação: {Avaliacao}, Comentários: {Comentarios}, Disponível: {Disponivel}";
         }
     }
+
+    [Serializable]
     public class Aventura : Jogo
     {
         public Aventura() { }
 
-        public Aventura(int codigo, string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, float valor, string requisitosMinimos, float avaliacao, string comentarios, bool disponivel, Type tipo)
+        public Aventura(int codigo, string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, float valor, string requisitosMinimos, float avaliacao, string comentarios, bool disponivel, string tipo)
             : base(codigo, nome, descricao, desenvolvedora, dataLancamento, valor, requisitosMinimos, avaliacao, comentarios, disponivel,tipo)
         {
         }
@@ -104,11 +109,13 @@ namespace Trabalho_II_de_POO_II.GUI
             return $"Aventura: {Nome}, Descrição: {Descricao}, Desenvolvedora: {Desenvolvedora.Nome}, Data de Lançamento: {DataLancamento}, Valor: {Valor}, Requisitos Mínimos: {RequisitosMinimos}, Avaliação: {Avaliacao}, Comentários: {Comentarios}, Disponível: {Disponivel}";
         }
     }
+
+    [Serializable]
     public class RPG : Jogo
     {
         public RPG() { }
 
-        public RPG(int codigo, string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, float valor, string requisitosMinimos, float avaliacao, string comentarios, bool disponivel, Type tipo) 
+        public RPG(int codigo, string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, float valor, string requisitosMinimos, float avaliacao, string comentarios, bool disponivel, string tipo) 
             : base(codigo, nome, descricao, desenvolvedora, dataLancamento, valor, requisitosMinimos, avaliacao, comentarios, disponivel,tipo)
         {
         }
@@ -124,11 +131,13 @@ namespace Trabalho_II_de_POO_II.GUI
             return $"RPG: {Nome}, Descrição: {Descricao}, Desenvolvedora: {Desenvolvedora.Nome}, Data de Lançamento: {DataLancamento}, Valor: {Valor}, Requisitos Mínimos: {RequisitosMinimos}, Avaliação: {Avaliacao}, Comentários: {Comentarios}, Disponível: {Disponivel}";
         }
     }
+
+    [Serializable]
     public class Esporte : Jogo
     {
         public Esporte() { }
 
-        public Esporte(int codigo, string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, float valor, string requisitosMinimos, float avaliacao, string comentarios, bool disponivel, Type tipo)
+        public Esporte(int codigo, string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, float valor, string requisitosMinimos, float avaliacao, string comentarios, bool disponivel, string tipo)
             : base(codigo, nome, descricao, desenvolvedora, dataLancamento, valor, requisitosMinimos, avaliacao, comentarios, disponivel,tipo)
         {
         }
@@ -144,11 +153,13 @@ namespace Trabalho_II_de_POO_II.GUI
             return $"Esporte: {Nome}, Descrição: {Descricao}, Desenvolvedora: {Desenvolvedora.Nome}, Data de Lançamento: {DataLancamento}, Valor: {Valor}, Requisitos Mínimos: {RequisitosMinimos}, Avaliação: {Avaliacao}, Comentários: {Comentarios}, Disponível: {Disponivel}";
         }
     }
+
+    [Serializable]
     public class Corrida : Jogo
     {
         public Corrida() { }
 
-        public Corrida(int codigo, string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, float valor, string requisitosMinimos, float avaliacao, string comentarios, bool disponivel, Type tipo)
+        public Corrida(int codigo, string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, float valor, string requisitosMinimos, float avaliacao, string comentarios, bool disponivel, string tipo)
             : base(codigo, nome, descricao, desenvolvedora, dataLancamento, valor, requisitosMinimos, avaliacao, comentarios, disponivel,tipo)
         {
         }

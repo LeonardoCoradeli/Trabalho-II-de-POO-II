@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Trabalho_II_de_POO_II.GUI
 {
+    [Serializable]
     public class Transportadora
     {
         public int Codigo { get; set; }
@@ -18,9 +19,9 @@ namespace Trabalho_II_de_POO_II.GUI
 
         public Transportadora() { }
 
-        public Transportadora(int codigo, string cpnj, string nome, string email, string telefone, string endereco, int tempoDeEntrega)
+        public Transportadora(int codigo,string cpnj, string nome, string email, string telefone, string endereco, int tempoDeEntrega)
         {
-            Codigo = codigo;
+            Codigo = (codigo == -1)? NumAleatorio.Gerar<Transportadora>(): codigo;
             Cpnj = cpnj;
             Nome = nome;
             Email = email;
