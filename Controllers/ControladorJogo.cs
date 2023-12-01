@@ -15,55 +15,35 @@ namespace Trabalho_II_de_POO_II.Controllers
         {
             this.sistemaJogosEletronicos = sistemaJogosEletronicos;
         }
-        public void CadastrarJogo(string nome, string descricao, string genero, string classificacao, string plataforma, string desenvolvedora, string transportadora, double preco, DateTime dataLancamento, int quantidade)
+        public void CadastrarJogo(string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, double valor, string requisitosMinimos, double avaliacao, string comentarios, bool disponivel, string tipo)
         {
-            sistemaJogosEletronicos.CadastrarJogo(nome, descricao, genero, classificacao, plataforma, desenvolvedora, transportadora, preco, dataLancamento, quantidade);
+            sistemaJogosEletronicos.CadastrarJogo(nome, descricao, desenvolvedora, dataLancamento, valor, requisitosMinimos, avaliacao, comentarios, disponivel, tipo);
         }
         public void buscarJogo(int codigo)
         {
-            sistemaJogosEletronicos.buscarJogo(codigo);
-        }
-        public void removerJogo(int codigo)
-        {
-            sistemaJogosEletronicos.removerJogo(codigo);
+            sistemaJogosEletronicos.BuscarJogo(codigo);
         }
         public List<Jogo> GetTodosJogos()
         {            
-            return sistemaJogosEletronicos.GetTodosJogos();
+            return sistemaJogosEletronicos.ListarTodosJogos();
         }
-        public List<Jogo> ListarJogosDeAcao(sistemaJogosEletronicos.Jogos jogos)
+        public List<Jogo> ListarJogosPorTipo(List<Jogo> jogos, string tipo)
         {
-            return sistemaJogosEletronicos.ListarJogosDeAcao(jogos);
+            return sistemaJogosEletronicos.ListarJogosPorTipo(jogos, tipo);
         }
-        public List<Jogo> ListarJogosDeAventura(sistemaJogosEletronicos.Jogos jogos)
-        {
-            return sistemaJogosEletronicos.ListarJogosDeAventura(jogos);
-        }
-        public List<Jogo> ListarJogosDeCorrida(sistemaJogosEletronicos.Jogos jogos)
-        {
-            return sistemaJogosEletronicos.ListarJogosDeCorrida(jogos);
-        }
-        public List<Jogo> ListarJogosDeEsporte(sistemaJogosEletronicos.Jogos jogos)
-        {
-            return sistemaJogosEletronicos.ListarJogosDeEsporte(jogos);
-        }
-        public List<Jogo> ListarJogosDeRPG(sistemaJogosEletronicos.Jogos jogos)
-        {
-            return sistemaJogosEletronicos.ListarJogosDeRPG(jogos);
-        }
-        public List<Jogo> ListarTop10JogosMaisCaros(sistemaJogosEletronicos.Jogos jogos)
+        public List<Jogo> ListarTop10JogosMaisCaros(List<Jogo> jogos)
         {
             return sistemaJogosEletronicos.ListarTop10JogosMaisCaros(jogos);
         }
-        public List<Jogo> ListarTop10JogosMenorPreco(sistemaJogosEletronicos.Jogos jogos)
+        public List<Jogo> ListarTop10JogosMenorPreco(List<Jogo> jogos)
         {
             return sistemaJogosEletronicos.ListarTop10JogosMenorPreco(jogos);
         }
-        public List<string> ListarNomesOrdenadosPorAvaliacao1(sistemaJogosEletronicos.Jogos jogos)
+        public List<string> ListarNomesOrdenadosPorAvaliacao1(List<Jogo> jogos)
         {
             return sistemaJogosEletronicos.ListarNomesOrdenadosPorAvaliacao1(jogos);
         }
-        public List<string> ListarNomesOrdenadosPorAvaliacao2(sistemaJogosEletronicos.Jogos jogos)
+        public List<string> ListarNomesOrdenadosPorAvaliacao2(List<Jogo> jogos)
         {
             return sistemaJogosEletronicos.ListarNomesOrdenadosPorAvaliacao2(jogos);
         }

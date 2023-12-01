@@ -14,17 +14,13 @@ namespace Trabalho_II_de_POO_II.Controllers
         {
             this.sistemaJogosEletronicos = sistemaJogosEletronicos;
         }
-        public void CadastrarVenda(int codigo, DateTime dataVenda, double valorTotal, int codigoCliente, int codigoGerente, int codigoTransportadora, int codigoDesenvolvedora)
+        public void CadastrarVenda(int codCliente, int codGerente, DateTime dataVenda, List<ItemVenda> itensVenda, Pagamento formaPagamento, Transportadora transportadora = null)
         {
-            sistemaJogosEletronicos.CadastrarVenda(codigo, dataVenda, valorTotal, codigoCliente, codigoGerente, codigoTransportadora, codigoDesenvolvedora);
+            sistemaJogosEletronicos.CadastrarVenda(codCliente, codGerente, dataVenda, itensVenda, formaPagamento, transportadora);
         }
         public void buscarVenda(int codigo)
         {
             sistemaJogosEletronicos.buscarVenda(codigo);
-        }
-        public void removerVenda(int codigo)
-        {
-            sistemaJogosEletronicos.removerVenda(codigo);
         }
         public void ListarHistoricoVendasCliente(Usuario cliente)
         {
@@ -34,25 +30,25 @@ namespace Trabalho_II_de_POO_II.Controllers
         {
             sistemaJogosEletronicos.ListarTodasVendas();
         }
-        public (decimal, sistemaJogosEletronicos.Vendas) CalcularLucroEListarVendasMesEspecifico(List<Venda> vendas, int mes)
+        public (float lucro, List<Venda>) CalcularLucroEListarVendasMesEspecifico(int mes, List<Venda> vendas)
         {
-            sistemaJogosEletronicos.CalcularLucroEListarVendasMesEspecifico(sistemaJogosEeltronicos.Vendas, mes);
+            return sistemaJogosEletronicos.CalcularLucroEListarVendasMesEspecifico(mes, vendas);
         }
-        public (decimal, sistemaJogosEletronicos.Vendas) ListarVendasECalcularLucroDesenvolvedoraMesEspecifico(string nomeDesenvolvedora, int mes)
+        public (float lucro, List<Venda> vendas) ListarVendasECalcularLucroDesenvolvedoraMesEspecifico(string nomeDesenvolvedora, int mes)
         {
-            sistemaJogosEletronicos.ListarVendasECalcularLucroDesenvolvedoraMesEspecifico(nomeDesenvolvedora, mes);
+            return sistemaJogosEletronicos.ListarVendasECalcularLucroDesenvolvedoraMesEspecifico(nomeDesenvolvedora, mes);
         }
         public List<Venda> ListarVendasComFormaPagamentoBoleto(List<Venda> vendas)
         {
-            return sistemaJogosEletronicos.ListarVendasComFormaPagamentoBoleto(sistemasJogosEletronicos.Vendas);
+            return sistemaJogosEletronicos.ListarVendasComFormaPagamentoBoleto(vendas);
         }
         public List<Venda> ListarVendasComFormaPagamentoCartaoCredito(List<Venda> vendas)
         {
-            return sistemaJogosEletronicos.ListarVendasComFormaPagamentoCartaoCredito(sistemasJogosEletronicos.Vendas);
+            return sistemaJogosEletronicos.ListarVendasComFormaPagamentoCartaoCredito(vendas);
         }
         public List<Venda> ListarVendasComFormaPagamentoPix(List<Venda> vendas)
         {
-            return sistemaJogosEletronicos.ListarVendasComFormaPagamentoPix(sistemasJogosEletronicos.Vendas);
+            return sistemaJogosEletronicos.ListarVendasComFormaPagamentoPix(vendas);
         }
     }
 }
