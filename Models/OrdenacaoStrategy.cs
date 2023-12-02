@@ -26,7 +26,8 @@ namespace Trabalho_II_de_POO_II.Models
             return _estrategia.Organizar(jogos);
         }
     }
-    public class MetodoOrganizacao1 : IOrdenacao
+
+    public class MetodoOrganizacao1 : IOrdenacao
         {
             public List<Jogo> Organizar(List<Jogo> jogos)
             {

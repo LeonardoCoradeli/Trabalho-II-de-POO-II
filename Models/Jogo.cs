@@ -19,15 +19,15 @@ namespace Trabalho_II_de_POO_II.GUI
     {
         public int Codigo { get; protected set; }
         public string Nome { get; protected set; }
-        protected string Descricao { get; set; }
+        public string Descricao { get; protected set; }
         public  Desenvolvedora Desenvolvedora { get; protected set; }
-        protected DateTime DataLancamento { get; set; }
-        protected float Valor { get; set; }
-        protected string RequisitosMinimos { get; set; }
+        public DateTime DataLancamento { get; protected set; }
+        public float Valor { get; protected set; }
+        public string RequisitosMinimos { get; protected set; }
         public float Avaliacao { get; protected set; }
-        protected string Comentarios { get; set; }
-        protected bool Disponivel { get; set; }
-        public string Tipo { get; set; }
+        public string Comentarios { get; protected set; }
+        public bool Disponivel { get; protected set; }
+        public string Tipo { get; protected set; }
 
 
         public Jogo(){ }

@@ -30,68 +30,72 @@ namespace Trabalho_II_de_POO_II.GUI
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.JogosComprados = new System.Windows.Forms.ListBox();
+            this.chbVisualizacaoJogos = new System.Windows.Forms.CheckBox();
             this.TabPrincipal = new System.Windows.Forms.TabControl();
             this.tabComprar = new System.Windows.Forms.TabPage();
             this.btnBuscarJogo = new System.Windows.Forms.Button();
             this.CBPrecoJogo = new System.Windows.Forms.ComboBox();
             this.CBTipoJogo = new System.Windows.Forms.ComboBox();
             this.tabCadastrar = new System.Windows.Forms.TabPage();
-            this.tabRelatorios = new System.Windows.Forms.TabPage();
-            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
-            this.JogosVenda = new System.Windows.Forms.ListBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gerenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trnasportadoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.desenvolvedoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jogoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gerenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabRelatorios = new System.Windows.Forms.TabPage();
             this.Relatorios = new System.Windows.Forms.ListBox();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.desenvolvedorasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.todasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.maisJogosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.maiorLucroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transportadorasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gerentesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.todosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesÉpicosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.maiorNivelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.desenvolvedoraToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.clienteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.boletoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cartãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pixToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.desenvolvedoraToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.clienteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.todasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.todosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            this.JogosComprados = new System.Windows.Forms.ListView();
+            this.jogosDisponiveis = new System.Windows.Forms.ListView();
             this.panel1.SuspendLayout();
             this.TabPrincipal.SuspendLayout();
             this.tabComprar.SuspendLayout();
             this.tabCadastrar.SuspendLayout();
-            this.tabRelatorios.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.tabRelatorios.SuspendLayout();
             this.menuStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.JogosComprados);
+            this.panel1.Controls.Add(this.chbVisualizacaoJogos);
             this.panel1.Location = new System.Drawing.Point(0, 1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(156, 449);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // JogosComprados
+            // chbVisualizacaoJogos
             // 
-            this.JogosComprados.FormattingEnabled = true;
-            this.JogosComprados.Location = new System.Drawing.Point(3, 0);
-            this.JogosComprados.Name = "JogosComprados";
-            this.JogosComprados.Size = new System.Drawing.Size(149, 446);
-            this.JogosComprados.TabIndex = 0;
-            this.JogosComprados.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.chbVisualizacaoJogos.AutoSize = true;
+            this.chbVisualizacaoJogos.Location = new System.Drawing.Point(13, 12);
+            this.chbVisualizacaoJogos.Name = "chbVisualizacaoJogos";
+            this.chbVisualizacaoJogos.Size = new System.Drawing.Size(59, 17);
+            this.chbVisualizacaoJogos.TabIndex = 1;
+            this.chbVisualizacaoJogos.Text = "Nomes";
+            this.chbVisualizacaoJogos.UseVisualStyleBackColor = true;
+            this.chbVisualizacaoJogos.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // TabPrincipal
             // 
@@ -106,7 +110,7 @@ namespace Trabalho_II_de_POO_II.GUI
             // 
             // tabComprar
             // 
-            this.tabComprar.Controls.Add(this.JogosVenda);
+            this.tabComprar.Controls.Add(this.jogosDisponiveis);
             this.tabComprar.Controls.Add(this.btnBuscarJogo);
             this.tabComprar.Controls.Add(this.CBPrecoJogo);
             this.tabComprar.Controls.Add(this.CBTipoJogo);
@@ -170,33 +174,6 @@ namespace Trabalho_II_de_POO_II.GUI
             this.tabCadastrar.Text = "Cadastrar";
             this.tabCadastrar.UseVisualStyleBackColor = true;
             // 
-            // tabRelatorios
-            // 
-            this.tabRelatorios.Controls.Add(this.Relatorios);
-            this.tabRelatorios.Controls.Add(this.menuStrip2);
-            this.tabRelatorios.Location = new System.Drawing.Point(4, 22);
-            this.tabRelatorios.Name = "tabRelatorios";
-            this.tabRelatorios.Padding = new System.Windows.Forms.Padding(3);
-            this.tabRelatorios.Size = new System.Drawing.Size(635, 423);
-            this.tabRelatorios.TabIndex = 2;
-            this.tabRelatorios.Text = "Relatorios";
-            this.tabRelatorios.UseVisualStyleBackColor = true;
-            this.tabRelatorios.Click += new System.EventHandler(this.tabRelatorios_Click);
-            // 
-            // fileSystemWatcher1
-            // 
-            this.fileSystemWatcher1.EnableRaisingEvents = true;
-            this.fileSystemWatcher1.SynchronizingObject = this;
-            this.fileSystemWatcher1.Changed += new System.IO.FileSystemEventHandler(this.fileSystemWatcher1_Changed);
-            // 
-            // JogosVenda
-            // 
-            this.JogosVenda.FormattingEnabled = true;
-            this.JogosVenda.Location = new System.Drawing.Point(0, 34);
-            this.JogosVenda.Name = "JogosVenda";
-            this.JogosVenda.Size = new System.Drawing.Size(635, 381);
-            this.JogosVenda.TabIndex = 3;
-            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -219,6 +196,18 @@ namespace Trabalho_II_de_POO_II.GUI
             this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.usuarioToolStripMenuItem.Text = "Usuario";
             // 
+            // gerenteToolStripMenuItem
+            // 
+            this.gerenteToolStripMenuItem.Name = "gerenteToolStripMenuItem";
+            this.gerenteToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.gerenteToolStripMenuItem.Text = "Gerente";
+            // 
+            // clienteToolStripMenuItem
+            // 
+            this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.clienteToolStripMenuItem.Text = "Cliente";
+            // 
             // trnasportadoraToolStripMenuItem
             // 
             this.trnasportadoraToolStripMenuItem.Name = "trnasportadoraToolStripMenuItem";
@@ -237,17 +226,18 @@ namespace Trabalho_II_de_POO_II.GUI
             this.jogoToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.jogoToolStripMenuItem.Text = "Jogo";
             // 
-            // gerenteToolStripMenuItem
+            // tabRelatorios
             // 
-            this.gerenteToolStripMenuItem.Name = "gerenteToolStripMenuItem";
-            this.gerenteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.gerenteToolStripMenuItem.Text = "Gerente";
-            // 
-            // clienteToolStripMenuItem
-            // 
-            this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.clienteToolStripMenuItem.Text = "Cliente";
+            this.tabRelatorios.Controls.Add(this.Relatorios);
+            this.tabRelatorios.Controls.Add(this.menuStrip2);
+            this.tabRelatorios.Location = new System.Drawing.Point(4, 22);
+            this.tabRelatorios.Name = "tabRelatorios";
+            this.tabRelatorios.Padding = new System.Windows.Forms.Padding(3);
+            this.tabRelatorios.Size = new System.Drawing.Size(635, 423);
+            this.tabRelatorios.TabIndex = 2;
+            this.tabRelatorios.Text = "Relatorios";
+            this.tabRelatorios.UseVisualStyleBackColor = true;
+            this.tabRelatorios.Click += new System.EventHandler(this.tabRelatorios_Click);
             // 
             // Relatorios
             // 
@@ -282,16 +272,22 @@ namespace Trabalho_II_de_POO_II.GUI
             this.desenvolvedorasToolStripMenuItem.Size = new System.Drawing.Size(108, 20);
             this.desenvolvedorasToolStripMenuItem.Text = "Desenvolvedoras";
             // 
+            // todasToolStripMenuItem
+            // 
+            this.todasToolStripMenuItem.Name = "todasToolStripMenuItem";
+            this.todasToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.todasToolStripMenuItem.Text = "Todas";
+            // 
             // maisJogosToolStripMenuItem
             // 
             this.maisJogosToolStripMenuItem.Name = "maisJogosToolStripMenuItem";
-            this.maisJogosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.maisJogosToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.maisJogosToolStripMenuItem.Text = "Mais Jogos";
             // 
             // maiorLucroToolStripMenuItem
             // 
             this.maiorLucroToolStripMenuItem.Name = "maiorLucroToolStripMenuItem";
-            this.maiorLucroToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.maiorLucroToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.maiorLucroToolStripMenuItem.Text = "Maior Lucro";
             // 
             // transportadorasToolStripMenuItem
@@ -317,11 +313,23 @@ namespace Trabalho_II_de_POO_II.GUI
             this.clientesToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.clientesToolStripMenuItem.Text = "Clientes";
             // 
+            // todosToolStripMenuItem
+            // 
+            this.todosToolStripMenuItem.Name = "todosToolStripMenuItem";
+            this.todosToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.todosToolStripMenuItem.Text = "Todos";
+            // 
             // clientesÉpicosToolStripMenuItem
             // 
             this.clientesÉpicosToolStripMenuItem.Name = "clientesÉpicosToolStripMenuItem";
-            this.clientesÉpicosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clientesÉpicosToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.clientesÉpicosToolStripMenuItem.Text = "Clientes Épicos";
+            // 
+            // maiorNivelToolStripMenuItem
+            // 
+            this.maiorNivelToolStripMenuItem.Name = "maiorNivelToolStripMenuItem";
+            this.maiorNivelToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.maiorNivelToolStripMenuItem.Text = "Maior Nivel";
             // 
             // vendasToolStripMenuItem
             // 
@@ -336,55 +344,74 @@ namespace Trabalho_II_de_POO_II.GUI
             this.vendasToolStripMenuItem.Text = "Vendas";
             this.vendasToolStripMenuItem.Click += new System.EventHandler(this.vendasToolStripMenuItem_Click);
             // 
-            // maiorNivelToolStripMenuItem
-            // 
-            this.maiorNivelToolStripMenuItem.Name = "maiorNivelToolStripMenuItem";
-            this.maiorNivelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.maiorNivelToolStripMenuItem.Text = "Maior Nivel";
-            // 
-            // boletoToolStripMenuItem
-            // 
-            this.boletoToolStripMenuItem.Name = "boletoToolStripMenuItem";
-            this.boletoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.boletoToolStripMenuItem.Text = "Boleto";
-            // 
-            // cartãoToolStripMenuItem
-            // 
-            this.cartãoToolStripMenuItem.Name = "cartãoToolStripMenuItem";
-            this.cartãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cartãoToolStripMenuItem.Text = "Cartão";
-            // 
-            // pixToolStripMenuItem
-            // 
-            this.pixToolStripMenuItem.Name = "pixToolStripMenuItem";
-            this.pixToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.pixToolStripMenuItem.Text = "Pix";
-            // 
             // desenvolvedoraToolStripMenuItem1
             // 
             this.desenvolvedoraToolStripMenuItem1.Name = "desenvolvedoraToolStripMenuItem1";
-            this.desenvolvedoraToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.desenvolvedoraToolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
             this.desenvolvedoraToolStripMenuItem1.Text = "Desenvolvedora";
             this.desenvolvedoraToolStripMenuItem1.Click += new System.EventHandler(this.desenvolvedoraToolStripMenuItem1_Click);
             // 
             // clienteToolStripMenuItem1
             // 
             this.clienteToolStripMenuItem1.Name = "clienteToolStripMenuItem1";
-            this.clienteToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.clienteToolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
             this.clienteToolStripMenuItem1.Text = "Cliente";
             this.clienteToolStripMenuItem1.Click += new System.EventHandler(this.clienteToolStripMenuItem1_Click);
             // 
-            // todasToolStripMenuItem
+            // boletoToolStripMenuItem
             // 
-            this.todasToolStripMenuItem.Name = "todasToolStripMenuItem";
-            this.todasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.todasToolStripMenuItem.Text = "Todas";
+            this.boletoToolStripMenuItem.Name = "boletoToolStripMenuItem";
+            this.boletoToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.boletoToolStripMenuItem.Text = "Boleto";
             // 
-            // todosToolStripMenuItem
+            // cartãoToolStripMenuItem
             // 
-            this.todosToolStripMenuItem.Name = "todosToolStripMenuItem";
-            this.todosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.todosToolStripMenuItem.Text = "Todos";
+            this.cartãoToolStripMenuItem.Name = "cartãoToolStripMenuItem";
+            this.cartãoToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.cartãoToolStripMenuItem.Text = "Cartão";
+            // 
+            // pixToolStripMenuItem
+            // 
+            this.pixToolStripMenuItem.Name = "pixToolStripMenuItem";
+            this.pixToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.pixToolStripMenuItem.Text = "Pix";
+            // 
+            // fileSystemWatcher1
+            // 
+            this.fileSystemWatcher1.EnableRaisingEvents = true;
+            this.fileSystemWatcher1.SynchronizingObject = this;
+            this.fileSystemWatcher1.Changed += new System.IO.FileSystemEventHandler(this.fileSystemWatcher1_Changed);
+            // 
+            // JogosComprados
+            // 
+            this.JogosComprados.Activation = System.Windows.Forms.ItemActivation.TwoClick;
+            this.JogosComprados.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.JogosComprados.FullRowSelect = true;
+            this.JogosComprados.HideSelection = false;
+            this.JogosComprados.Location = new System.Drawing.Point(3, 35);
+            this.JogosComprados.MultiSelect = false;
+            this.JogosComprados.Name = "JogosComprados";
+            this.JogosComprados.Size = new System.Drawing.Size(149, 410);
+            this.JogosComprados.TabIndex = 2;
+            this.JogosComprados.UseCompatibleStateImageBehavior = false;
+            this.JogosComprados.View = System.Windows.Forms.View.List;
+            this.JogosComprados.SelectedIndexChanged += new System.EventHandler(this.JogosComprados_SelectedIndexChanged_1);
+            // 
+            // jogosDisponiveis
+            // 
+            this.jogosDisponiveis.BackgroundImageTiled = true;
+            this.jogosDisponiveis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jogosDisponiveis.GridLines = true;
+            this.jogosDisponiveis.HideSelection = false;
+            this.jogosDisponiveis.Location = new System.Drawing.Point(1, 35);
+            this.jogosDisponiveis.MultiSelect = false;
+            this.jogosDisponiveis.Name = "jogosDisponiveis";
+            this.jogosDisponiveis.OwnerDraw = true;
+            this.jogosDisponiveis.Size = new System.Drawing.Size(634, 388);
+            this.jogosDisponiveis.TabIndex = 3;
+            this.jogosDisponiveis.TileSize = new System.Drawing.Size(1000, 1000);
+            this.jogosDisponiveis.UseCompatibleStateImageBehavior = false;
+            this.jogosDisponiveis.SelectedIndexChanged += new System.EventHandler(this.jogosDisponiveis_SelectedIndexChanged);
             // 
             // Tela_Principal
             // 
@@ -396,18 +423,20 @@ namespace Trabalho_II_de_POO_II.GUI
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Tela_Principal";
             this.Text = "Teste";
+            this.Load += new System.EventHandler(this.Tela_Principal_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.TabPrincipal.ResumeLayout(false);
             this.tabComprar.ResumeLayout(false);
             this.tabCadastrar.ResumeLayout(false);
             this.tabCadastrar.PerformLayout();
-            this.tabRelatorios.ResumeLayout(false);
-            this.tabRelatorios.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.tabRelatorios.ResumeLayout(false);
+            this.tabRelatorios.PerformLayout();
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -419,12 +448,10 @@ namespace Trabalho_II_de_POO_II.GUI
         private System.Windows.Forms.TabPage tabComprar;
         private System.Windows.Forms.TabPage tabCadastrar;
         private System.Windows.Forms.TabPage tabRelatorios;
-        private System.Windows.Forms.ListBox JogosComprados;
         private System.Windows.Forms.Button btnBuscarJogo;
         private System.Windows.Forms.ComboBox CBPrecoJogo;
         private System.Windows.Forms.ComboBox CBTipoJogo;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
-        private System.Windows.Forms.ListBox JogosVenda;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gerenteToolStripMenuItem;
@@ -450,5 +477,8 @@ namespace Trabalho_II_de_POO_II.GUI
         private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem todasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem todosToolStripMenuItem;
+        private System.Windows.Forms.CheckBox chbVisualizacaoJogos;
+        private System.Windows.Forms.ListView JogosComprados;
+        private System.Windows.Forms.ListView jogosDisponiveis;
     }
 }

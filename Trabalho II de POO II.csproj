@@ -43,6 +43,7 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -87,13 +88,18 @@
     <Compile Include="GUI\Desenvolvedora_Especifico.Designer.cs">
       <DependentUpon>Desenvolvedora_Especifico.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Informacoes_jogo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Informacoes_jogo.Designer.cs">
+      <DependentUpon>Informacoes_jogo.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Tela_Principal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Tela_Principal.Designer.cs">
       <DependentUpon>Tela_Principal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\AdaptadorBancoClasse.cs" />
     <Compile Include="Models\Configuracao.cs" />
     <Compile Include="Models\Desenvolvedora.cs" />
     <Compile Include="Models\FactoryJogo.cs" />
@@ -118,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Desenvolvedora_Especifico.resx">
       <DependentUpon>Desenvolvedora_Especifico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Informacoes_jogo.resx">
+      <DependentUpon>Informacoes_jogo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Tela_Principal.resx">
       <DependentUpon>Tela_Principal.cs</DependentUpon>

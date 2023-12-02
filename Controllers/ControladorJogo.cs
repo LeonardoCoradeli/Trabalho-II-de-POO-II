@@ -10,42 +10,68 @@ namespace Trabalho_II_de_POO_II.Controllers
 {
     public class ControladorJogo
     {
-        private SistemaJogosEletronicos sistemaJogosEletronicos;
-        public ControladorJogo(SistemaJogosEletronicos sistemaJogosEletronicos)
+        private SistemaJogosEletronicos SJE { get; set; }
+        public ControladorJogo(SistemaJogosEletronicos sistema)
         {
-            this.sistemaJogosEletronicos = sistemaJogosEletronicos;
+            SJE = sistema;
         }
         public void CadastrarJogo(string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, double valor, string requisitosMinimos, double avaliacao, string comentarios, bool disponivel, string tipo)
         {
-            sistemaJogosEletronicos.CadastrarJogo(nome, descricao, desenvolvedora, dataLancamento, valor, requisitosMinimos, avaliacao, comentarios, disponivel, tipo);
+            SJE.CadastrarJogo(nome, descricao, desenvolvedora, dataLancamento, valor, requisitosMinimos, avaliacao, comentarios, disponivel, tipo);
         }
         public string buscarJogo(int codigo)
         {
-            return sistemaJogosEletronicos.BuscarJogo(codigo);
+            return SJE.BuscarJogo(codigo);
         }
         public List<Jogo> GetTodosJogos()
         {            
-            return sistemaJogosEletronicos.ListarTodosJogos();
+            return SJE.ListarTodosJogos();
+        }
+
+        public List<Jogo> GetJogosComprados()
+        {
+            List<Jogo> jogos = new List<Jogo>();
+            foreach(Jogo jogo in SJE.ListarTodosJogos())
+            {
+                if (!jogo.Disponivel)
+                {
+                    jogos.Add(jogo);
+                }
+            }
+            return jogos;
+        }
+
+        public List<Jogo> GetJogosDisponiveis()
+        {
+            List<Jogo> jogos = new List<Jogo>();
+            foreach (Jogo jogo in SJE.ListarTodosJogos())
+            {
+                if (jogo.Disponivel)
+                {
+                    jogos.Add(jogo);
+                }
+            }
+            return jogos;
         }
         public List<Jogo> ListarJogosPorTipo(List<Jogo> jogos, string tipo)
         {
-            return sistemaJogosEletronicos.ListarJogosPorTipo(jogos, tipo);
+            return SJE.ListarJogosPorTipo(jogos, tipo);
         }
         public List<Jogo> ListarTop10JogosMaisCaros(List<Jogo> jogos)
         {
-            return sistemaJogosEletronicos.ListarTop10JogosMaisCaros(jogos);
+            return SJE.ListarTop10JogosMaisCaros(jogos);
         }
         public List<Jogo> ListarTop10JogosMenorPreco(List<Jogo> jogos)
         {
-            return sistemaJogosEletronicos.ListarTop10JogosMenorPreco(jogos);
+            return SJE.ListarTop10JogosMenorPreco(jogos);
         }
         public List<string> ListarNomesOrdenadosPorAvaliacao1(List<Jogo> jogos)
         {
-            return sistemaJogosEletronicos.ListarNomesOrdenadosPorAvaliacao1(jogos);
+            return SJE.ListarNomesOrdenadosPorAvaliacao1(jogos);
         }
         public List<string> ListarNomesOrdenadosPorAvaliacao2(List<Jogo> jogos)
         {
-            return sistemaJogosEletronicos.ListarNomesOrdenadosPorAvaliacao2(jogos);
+            return SJE.ListarNomesOrdenadosPorAvaliacao2(jogos);
         }
     }
 }

@@ -7,20 +7,65 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Trabalho_II_de_POO_II.Models;
+using Trabalho_II_de_POO_II.Controllers;
 
 namespace Trabalho_II_de_POO_II.GUI
 {
     public partial class Tela_Principal : Form
     {
-        public Tela_Principal()
+        private ControladorJogo controladorJogo { get;set;}
+        private ControladorUsuario controladorUsuario { get;set;}
+        private ControladorVendas controladorVendas { get;set;}
+
+        public Tela_Principal(ControladorJogo controladorJ,ControladorUsuario controladorU,ControladorVendas controladorV)
         {
+            //iniciando controladores
+            controladorJogo = controladorJ;
+            controladorUsuario = controladorU;
+            controladorVendas = controladorV;
+
             InitializeComponent();
+            JogosComprados.Items.Clear();
+            AdicionarItensJogosComprados(controladorJogo.GetJogosComprados(),jogo =>jogo.Nome,jogo=>jogo.Avaliacao.ToString());
+            jogosDisponiveis.Items.Clear();
+            AdicionarItensJogosDisponiveis(controladorJogo.GetJogosDisponiveis(),jogo=>jogo.Nome, jogo => jogo.Valor);
+            
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        private void AdicionarItensJogosComprados<T>(List<T> lista, Func<T, string> obterNome, Func<T, string> obterAvaliacao)
         {
+            lista = lista.OrderBy(obterNome).ToList();
 
+            foreach (var item in lista)
+            {
+                string nome = obterNome(item);
+
+                ListViewItem visualizar = new ListViewItem(nome);
+                visualizar.Tag = item;
+
+                JogosComprados.Items.Add(visualizar);
+            }
         }
+        private void AdicionarItensJogosDisponiveis(List<Jogo> lista, Func<Jogo, string> obterNome, Func<Jogo, float> obterPreco)
+        {
+            lista = lista.OrderBy(obterNome).ToList();
+            jogosDisponiveis.Font = new Font(jogosDisponiveis.Font.FontFamily, 20);
+            foreach (var item in lista)
+            {
+                string Nome = obterNome(item);
+                string Preco = obterPreco(item).ToString();
+
+                jogosDisponiveis.Items.Add(new ListViewItem
+                {
+                    Text = $"{Nome}\n{Preco}",
+                    Tag = item
+                }) ; 
+            }
+        }
+
+
+
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
@@ -49,7 +94,6 @@ namespace Trabalho_II_de_POO_II.GUI
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -102,6 +146,63 @@ namespace Trabalho_II_de_POO_II.GUI
         {
             Cliente_Especifico cliente = new Cliente_Especifico();
             cliente.ShowDialog();
+        }
+
+        private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbVisualizacaoJogos.Checked)
+            {
+                chbVisualizacaoJogos.Text = "Avaliação";
+                MetodoOrganizacao1 organizacao = new MetodoOrganizacao1();
+                ContextoOrganizacao contexto = new ContextoOrganizacao(organizacao);
+                List<Jogo> jogosOrdenados = contexto.Organizar(controladorJogo.GetTodosJogos());
+                JogosComprados.Items.Clear();
+                AdicionarItensJogosComprados(jogosOrdenados, jogo => jogo.Nome, jogo => jogo.Avaliacao.ToString());
+            }
+            else
+            {
+                chbVisualizacaoJogos.Text = "Nomes";
+                JogosComprados.Items.Clear();
+                AdicionarItensJogosComprados(controladorJogo.GetTodosJogos(), jogo => jogo.Nome, jogo => jogo.Avaliacao.ToString());
+            }
+        }
+
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void JogosComprados_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (JogosComprados.SelectedItems!= null)
+            {
+                foreach (ListViewItem item in JogosComprados.SelectedItems)
+                {
+                    Informacoes_jogo info = new Informacoes_jogo((Jogo)item.Tag);
+                    info.ShowDialog();
+                }
+                
+            }
+        }
+
+        private void JogosVenda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Tela_Principal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void jogosDisponiveis_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -11,7 +11,6 @@ public sealed class Arquivos
     private static readonly object padlock = new object();
     private string caminhoArquivoJogo = "listaJogos.bin";
     private string caminhoArquivoDesenvolvedora = "listaDesenvolvedoras.bin";
-    private string caminhoArquivoPagamento = "listaPagamentos.bin";
     private string caminhoArquivotransportadora = "listaTransportadoras.bin";
     private string caminhoArquivoCliente = "listaClientes.bin";
     private string caminhoArquivoGerente = "listaGerentes.bin";
@@ -65,16 +64,6 @@ public sealed class Arquivos
     public List<Transportadora> RecuperarTransportadoras()
     {
         return RecuperarLista<Transportadora>(caminhoArquivotransportadora);
-    }
-
-    public void SalvarPagamentos(List<Pagamento> listaPagamentos)
-    {
-        SalvarLista(listaPagamentos, caminhoArquivoPagamento);
-    }
-
-    public List<Pagamento> RecuperarPagamentos()
-    {
-        return RecuperarLista<Pagamento>(caminhoArquivoPagamento);
     }
 
     public void SalvarVendas(List<Venda> listaVendas)

@@ -18,9 +18,9 @@ namespace Trabalho_II_de_POO_II.GUI
         public List<Usuario> Gerentes { get; set; }
         public Arquivos Arquivo { get; set; }
         
-        public SistemaJogosEletronicos()
+        public SistemaJogosEletronicos(Arquivos Arq)
         {
-            Arquivo = Arquivos.Instance;
+            Arquivo = Arq;
             Vendas = Arquivo.RecuperarVendas();
             Jogos = Arquivo.RecuperarJogos();
             Desenvolvedoras = Arquivo.RecuperarDesenvolvedora();
