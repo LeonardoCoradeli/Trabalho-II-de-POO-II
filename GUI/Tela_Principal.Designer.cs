@@ -30,9 +30,11 @@ namespace Trabalho_II_de_POO_II.GUI
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.JogosComprados = new System.Windows.Forms.ListView();
             this.chbVisualizacaoJogos = new System.Windows.Forms.CheckBox();
             this.TabPrincipal = new System.Windows.Forms.TabControl();
             this.tabComprar = new System.Windows.Forms.TabPage();
+            this.jogosDisponiveis = new System.Windows.Forms.ListView();
             this.btnBuscarJogo = new System.Windows.Forms.Button();
             this.CBPrecoJogo = new System.Windows.Forms.ComboBox();
             this.CBTipoJogo = new System.Windows.Forms.ComboBox();
@@ -64,8 +66,6 @@ namespace Trabalho_II_de_POO_II.GUI
             this.cartãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pixToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
-            this.JogosComprados = new System.Windows.Forms.ListView();
-            this.jogosDisponiveis = new System.Windows.Forms.ListView();
             this.panel1.SuspendLayout();
             this.TabPrincipal.SuspendLayout();
             this.tabComprar.SuspendLayout();
@@ -85,6 +85,21 @@ namespace Trabalho_II_de_POO_II.GUI
             this.panel1.Size = new System.Drawing.Size(156, 449);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // JogosComprados
+            // 
+            this.JogosComprados.Activation = System.Windows.Forms.ItemActivation.TwoClick;
+            this.JogosComprados.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.JogosComprados.FullRowSelect = true;
+            this.JogosComprados.HideSelection = false;
+            this.JogosComprados.Location = new System.Drawing.Point(3, 35);
+            this.JogosComprados.MultiSelect = false;
+            this.JogosComprados.Name = "JogosComprados";
+            this.JogosComprados.Size = new System.Drawing.Size(149, 410);
+            this.JogosComprados.TabIndex = 2;
+            this.JogosComprados.UseCompatibleStateImageBehavior = false;
+            this.JogosComprados.View = System.Windows.Forms.View.List;
+            this.JogosComprados.SelectedIndexChanged += new System.EventHandler(this.JogosComprados_SelectedIndexChanged_1);
             // 
             // chbVisualizacaoJogos
             // 
@@ -122,6 +137,22 @@ namespace Trabalho_II_de_POO_II.GUI
             this.tabComprar.Text = "Comprar";
             this.tabComprar.UseVisualStyleBackColor = true;
             this.tabComprar.Click += new System.EventHandler(this.TabComprar_Click);
+            // 
+            // jogosDisponiveis
+            // 
+            this.jogosDisponiveis.BackgroundImageTiled = true;
+            this.jogosDisponiveis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jogosDisponiveis.GridLines = true;
+            this.jogosDisponiveis.HideSelection = false;
+            this.jogosDisponiveis.Location = new System.Drawing.Point(1, 35);
+            this.jogosDisponiveis.MultiSelect = false;
+            this.jogosDisponiveis.Name = "jogosDisponiveis";
+            this.jogosDisponiveis.OwnerDraw = true;
+            this.jogosDisponiveis.Size = new System.Drawing.Size(634, 388);
+            this.jogosDisponiveis.TabIndex = 3;
+            this.jogosDisponiveis.TileSize = new System.Drawing.Size(1000, 1000);
+            this.jogosDisponiveis.UseCompatibleStateImageBehavior = false;
+            this.jogosDisponiveis.SelectedIndexChanged += new System.EventHandler(this.jogosDisponiveis_SelectedIndexChanged);
             // 
             // btnBuscarJogo
             // 
@@ -166,6 +197,7 @@ namespace Trabalho_II_de_POO_II.GUI
             // tabCadastrar
             // 
             this.tabCadastrar.Controls.Add(this.menuStrip1);
+            this.tabCadastrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabCadastrar.Location = new System.Drawing.Point(4, 22);
             this.tabCadastrar.Name = "tabCadastrar";
             this.tabCadastrar.Padding = new System.Windows.Forms.Padding(3);
@@ -199,14 +231,15 @@ namespace Trabalho_II_de_POO_II.GUI
             // gerenteToolStripMenuItem
             // 
             this.gerenteToolStripMenuItem.Name = "gerenteToolStripMenuItem";
-            this.gerenteToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.gerenteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gerenteToolStripMenuItem.Text = "Gerente";
             // 
             // clienteToolStripMenuItem
             // 
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clienteToolStripMenuItem.Text = "Cliente";
+            this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
             // 
             // trnasportadoraToolStripMenuItem
             // 
@@ -381,37 +414,6 @@ namespace Trabalho_II_de_POO_II.GUI
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
             this.fileSystemWatcher1.Changed += new System.IO.FileSystemEventHandler(this.fileSystemWatcher1_Changed);
-            // 
-            // JogosComprados
-            // 
-            this.JogosComprados.Activation = System.Windows.Forms.ItemActivation.TwoClick;
-            this.JogosComprados.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.JogosComprados.FullRowSelect = true;
-            this.JogosComprados.HideSelection = false;
-            this.JogosComprados.Location = new System.Drawing.Point(3, 35);
-            this.JogosComprados.MultiSelect = false;
-            this.JogosComprados.Name = "JogosComprados";
-            this.JogosComprados.Size = new System.Drawing.Size(149, 410);
-            this.JogosComprados.TabIndex = 2;
-            this.JogosComprados.UseCompatibleStateImageBehavior = false;
-            this.JogosComprados.View = System.Windows.Forms.View.List;
-            this.JogosComprados.SelectedIndexChanged += new System.EventHandler(this.JogosComprados_SelectedIndexChanged_1);
-            // 
-            // jogosDisponiveis
-            // 
-            this.jogosDisponiveis.BackgroundImageTiled = true;
-            this.jogosDisponiveis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.jogosDisponiveis.GridLines = true;
-            this.jogosDisponiveis.HideSelection = false;
-            this.jogosDisponiveis.Location = new System.Drawing.Point(1, 35);
-            this.jogosDisponiveis.MultiSelect = false;
-            this.jogosDisponiveis.Name = "jogosDisponiveis";
-            this.jogosDisponiveis.OwnerDraw = true;
-            this.jogosDisponiveis.Size = new System.Drawing.Size(634, 388);
-            this.jogosDisponiveis.TabIndex = 3;
-            this.jogosDisponiveis.TileSize = new System.Drawing.Size(1000, 1000);
-            this.jogosDisponiveis.UseCompatibleStateImageBehavior = false;
-            this.jogosDisponiveis.SelectedIndexChanged += new System.EventHandler(this.jogosDisponiveis_SelectedIndexChanged);
             // 
             // Tela_Principal
             // 

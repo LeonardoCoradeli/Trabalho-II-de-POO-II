@@ -7,76 +7,72 @@ using Trabalho_II_de_POO_II.GUI;
 
 namespace Trabalho_II_de_POO_II.Controllers
 {
-    public class ControladorUsuario
+    public static class ControladorUsuario
     {
-        private SistemaJogosEletronicos sistemaJogosEletronicos;
-        public ControladorUsuario(SistemaJogosEletronicos sistemaJogosEletronicos)
+        private static  SistemaJogosEletronicos SJE;
+        public static void CadastrarCliente(string nome, string cpf, string rg, DateTime dataNascimento, string endereco, string cep, string email, DateTime dataCadastro, int nivel, bool clienteEpico)
         {
-            this.sistemaJogosEletronicos = sistemaJogosEletronicos;
+            SJE.CadastrarCliente(nome, cpf, rg, dataNascimento, endereco, cep, email, dataCadastro, nivel, clienteEpico);
         }
-        public void CadastrarCliente(string nome, string cpf, string rg, DateTime dataNascimento, string endereco, string cep, string email, DateTime dataCadastro, int nivel, bool clienteEpico)
+        public static void CadastrarGerente(string nome, string cpf, string rg, DateTime dataNascimento, string endereco, string cep, string email, double salario, string cargo, DateTime dataContratacao)
         {
-            sistemaJogosEletronicos.CadastrarCliente(nome, cpf, rg, dataNascimento, endereco, cep, email, dataCadastro, nivel, clienteEpico);
+            SJE.CadastrarGerente(nome, cpf, rg, dataNascimento, endereco, cep, email, salario, cargo, dataContratacao);
         }
-        public void CadastrarGerente(string nome, string cpf, string rg, DateTime dataNascimento, string endereco, string cep, string email, double salario, string cargo, DateTime dataContratacao)
+        public static void CadastrarDesenvolvedora(string nome, string cnpj, string endereco, string cep, string email, DateTime dataCadastro, string telefone)
         {
-            sistemaJogosEletronicos.CadastrarGerente(nome, cpf, rg, dataNascimento, endereco, cep, email, salario, cargo, dataContratacao);
+            SJE.CadastrarDesenvolvedora(nome, cnpj, endereco, cep, email, dataCadastro, telefone);
         }
-        public void CadastrarDesenvolvedora(string nome, string cnpj, string endereco, string cep, string email, DateTime dataCadastro, string telefone)
+        public static void CadastrarTransportadora(string nome, string cnpj, string endereco, string cep, string email, string telefone,int tempo)
         {
-            CadastrarDesenvolvedora(nome, cnpj, endereco, cep, email, dataCadastro, telefone);
+            SJE.CadastrarTransportadora(cnpj, nome, email, telefone,endereco,tempo);
         }
-        public void CadastrarTransportadora(string nome, string cnpj, string endereco, string cep, string email, DateTime dataCadastro, string telefone)
+        public static string BuscarCliente(int codigo)
         {
-            CadastrarTransportadora(nome, cnpj, endereco, cep, email, dataCadastro, telefone);
+            return SJE.BuscarCliente(codigo);
         }
-        public string BuscarCliente(int codigo)
+        public static string BuscarGerente(int codigo)
         {
-            return sistemaJogosEletronicos.BuscarCliente(codigo);
+            return SJE.BuscarGerente(codigo);
         }
-        public string BuscarGerente(int codigo)
+        public static  string BuscarDesenvolvedora(int codigo)
         {
-            return sistemaJogosEletronicos.BuscarGerente(codigo);
+            return SJE.BuscarDesenvolvedora(codigo);
         }
-        public string BuscarDesenvolvedora(int codigo)
+        public static string BuscarTransportadora(int codigo)
         {
-            return sistemaJogosEletronicos.BuscarDesenvolvedora(codigo);
+            return SJE.BuscarTransportadora(codigo);
         }
-        public string BuscarTransportadora(int codigo)
+        public static List<Desenvolvedora> listarDesenvolvedoras()
         {
-            return sistemaJogosEletronicos.BuscarTransportadora(codigo);
+            return SJE.ListarDesenvolvedorasCadastradas();
         }
-        public List<Desenvolvedora> listarDesenvolvedoras()
+        public static List<Desenvolvedora> listarDesenvolvedorasMaisVendidos()
         {
-            return sistemaJogosEletronicos.ListarDesenvolvedorasCadastradas();
+            return SJE.ListarDesenvolvedorasMaisVendidos();
         }
-        public List<Desenvolvedora> listarDesenvolvedorasMaisVendidos()
+        public static List<Desenvolvedora> ListarDesenvolvedorasComMaiorLucro()
         {
-            return sistemaJogosEletronicos.ListarDesenvolvedorasMaisVendidos();
+            return SJE.ListarDesenvolvedorasComMaiorLucro();
         }
-        public List<Desenvolvedora> ListarDesenvolvedorasComMaiorLucro()
+        public static List<Transportadora> listarTransportadoras()
         {
-            return sistemaJogosEletronicos.ListarDesenvolvedorasComMaiorLucro();
+            return SJE.ListarTodasTransportadoras();
         }
-        public List<Transportadora> listarTransportadoras()
+        public static List<Usuario> listarGerentes()
         {
-            return sistemaJogosEletronicos.ListarTodasTransportadoras();
+            return SJE.ListarGerentesCadastrados();
         }
-        public List<Usuario> listarGerentes()
+        public static List<Usuario> listarClientes()
         {
-            return sistemaJogosEletronicos.ListarGerentesCadastrados();
+            return SJE.ListarClientesCadastrados();
         }
-        public List<Usuario> listarClientes()
+        public static List<Cliente> listarClientesEpicos(List<Cliente> clientes)
         {
-            return sistemaJogosEletronicos.ListarClientesCadastrados();
+            return SJE.ListarClientesEpicos(clientes);
         }
-        public List<Cliente> listarClientesEpicos(List<Cliente> clientes)
+        public static List<Cliente> listarTop10ClientesMaiorNivel(List<Cliente> clientes)
         {
-            return sistemaJogosEletronicos.ListarClientesEpicos(clientes);
-        }
-        public List<Cliente> listarTop10ClientesMaiorNivel(List<Cliente> clientes)
-        {
-            return sistemaJogosEletronicos.ListarTop10ClientesMaiorNivel(clientes);
+            return SJE.ListarTop10ClientesMaiorNivel(clientes);
         }
     }
 }

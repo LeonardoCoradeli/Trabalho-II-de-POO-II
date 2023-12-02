@@ -12,9 +12,9 @@ namespace Trabalho_II_de_POO_II.Models
         {
             SistemaJogosEletronicos sistema = new SistemaJogosEletronicos(Arquivos.Instance);
             ControladorJogo controlador = new ControladorJogo(sistema);
-            ControladorUsuario controlador2 = new ControladorUsuario(sistema);
+            //ControladorUsuario controlador2 = new ControladorUsuario(sistema);
             ControladorVendas controlador3 = new ControladorVendas(sistema);
-            Tela_Principal tela = new Tela_Principal(controlador,controlador2,controlador3);
+            Tela_Principal tela = new Tela_Principal(controlador,controlador3);
             tela.ShowDialog();
         }
     }

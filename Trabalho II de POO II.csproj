@@ -70,6 +70,18 @@
     <Compile Include="Controllers\ControladorJogo.cs" />
     <Compile Include="Controllers\ControladorUsuario.cs" />
     <Compile Include="Controllers\ControladorVendas.cs" />
+    <Compile Include="GUI\Cadastrar_Cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Cadastrar_Cliente.Designer.cs">
+      <DependentUpon>Cadastrar_Cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Cadastrar_Gerente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Cadastrar_Gerente.Designer.cs">
+      <DependentUpon>Cadastrar_Gerente.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Cartao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +128,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilitaries\Iterador Coleção.cs" />
     <Compile Include="Utilitaries\NumAleatorio.cs" />
+    <Compile Include="Utilitaries\VerificarVazio.cs" />
+    <EmbeddedResource Include="GUI\Cadastrar_Cliente.resx">
+      <DependentUpon>Cadastrar_Cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Cadastrar_Gerente.resx">
+      <DependentUpon>Cadastrar_Gerente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Cartao.resx">
       <DependentUpon>Cartao.cs</DependentUpon>
     </EmbeddedResource>

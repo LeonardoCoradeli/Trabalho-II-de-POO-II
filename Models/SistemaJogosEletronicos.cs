@@ -190,14 +190,14 @@ namespace Trabalho_II_de_POO_II.GUI
             Gerente gerente = new Gerente(-1,nome, cpf, rg, dataNascimento, endereco, cep, email, salario, cargo, dataContratacao);
             Gerentes.Add(gerente);
         }
-        public void CadastrarDesenvolvedora(string nome, string cnpj, string endereco, string cep, string email, string telefone)
+        public void CadastrarDesenvolvedora(string nome, string cnpj, string endereco, string cep, string email, DateTime dataCadastro, string telefone)
         {
             Desenvolvedora desenvolvedora = new Desenvolvedora(-1,nome, cnpj, endereco, cep, email, telefone);
             Desenvolvedoras.Add(desenvolvedora);
         }
-        public void CadastrarTransportadora(string cnpj, string nome, string email, string telefone, int tempo)
+        public void CadastrarTransportadora(string cnpj, string nome, string email, string telefone,string endereco, int tempo)
         {
-            Transportadora transportadora = new Transportadora(-1,cnpj, nome, email, telefone, email, tempo);
+            Transportadora transportadora = new Transportadora(-1,cnpj, nome, email, telefone,endereco,tempo);
             Transportadoras.Add(transportadora);
         }
         public void CadastrarJogo(string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, double valor,string requisitosMinimos, double avaliacao, string comentarios, bool disponivel,string tipo)

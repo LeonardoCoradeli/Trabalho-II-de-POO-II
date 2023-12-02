@@ -15,14 +15,14 @@ namespace Trabalho_II_de_POO_II.GUI
     public partial class Tela_Principal : Form
     {
         private ControladorJogo controladorJogo { get;set;}
-        private ControladorUsuario controladorUsuario { get;set;}
+        //private ControladorUsuario controladorUsuario { get;set;}
         private ControladorVendas controladorVendas { get;set;}
 
-        public Tela_Principal(ControladorJogo controladorJ,ControladorUsuario controladorU,ControladorVendas controladorV)
+        public Tela_Principal(ControladorJogo controladorJ,ControladorVendas controladorV)
         {
             //iniciando controladores
             controladorJogo = controladorJ;
-            controladorUsuario = controladorU;
+            //controladorUsuario = controladorU;
             controladorVendas = controladorV;
 
             InitializeComponent();
@@ -56,11 +56,14 @@ namespace Trabalho_II_de_POO_II.GUI
                 string Nome = obterNome(item);
                 string Preco = obterPreco(item).ToString();
 
-                jogosDisponiveis.Items.Add(new ListViewItem
+                ListViewItem listItem = new ListViewItem
                 {
                     Text = $"{Nome}\n{Preco}",
                     Tag = item
-                }) ; 
+                };
+
+                jogosDisponiveis.Items.Add(listItem);
+                jogosDisponiveis.Items[jogosDisponiveis.Items.Count - 1].EnsureVisible();
             }
         }
 
@@ -160,7 +163,7 @@ namespace Trabalho_II_de_POO_II.GUI
                 chbVisualizacaoJogos.Text = "Avaliação";
                 MetodoOrganizacao1 organizacao = new MetodoOrganizacao1();
                 ContextoOrganizacao contexto = new ContextoOrganizacao(organizacao);
-                List<Jogo> jogosOrdenados = contexto.Organizar(controladorJogo.GetTodosJogos());
+                List<Jogo> jogosOrdenados = contexto.Organizar(controladorJogo.GetJogosComprados());
                 JogosComprados.Items.Clear();
                 AdicionarItensJogosComprados(jogosOrdenados, jogo => jogo.Nome, jogo => jogo.Avaliacao.ToString());
             }
@@ -168,7 +171,7 @@ namespace Trabalho_II_de_POO_II.GUI
             {
                 chbVisualizacaoJogos.Text = "Nomes";
                 JogosComprados.Items.Clear();
-                AdicionarItensJogosComprados(controladorJogo.GetTodosJogos(), jogo => jogo.Nome, jogo => jogo.Avaliacao.ToString());
+                AdicionarItensJogosComprados(controladorJogo.GetJogosComprados(), jogo => jogo.Nome, jogo => jogo.Avaliacao.ToString());
             }
         }
 
@@ -203,6 +206,12 @@ namespace Trabalho_II_de_POO_II.GUI
         private void jogosDisponiveis_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Cadastrar_Cliente cadastro = new Cadastrar_Cliente();
+            cadastro.Show();
         }
     }
 }
