@@ -22,7 +22,8 @@ namespace Trabalho_II_de_POO_II.GUI
             InitializeComponent();
             JogosComprados.Items.Clear();
             AdicionarItensJogosComprados(ControladorJogo.GetJogosComprados(),jogo =>jogo.Nome,jogo=>jogo.Avaliacao.ToString());
-            AdicionarItensJogosDisponiveis(ControladorJogo.GetJogosDisponiveis(),jogo=>jogo.Nome, jogo => jogo.Valor);
+            CatalogoJogo.Controls.Clear();
+            AdicionarItensJogosDisponiveis(ControladorJogo.GetJogosDisponiveis(),jogo=>jogo.Nome);
             
         }
 
@@ -40,13 +41,13 @@ namespace Trabalho_II_de_POO_II.GUI
                 JogosComprados.Items.Add(visualizar);
             }
         }
-        private void AdicionarItensJogosDisponiveis(List<Jogo> lista, Func<Jogo, string> obterNome, Func<Jogo, float> obterPreco)
+        private void AdicionarItensJogosDisponiveis(List<Jogo> lista, Func<Jogo, string> obterNome)
         {
             lista = lista.OrderBy(obterNome).ToList();
 
             foreach (var item in lista)
             {
-                CatalogoJogo.Controls.Add(new Jogo_personalizado(item.Codigo,item.Nome,item.Valor,item.Avaliacao));
+                CatalogoJogo.Controls.Add(new Jogo_personalizado(item.Codigo,item.Nome,item.Valor,item.Avaliacao,item.Disponivel));
             }
         }
 
@@ -89,7 +90,61 @@ namespace Trabalho_II_de_POO_II.GUI
 
         private void CBTipoJogo_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ComboBox comboBox = (ComboBox)sender;
+            string selectedItem = (string)comboBox.SelectedItem;
+            int selectedIndex = comboBox.SelectedIndex;
 
+            switch (selectedItem)
+            {
+                case "Ação":
+                {
+                        CatalogoJogo.Controls.Clear();
+                        AdicionarItensJogosDisponiveis(ControladorJogo.ListarJogosPorTipo("Ação"), jogo => jogo.Nome);
+                        break;
+                }
+                case "Aventura":
+                {
+                        CatalogoJogo.Controls.Clear();
+                        AdicionarItensJogosDisponiveis(ControladorJogo.ListarJogosPorTipo("Aventura"), jogo => jogo.Nome);
+                        break;
+                    }
+                case "Corrida":
+                {
+                        CatalogoJogo.Controls.Clear();
+                        AdicionarItensJogosDisponiveis(ControladorJogo.ListarJogosPorTipo("Corrida"), jogo => jogo.Nome);
+                        break;
+                }
+                case "Esporte":
+                {
+                        CatalogoJogo.Controls.Clear();
+                        AdicionarItensJogosDisponiveis(ControladorJogo.ListarJogosPorTipo("Esporte"), jogo => jogo.Nome);
+                        break;
+                }
+                case "RPG":
+                {
+                        CatalogoJogo.Controls.Clear();
+                        AdicionarItensJogosDisponiveis(ControladorJogo.ListarJogosPorTipo("RPG"), jogo => jogo.Nome);
+                        break;
+                }
+                case "Mais Caros":
+                {
+                        CatalogoJogo.Controls.Clear();
+                        AdicionarItensJogosDisponiveis(ControladorJogo.ListarTop10JogosMaisCaros(), jogo => jogo.Nome);
+                        break;
+                }
+                case "Mais Baratos":
+                {
+                        CatalogoJogo.Controls.Clear();
+                        AdicionarItensJogosDisponiveis(ControladorJogo.ListarTop10JogosMenorPreco(), jogo => jogo.Nome);
+                        break;
+                }
+                default:
+                {
+                        CatalogoJogo.Controls.Clear();
+                        AdicionarItensJogosDisponiveis(ControladorJogo.GetJogosDisponiveis(), jogo => jogo.Nome);
+                        break;
+                }
+            }
         }
 
         private void fileSystemWatcher1_Changed(object sender, System.IO.FileSystemEventArgs e)
@@ -200,6 +255,18 @@ namespace Trabalho_II_de_POO_II.GUI
         private void gerenteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Cadastrar_Gerente cadastro = new Cadastrar_Gerente();
+            cadastro.Show();
+        }
+
+        private void desenvolvedoraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Cadastrar_Desenvolvedora cadastro = new Cadastrar_Desenvolvedora();
+            cadastro.Show();
+        }
+
+        private void transportadoraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Cadastrar_Transportadora cadastro = new Cadastrar_Transportadora();
             cadastro.Show();
         }
     }

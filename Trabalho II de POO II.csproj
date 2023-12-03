@@ -88,6 +88,18 @@
     <Compile Include="GUI\Cadastrar_Gerente.Designer.cs">
       <DependentUpon>Cadastrar_Gerente.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Cadastrar_Jogo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Cadastrar_Jogo.Designer.cs">
+      <DependentUpon>Cadastrar_Jogo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Cadastrar_Transportadora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Cadastrar_Transportadora.Designer.cs">
+      <DependentUpon>Cadastrar_Transportadora.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Cartao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Cadastrar_Gerente.resx">
       <DependentUpon>Cadastrar_Gerente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Cadastrar_Transportadora.resx">
+      <DependentUpon>Cadastrar_Transportadora.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Cartao.resx">
       <DependentUpon>Cartao.cs</DependentUpon>

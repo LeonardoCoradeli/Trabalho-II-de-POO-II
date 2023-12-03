@@ -34,15 +34,14 @@ namespace Trabalho_II_de_POO_II.GUI
             this.chbVisualizacaoJogos = new System.Windows.Forms.CheckBox();
             this.TabPrincipal = new System.Windows.Forms.TabControl();
             this.tabComprar = new System.Windows.Forms.TabPage();
-            this.btnBuscarJogo = new System.Windows.Forms.Button();
-            this.CBPrecoJogo = new System.Windows.Forms.ComboBox();
+            this.CatalogoJogo = new System.Windows.Forms.FlowLayoutPanel();
             this.CBTipoJogo = new System.Windows.Forms.ComboBox();
             this.tabCadastrar = new System.Windows.Forms.TabPage();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gerenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.trnasportadoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.transportadoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.desenvolvedoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jogoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabRelatorios = new System.Windows.Forms.TabPage();
@@ -65,7 +64,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.cartãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pixToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
-            this.CatalogoJogo = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnComprar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.TabPrincipal.SuspendLayout();
             this.tabComprar.SuspendLayout();
@@ -125,9 +124,8 @@ namespace Trabalho_II_de_POO_II.GUI
             // 
             // tabComprar
             // 
+            this.tabComprar.Controls.Add(this.btnComprar);
             this.tabComprar.Controls.Add(this.CatalogoJogo);
-            this.tabComprar.Controls.Add(this.btnBuscarJogo);
-            this.tabComprar.Controls.Add(this.CBPrecoJogo);
             this.tabComprar.Controls.Add(this.CBTipoJogo);
             this.tabComprar.Location = new System.Drawing.Point(4, 22);
             this.tabComprar.Name = "tabComprar";
@@ -138,28 +136,12 @@ namespace Trabalho_II_de_POO_II.GUI
             this.tabComprar.UseVisualStyleBackColor = true;
             this.tabComprar.Click += new System.EventHandler(this.TabComprar_Click);
             // 
-            // btnBuscarJogo
+            // CatalogoJogo
             // 
-            this.btnBuscarJogo.Location = new System.Drawing.Point(260, 6);
-            this.btnBuscarJogo.Name = "btnBuscarJogo";
-            this.btnBuscarJogo.Size = new System.Drawing.Size(66, 23);
-            this.btnBuscarJogo.TabIndex = 2;
-            this.btnBuscarJogo.Text = "Buscar";
-            this.btnBuscarJogo.UseVisualStyleBackColor = true;
-            // 
-            // CBPrecoJogo
-            // 
-            this.CBPrecoJogo.FormattingEnabled = true;
-            this.CBPrecoJogo.Items.AddRange(new object[] {
-            "Todos",
-            "Mais Caros",
-            "Mais Baratos"});
-            this.CBPrecoJogo.Location = new System.Drawing.Point(133, 6);
-            this.CBPrecoJogo.Name = "CBPrecoJogo";
-            this.CBPrecoJogo.Size = new System.Drawing.Size(112, 21);
-            this.CBPrecoJogo.TabIndex = 1;
-            this.CBPrecoJogo.Text = "Todos";
-            this.CBPrecoJogo.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.CatalogoJogo.Location = new System.Drawing.Point(1, 34);
+            this.CatalogoJogo.Name = "CatalogoJogo";
+            this.CatalogoJogo.Size = new System.Drawing.Size(634, 389);
+            this.CatalogoJogo.TabIndex = 3;
             // 
             // CBTipoJogo
             // 
@@ -170,7 +152,9 @@ namespace Trabalho_II_de_POO_II.GUI
             "Aventura",
             "RPG",
             "Esporte",
-            "Corrida"});
+            "Corrida",
+            "Mais Caros",
+            "Mais baratos"});
             this.CBTipoJogo.Location = new System.Drawing.Point(6, 6);
             this.CBTipoJogo.Name = "CBTipoJogo";
             this.CBTipoJogo.Size = new System.Drawing.Size(107, 21);
@@ -194,7 +178,7 @@ namespace Trabalho_II_de_POO_II.GUI
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usuarioToolStripMenuItem,
-            this.trnasportadoraToolStripMenuItem,
+            this.transportadoraToolStripMenuItem,
             this.desenvolvedoraToolStripMenuItem,
             this.jogoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(3, 3);
@@ -226,17 +210,19 @@ namespace Trabalho_II_de_POO_II.GUI
             this.clienteToolStripMenuItem.Text = "Cliente";
             this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
             // 
-            // trnasportadoraToolStripMenuItem
+            // transportadoraToolStripMenuItem
             // 
-            this.trnasportadoraToolStripMenuItem.Name = "trnasportadoraToolStripMenuItem";
-            this.trnasportadoraToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
-            this.trnasportadoraToolStripMenuItem.Text = "Trnasportadora";
+            this.transportadoraToolStripMenuItem.Name = "transportadoraToolStripMenuItem";
+            this.transportadoraToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
+            this.transportadoraToolStripMenuItem.Text = "Transportadora";
+            this.transportadoraToolStripMenuItem.Click += new System.EventHandler(this.transportadoraToolStripMenuItem_Click);
             // 
             // desenvolvedoraToolStripMenuItem
             // 
             this.desenvolvedoraToolStripMenuItem.Name = "desenvolvedoraToolStripMenuItem";
             this.desenvolvedoraToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
             this.desenvolvedoraToolStripMenuItem.Text = "Desenvolvedora";
+            this.desenvolvedoraToolStripMenuItem.Click += new System.EventHandler(this.desenvolvedoraToolStripMenuItem_Click);
             // 
             // jogoToolStripMenuItem
             // 
@@ -400,12 +386,14 @@ namespace Trabalho_II_de_POO_II.GUI
             this.fileSystemWatcher1.SynchronizingObject = this;
             this.fileSystemWatcher1.Changed += new System.IO.FileSystemEventHandler(this.fileSystemWatcher1_Changed);
             // 
-            // CatalogoJogo
+            // btnComprar
             // 
-            this.CatalogoJogo.Location = new System.Drawing.Point(1, 34);
-            this.CatalogoJogo.Name = "CatalogoJogo";
-            this.CatalogoJogo.Size = new System.Drawing.Size(634, 389);
-            this.CatalogoJogo.TabIndex = 3;
+            this.btnComprar.Location = new System.Drawing.Point(149, 6);
+            this.btnComprar.Name = "btnComprar";
+            this.btnComprar.Size = new System.Drawing.Size(75, 23);
+            this.btnComprar.TabIndex = 4;
+            this.btnComprar.Text = "Comprar";
+            this.btnComprar.UseVisualStyleBackColor = true;
             // 
             // Tela_Principal
             // 
@@ -442,15 +430,13 @@ namespace Trabalho_II_de_POO_II.GUI
         private System.Windows.Forms.TabPage tabComprar;
         private System.Windows.Forms.TabPage tabCadastrar;
         private System.Windows.Forms.TabPage tabRelatorios;
-        private System.Windows.Forms.Button btnBuscarJogo;
-        private System.Windows.Forms.ComboBox CBPrecoJogo;
         private System.Windows.Forms.ComboBox CBTipoJogo;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gerenteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem trnasportadoraToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem transportadoraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem desenvolvedoraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem jogoToolStripMenuItem;
         private System.Windows.Forms.ListBox Relatorios;
@@ -474,5 +460,6 @@ namespace Trabalho_II_de_POO_II.GUI
         private System.Windows.Forms.CheckBox chbVisualizacaoJogos;
         private System.Windows.Forms.ListView JogosComprados;
         private System.Windows.Forms.FlowLayoutPanel CatalogoJogo;
+        private System.Windows.Forms.Button btnComprar;
     }
 }

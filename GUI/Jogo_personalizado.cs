@@ -12,13 +12,14 @@ namespace Trabalho_II_de_POO_II.GUI
 {
     public partial class Jogo_personalizado : UserControl
     {
-        public Jogo_personalizado(int codigo,string Nome, float preco,float avaliacao)
+        public Jogo_personalizado(int codigo,string Nome, float preco,float avaliacao,bool disponibilidade)
         {
             InitializeComponent();
             codigoJogo.Text = codigo.ToString();
             nomeJogo.Text = Nome;
             precoJogo.Text = preco.ToString("F2");
             avaliacaoJogo.Text = avaliacao.ToString();
+            disponibilidadeJogo.Text = disponibilidade ? "Disponível" : "Indisponível";
         }
 
         private void codigoJogo_Click(object sender, EventArgs e)

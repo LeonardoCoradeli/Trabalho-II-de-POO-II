@@ -33,11 +33,11 @@ namespace Trabalho_II_de_POO_II.GUI
             return Jogos;
         }
 
-        public List<Jogo> ListarJogosPorTipo(List<Jogo> jogos, string tipo)
+        public List<Jogo> ListarJogosPorTipo(string tipo)
         {
             List<Jogo> jogosFiltrados = new List<Jogo>();
 
-            foreach (Jogo jogo in jogos)
+            foreach (Jogo jogo in Jogos)
             {
                 if (jogo.Tipo == tipo)
                 {
@@ -49,31 +49,28 @@ namespace Trabalho_II_de_POO_II.GUI
         }
 
 
-        public List<Jogo> ListarTop10JogosMaisCaros(List<Jogo> jogos)
+        public List<Jogo> ListarTop10JogosMaisCaros()
         {
-            List<Jogo> top10JogosMaisCaros = jogos.OrderByDescending(jogo => jogo.CalcularValor()).Take(10).ToList();
+            List<Jogo> top10JogosMaisCaros = Jogos.OrderByDescending(jogo => jogo.CalcularValor()).Take(10).ToList();
             return top10JogosMaisCaros;
         }
-        public List<Jogo> ListarTop10JogosMenorPreco(List<Jogo> jogos)
+        public List<Jogo> ListarTop10JogosMenorPreco()
         {
-            List<Jogo> top10JogosMenorPreco = jogos.OrderBy(jogo => jogo.CalcularValor()).Take(10).ToList();
+            List<Jogo> top10JogosMenorPreco = Jogos.OrderBy(jogo => jogo.CalcularValor()).Take(10).ToList();
             return top10JogosMenorPreco;
         }
-        public List<string> ListarNomesOrdenadosPorAvaliacao1(List<Jogo> jogos)
+        public List<Jogo> ListarNomesOrdenadosPorAvaliacao1()
         {
             ContextoOrganizacao contexto = new ContextoOrganizacao(new MetodoOrganizacao1());
-            List<Jogo> jogosOrdenados = contexto.Organizar(jogos);
-            List<string> nomesOrdenados = jogosOrdenados.Select(jogo => jogo.Nome).ToList();
+            List<Jogo> jogosOrdenados = contexto.Organizar(Jogos);
             //Ver se vai realmente precisar so do nome
-            return nomesOrdenados;
+            return jogosOrdenados;
         }
-        public List<string> ListarNomesOrdenadosPorAvaliacao2(List<Jogo> jogos)
+        public List<Jogo> ListarNomesOrdenadosPorAvaliacao2()
         {
             ContextoOrganizacao contexto = new ContextoOrganizacao(new MetodoOrganizacao2());
-            List<Jogo> jogosOrdenados = contexto.Organizar(jogos);
-            List<string> nomesOrdenados = jogosOrdenados.Select(jogo => jogo.Nome).ToList();
-            //Ver se vai realmente precisar so do nome
-            return nomesOrdenados;
+            List<Jogo> jogosOrdenados = contexto.Organizar(Jogos);
+            return jogosOrdenados;
         }
         public List<Desenvolvedora> ListarDesenvolvedorasCadastradas()
         {

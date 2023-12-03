@@ -50,25 +50,25 @@ namespace Trabalho_II_de_POO_II.Controllers
             }
             return jogos;
         }
-        public static List<Jogo> ListarJogosPorTipo(List<Jogo> jogos, string tipo)
+        public static List<Jogo> ListarJogosPorTipo(string tipo)
         {
-            return SJE.ListarJogosPorTipo(jogos, tipo);
+            return SJE.ListarJogosPorTipo(tipo);
         }
-        public static List<Jogo> ListarTop10JogosMaisCaros(List<Jogo> jogos)
+        public static List<Jogo> ListarTop10JogosMaisCaros()
         {
-            return SJE.ListarTop10JogosMaisCaros(jogos);
+            return SJE.ListarTop10JogosMaisCaros();
         }
-        public static List<Jogo> ListarTop10JogosMenorPreco(List<Jogo> jogos)
+        public static List<Jogo> ListarTop10JogosMenorPreco()
         {
-            return SJE.ListarTop10JogosMenorPreco(jogos);
+            return SJE.ListarTop10JogosMenorPreco();
         }
-        public static List<string> ListarNomesOrdenadosPorAvaliacao1(List<Jogo> jogos)
+        public static List<Jogo> ListarNomesOrdenadosPorAvaliacao1()
         {
-            return SJE.ListarNomesOrdenadosPorAvaliacao1(jogos);
+            return SJE.ListarNomesOrdenadosPorAvaliacao1();
         }
-        public static List<string> ListarNomesOrdenadosPorAvaliacao2(List<Jogo> jogos)
+        public static List<Jogo> ListarNomesOrdenadosPorAvaliacao2()
         {
-            return SJE.ListarNomesOrdenadosPorAvaliacao2(jogos);
+            return SJE.ListarNomesOrdenadosPorAvaliacao2();
         }
     }
 }

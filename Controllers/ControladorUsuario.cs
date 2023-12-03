@@ -22,7 +22,7 @@ namespace Trabalho_II_de_POO_II.Controllers
         {
             SJE.CadastrarDesenvolvedora(cnpj,nome,email,site,redeSocial,endereco);
         }
-        public static void CadastrarTransportadora(string nome, string cnpj, string endereco, string cep, string email, string telefone,int tempo)
+        public static void CadastrarTransportadora(string nome, string cnpj, string endereco, string email, string telefone,int tempo)
         {
             SJE.CadastrarTransportadora(cnpj, nome, email, telefone,endereco,tempo);
         }

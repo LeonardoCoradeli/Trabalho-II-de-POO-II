@@ -36,6 +36,7 @@
             this.precoJogo = new System.Windows.Forms.Label();
             this.codigoJogo = new System.Windows.Forms.Label();
             this.avaliacaoJogo = new System.Windows.Forms.Label();
+            this.disponibilidadeJogo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,19 +96,30 @@
             this.avaliacaoJogo.TabIndex = 4;
             this.avaliacaoJogo.Text = "Label2";
             // 
+            // disponibilidadeJogo
+            // 
+            this.disponibilidadeJogo.AutoSize = true;
+            this.disponibilidadeJogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.disponibilidadeJogo.Location = new System.Drawing.Point(114, 108);
+            this.disponibilidadeJogo.Name = "disponibilidadeJogo";
+            this.disponibilidadeJogo.Size = new System.Drawing.Size(57, 20);
+            this.disponibilidadeJogo.TabIndex = 5;
+            this.disponibilidadeJogo.Text = "Label2";
+            // 
             // Jogo_personalizado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.disponibilidadeJogo);
             this.Controls.Add(this.avaliacaoJogo);
             this.Controls.Add(this.codigoJogo);
             this.Controls.Add(this.precoJogo);
             this.Controls.Add(this.nomeJogo);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Jogo_personalizado";
-            this.Size = new System.Drawing.Size(201, 108);
+            this.Size = new System.Drawing.Size(201, 137);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -122,5 +134,6 @@
         private System.Windows.Forms.Label precoJogo;
         private System.Windows.Forms.Label codigoJogo;
         private System.Windows.Forms.Label avaliacaoJogo;
+        private System.Windows.Forms.Label disponibilidadeJogo;
     }
 }
