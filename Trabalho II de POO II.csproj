@@ -76,6 +76,12 @@
     <Compile Include="GUI\Cadastrar_Cliente.Designer.cs">
       <DependentUpon>Cadastrar_Cliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Cadastrar_Desenvolvedora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Cadastrar_Desenvolvedora.Designer.cs">
+      <DependentUpon>Cadastrar_Desenvolvedora.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Cadastrar_Gerente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,12 @@
     <Compile Include="GUI\Informacoes_jogo.Designer.cs">
       <DependentUpon>Informacoes_jogo.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Jogo_personalizado.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Jogo_personalizado.Designer.cs">
+      <DependentUpon>Jogo_personalizado.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Tela_Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +144,9 @@
     <EmbeddedResource Include="GUI\Cadastrar_Cliente.resx">
       <DependentUpon>Cadastrar_Cliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Cadastrar_Desenvolvedora.resx">
+      <DependentUpon>Cadastrar_Desenvolvedora.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Cadastrar_Gerente.resx">
       <DependentUpon>Cadastrar_Gerente.cs</DependentUpon>
     </EmbeddedResource>
@@ -146,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Informacoes_jogo.resx">
       <DependentUpon>Informacoes_jogo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Jogo_personalizado.resx">
+      <DependentUpon>Jogo_personalizado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Tela_Principal.resx">
       <DependentUpon>Tela_Principal.cs</DependentUpon>

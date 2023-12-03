@@ -51,8 +51,8 @@ namespace Trabalho_II_de_POO_II.GUI
                 0,
                 epicoCliente.Checked// Endereço
             );
-
-
+            MessageBox.Show("Cliente cadastrado com sucesso!");
+            this.Close();
         }
 
         private void epicoCliente_CheckedChanged(object sender, EventArgs e)

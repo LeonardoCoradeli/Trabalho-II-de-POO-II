@@ -143,4 +143,14 @@ public sealed class Arquivos
             return new List<T>();
         }
     }
+
+    public void SalvarDados(List<Jogo> jogos,List<Usuario> clientes, List<Usuario> gerentes, List<Venda> vendas, List<Desenvolvedora> desenvolvedoras, List<Transportadora> transportadoras)
+    {
+        SalvarJogos(jogos);
+        SalvarClientes(clientes);
+        SalvarGerentes(gerentes);
+        SalvarVendas(vendas);
+        SalvarDesenvolvedoras(desenvolvedoras);
+        SalvarTransportadoras(transportadoras);
+    }
 }

@@ -185,14 +185,14 @@ namespace Trabalho_II_de_POO_II.GUI
             Cliente cliente = new Cliente(-1,nome, cpf, rg, dataNascimento, endereco, cep, email, dataCadastro, nivel, clienteEpico);
             Clientes.Add(cliente);
         }
-        public void CadastrarGerente(string nome, string cpf, string rg, DateTime dataNascimento, string endereco, string cep, string email, double salario, string cargo, DateTime dataContratacao)
+        public void CadastrarGerente(string nome, string cpf, string rg, DateTime dataNascimento, string endereco, string cep, string email, double salario, string pis, DateTime dataContratacao)
         {
-            Gerente gerente = new Gerente(-1,nome, cpf, rg, dataNascimento, endereco, cep, email, salario, cargo, dataContratacao);
+            Gerente gerente = new Gerente(-1,nome, cpf, rg, dataNascimento, endereco, cep, email, salario, pis, dataContratacao);
             Gerentes.Add(gerente);
         }
-        public void CadastrarDesenvolvedora(string nome, string cnpj, string endereco, string cep, string email, DateTime dataCadastro, string telefone)
+        public void CadastrarDesenvolvedora(string cnpj, string nome, string email, string site, string redeSocial, string endereco)
         {
-            Desenvolvedora desenvolvedora = new Desenvolvedora(-1,nome, cnpj, endereco, cep, email, telefone);
+            Desenvolvedora desenvolvedora = new Desenvolvedora(-1,cnpj, nome, email, site, redeSocial, endereco);
             Desenvolvedoras.Add(desenvolvedora);
         }
         public void CadastrarTransportadora(string cnpj, string nome, string email, string telefone,string endereco, int tempo)

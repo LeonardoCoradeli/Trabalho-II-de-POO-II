@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,18 +9,18 @@ namespace Trabalho_II_de_POO_II.Controllers
 {
     public static class ControladorUsuario
     {
-        private static  SistemaJogosEletronicos SJE;
+        public static  SistemaJogosEletronicos SJE;
         public static void CadastrarCliente(string nome, string cpf, string rg, DateTime dataNascimento, string endereco, string cep, string email, DateTime dataCadastro, int nivel, bool clienteEpico)
         {
             SJE.CadastrarCliente(nome, cpf, rg, dataNascimento, endereco, cep, email, dataCadastro, nivel, clienteEpico);
         }
-        public static void CadastrarGerente(string nome, string cpf, string rg, DateTime dataNascimento, string endereco, string cep, string email, double salario, string cargo, DateTime dataContratacao)
+        public static void CadastrarGerente(string nome, string cpf, string rg, DateTime dataNascimento, string endereco, string cep, string email, double salario, string pis, DateTime dataContratacao)
         {
-            SJE.CadastrarGerente(nome, cpf, rg, dataNascimento, endereco, cep, email, salario, cargo, dataContratacao);
+            SJE.CadastrarGerente(nome,cpf,rg,dataNascimento,endereco,cep,email,salario,pis,dataContratacao);
         }
-        public static void CadastrarDesenvolvedora(string nome, string cnpj, string endereco, string cep, string email, DateTime dataCadastro, string telefone)
+        public static void CadastrarDesenvolvedora(string cnpj,string nome,string email,string site, string redeSocial, string endereco)
         {
-            SJE.CadastrarDesenvolvedora(nome, cnpj, endereco, cep, email, dataCadastro, telefone);
+            SJE.CadastrarDesenvolvedora(cnpj,nome,email,site,redeSocial,endereco);
         }
         public static void CadastrarTransportadora(string nome, string cnpj, string endereco, string cep, string email, string telefone,int tempo)
         {

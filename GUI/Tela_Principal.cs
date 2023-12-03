@@ -14,22 +14,15 @@ namespace Trabalho_II_de_POO_II.GUI
 {
     public partial class Tela_Principal : Form
     {
-        private ControladorJogo controladorJogo { get;set;}
-        //private ControladorUsuario controladorUsuario { get;set;}
-        private ControladorVendas controladorVendas { get;set;}
 
-        public Tela_Principal(ControladorJogo controladorJ,ControladorVendas controladorV)
+        public Tela_Principal()
         {
-            //iniciando controladores
-            controladorJogo = controladorJ;
-            //controladorUsuario = controladorU;
-            controladorVendas = controladorV;
+
 
             InitializeComponent();
             JogosComprados.Items.Clear();
-            AdicionarItensJogosComprados(controladorJogo.GetJogosComprados(),jogo =>jogo.Nome,jogo=>jogo.Avaliacao.ToString());
-            jogosDisponiveis.Items.Clear();
-            AdicionarItensJogosDisponiveis(controladorJogo.GetJogosDisponiveis(),jogo=>jogo.Nome, jogo => jogo.Valor);
+            AdicionarItensJogosComprados(ControladorJogo.GetJogosComprados(),jogo =>jogo.Nome,jogo=>jogo.Avaliacao.ToString());
+            AdicionarItensJogosDisponiveis(ControladorJogo.GetJogosDisponiveis(),jogo=>jogo.Nome, jogo => jogo.Valor);
             
         }
 
@@ -50,20 +43,10 @@ namespace Trabalho_II_de_POO_II.GUI
         private void AdicionarItensJogosDisponiveis(List<Jogo> lista, Func<Jogo, string> obterNome, Func<Jogo, float> obterPreco)
         {
             lista = lista.OrderBy(obterNome).ToList();
-            jogosDisponiveis.Font = new Font(jogosDisponiveis.Font.FontFamily, 20);
+
             foreach (var item in lista)
             {
-                string Nome = obterNome(item);
-                string Preco = obterPreco(item).ToString();
-
-                ListViewItem listItem = new ListViewItem
-                {
-                    Text = $"{Nome}\n{Preco}",
-                    Tag = item
-                };
-
-                jogosDisponiveis.Items.Add(listItem);
-                jogosDisponiveis.Items[jogosDisponiveis.Items.Count - 1].EnsureVisible();
+                CatalogoJogo.Controls.Add(new Jogo_personalizado(item.Codigo,item.Nome,item.Valor,item.Avaliacao));
             }
         }
 
@@ -163,7 +146,7 @@ namespace Trabalho_II_de_POO_II.GUI
                 chbVisualizacaoJogos.Text = "Avaliação";
                 MetodoOrganizacao1 organizacao = new MetodoOrganizacao1();
                 ContextoOrganizacao contexto = new ContextoOrganizacao(organizacao);
-                List<Jogo> jogosOrdenados = contexto.Organizar(controladorJogo.GetJogosComprados());
+                List<Jogo> jogosOrdenados = contexto.Organizar(ControladorJogo.GetJogosComprados());
                 JogosComprados.Items.Clear();
                 AdicionarItensJogosComprados(jogosOrdenados, jogo => jogo.Nome, jogo => jogo.Avaliacao.ToString());
             }
@@ -171,7 +154,7 @@ namespace Trabalho_II_de_POO_II.GUI
             {
                 chbVisualizacaoJogos.Text = "Nomes";
                 JogosComprados.Items.Clear();
-                AdicionarItensJogosComprados(controladorJogo.GetJogosComprados(), jogo => jogo.Nome, jogo => jogo.Avaliacao.ToString());
+                AdicionarItensJogosComprados(ControladorJogo.GetJogosComprados(), jogo => jogo.Nome, jogo => jogo.Avaliacao.ToString());
             }
         }
 
@@ -211,6 +194,12 @@ namespace Trabalho_II_de_POO_II.GUI
         private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Cadastrar_Cliente cadastro = new Cadastrar_Cliente();
+            cadastro.Show();
+        }
+
+        private void gerenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Cadastrar_Gerente cadastro = new Cadastrar_Gerente();
             cadastro.Show();
         }
     }

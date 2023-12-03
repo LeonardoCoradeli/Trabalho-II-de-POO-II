@@ -11,11 +11,12 @@ namespace Trabalho_II_de_POO_II.Models
         static void Main()
         {
             SistemaJogosEletronicos sistema = new SistemaJogosEletronicos(Arquivos.Instance);
-            ControladorJogo controlador = new ControladorJogo(sistema);
-            //ControladorUsuario controlador2 = new ControladorUsuario(sistema);
-            ControladorVendas controlador3 = new ControladorVendas(sistema);
-            Tela_Principal tela = new Tela_Principal(controlador,controlador3);
+            ControladorUsuario.SJE = sistema;
+            ControladorJogo.SJE = sistema;
+            ControladorVendas.SJE = sistema;
+            Tela_Principal tela = new Tela_Principal();
             tela.ShowDialog();
-        }
+            Arquivos.Instance.SalvarDados(sistema.Jogos,sistema.Clientes,sistema.Gerentes,sistema.Vendas,sistema.Desenvolvedoras,sistema.Transportadoras);
+        } 
     }
 }

@@ -7,48 +7,45 @@ using Trabalho_II_de_POO_II.GUI;
 
 namespace Trabalho_II_de_POO_II.Controllers
 {
-    public class ControladorVendas
+    public static class ControladorVendas
     {
-        private SistemaJogosEletronicos sistemaJogosEletronicos;
-        public ControladorVendas(SistemaJogosEletronicos sistemaJogosEletronicos)
+        public static SistemaJogosEletronicos SJE { get; set; }
+
+        public static void CadastrarVenda(int codCliente, int codGerente, DateTime dataVenda, List<ItemVenda> itensVenda, Pagamento formaPagamento, Transportadora transportadora = null)
         {
-            this.sistemaJogosEletronicos = sistemaJogosEletronicos;
+            SJE.CadastrarVenda(codCliente, codGerente, dataVenda, itensVenda, formaPagamento, transportadora);
         }
-        public void CadastrarVenda(int codCliente, int codGerente, DateTime dataVenda, List<ItemVenda> itensVenda, Pagamento formaPagamento, Transportadora transportadora = null)
+        public static string buscarVenda(int codigo)
         {
-            sistemaJogosEletronicos.CadastrarVenda(codCliente, codGerente, dataVenda, itensVenda, formaPagamento, transportadora);
+            return SJE.buscarVenda(codigo);
         }
-        public string buscarVenda(int codigo)
+        public static List<Venda> ListarHistoricoVendasCliente(Usuario cliente)
         {
-            return sistemaJogosEletronicos.buscarVenda(codigo);
+            return SJE.ListarHistoricoVendasCliente(cliente);
         }
-        public List<Venda> ListarHistoricoVendasCliente(Usuario cliente)
+        public static List<Venda> ListarTodasVendas()
         {
-            return sistemaJogosEletronicos.ListarHistoricoVendasCliente(cliente);
+            return SJE.ListarTodasVendas();
         }
-        public List<Venda> ListarTodasVendas()
+        public static (float lucro, List<Venda>) CalcularLucroEListarVendasMesEspecifico(int mes, List<Venda> vendas)
         {
-            return sistemaJogosEletronicos.ListarTodasVendas();
+            return SJE.CalcularLucroEListarVendasMesEspecifico(mes, vendas);
         }
-        public (float lucro, List<Venda>) CalcularLucroEListarVendasMesEspecifico(int mes, List<Venda> vendas)
+        public static (float lucro, List<Venda> vendas) ListarVendasECalcularLucroDesenvolvedoraMesEspecifico(string nomeDesenvolvedora, int mes)
         {
-            return sistemaJogosEletronicos.CalcularLucroEListarVendasMesEspecifico(mes, vendas);
+            return SJE.ListarVendasECalcularLucroDesenvolvedoraMesEspecifico(nomeDesenvolvedora, mes);
         }
-        public (float lucro, List<Venda> vendas) ListarVendasECalcularLucroDesenvolvedoraMesEspecifico(string nomeDesenvolvedora, int mes)
+        public static List<Venda> ListarVendasComFormaPagamentoBoleto(List<Venda> vendas)
         {
-            return sistemaJogosEletronicos.ListarVendasECalcularLucroDesenvolvedoraMesEspecifico(nomeDesenvolvedora, mes);
+            return SJE.ListarVendasComFormaPagamentoBoleto(vendas);
         }
-        public List<Venda> ListarVendasComFormaPagamentoBoleto(List<Venda> vendas)
+        public static List<Venda> ListarVendasComFormaPagamentoCartaoCredito(List<Venda> vendas)
         {
-            return sistemaJogosEletronicos.ListarVendasComFormaPagamentoBoleto(vendas);
+            return SJE.ListarVendasComFormaPagamentoCartaoCredito(vendas);
         }
-        public List<Venda> ListarVendasComFormaPagamentoCartaoCredito(List<Venda> vendas)
+        public static List<Venda> ListarVendasComFormaPagamentoPix(List<Venda> vendas)
         {
-            return sistemaJogosEletronicos.ListarVendasComFormaPagamentoCartaoCredito(vendas);
-        }
-        public List<Venda> ListarVendasComFormaPagamentoPix(List<Venda> vendas)
-        {
-            return sistemaJogosEletronicos.ListarVendasComFormaPagamentoPix(vendas);
+            return SJE.ListarVendasComFormaPagamentoPix(vendas);
         }
     }
 }
