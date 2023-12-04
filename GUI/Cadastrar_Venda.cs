@@ -17,6 +17,7 @@ namespace Trabalho_II_de_POO_II.GUI
         {
             InitializeComponent();
             PreencherComboBoxComClientes();
+            PreencherComboBoxComGerentes();
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -39,12 +40,39 @@ namespace Trabalho_II_de_POO_II.GUI
 
         }
         
-        private void PreencherComboBoxComClientes()
+        void PreencherComboBoxComClientes()
         {
             List<Usuario> clientes = ControladorUsuario.listarClientes();
 
             CCliente.DataSource = clientes;
-            CCliente.DisplayMember = "Nome";
+            CCliente.DisplayMember = "Codigo";
+            CCliente.ValueMember = "Nome";
+
+            CCliente.SelectedIndexChanged += (sender, e) =>
+            {
+                var selectedCliente = CCliente.SelectedItem as Usuario;
+                if (selectedCliente != null)
+                {
+                    ClienteLabel.Text = selectedCliente.Nome;
+                }
+            };
+        }
+        void PreencherComboBoxComGerentes()
+        {
+            List<Usuario> gerentes = ControladorUsuario.listarGerentes();
+
+            CGerente.DataSource = gerentes;
+            CGerente.DisplayMember = "Codigo";
+            CGerente.ValueMember = "Nome";
+
+            CGerente.SelectedIndexChanged += (sender, e) =>
+            {
+                var selectedGerente = CGerente.SelectedItem as Usuario;
+                if (selectedGerente != null)
+                {
+                    GerenteLabel.Text = selectedGerente.Nome;
+                }
+            };
         }
     }
 }

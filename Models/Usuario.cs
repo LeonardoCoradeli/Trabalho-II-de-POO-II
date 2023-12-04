@@ -11,7 +11,7 @@ namespace Trabalho_II_de_POO_II.GUI
     public abstract class Usuario
     {
         public int Codigo { get; protected set; }
-        protected string Nome { get; set; }
+        public string Nome { get; protected set; }
         protected string CPF { get; set; }
         protected string RG { get; set; }
         protected DateTime DataNascimento { get; set; }

@@ -30,10 +30,10 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.ClienteLabel = new System.Windows.Forms.Label();
             this.CCliente = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.CGerente = new System.Windows.Forms.ComboBox();
+            this.GerenteLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -74,15 +74,14 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Cliente:";
             // 
-            // label2
+            // ClienteLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(259, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 16);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "label2";
+            this.ClienteLabel.AutoSize = true;
+            this.ClienteLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClienteLabel.Location = new System.Drawing.Point(259, 13);
+            this.ClienteLabel.Name = "ClienteLabel";
+            this.ClienteLabel.Size = new System.Drawing.Size(0, 16);
+            this.ClienteLabel.TabIndex = 2;
             // 
             // CCliente
             // 
@@ -94,25 +93,24 @@
             this.CCliente.TabIndex = 3;
             this.CCliente.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // comboBox2
+            // CGerente
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(103, 40);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
-            this.comboBox2.TabIndex = 6;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.CGerente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CGerente.FormattingEnabled = true;
+            this.CGerente.Location = new System.Drawing.Point(103, 40);
+            this.CGerente.Name = "CGerente";
+            this.CGerente.Size = new System.Drawing.Size(121, 24);
+            this.CGerente.TabIndex = 6;
+            this.CGerente.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
-            // label3
+            // GerenteLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(259, 43);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 16);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "label3";
+            this.GerenteLabel.AutoSize = true;
+            this.GerenteLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GerenteLabel.Location = new System.Drawing.Point(259, 43);
+            this.GerenteLabel.Name = "GerenteLabel";
+            this.GerenteLabel.Size = new System.Drawing.Size(0, 16);
+            this.GerenteLabel.TabIndex = 5;
             // 
             // label4
             // 
@@ -290,11 +288,11 @@
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.CGerente);
+            this.Controls.Add(this.GerenteLabel);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.CCliente);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.ClienteLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Cadastrar_Venda";
@@ -311,10 +309,10 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label ClienteLabel;
         private System.Windows.Forms.ComboBox CCliente;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox CGerente;
+        private System.Windows.Forms.Label GerenteLabel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
