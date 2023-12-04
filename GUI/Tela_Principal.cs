@@ -274,9 +274,12 @@ namespace Trabalho_II_de_POO_II.GUI
         {
             Cadastrar_Jogo cadastro = new Cadastrar_Jogo();
             cadastro.Show();
-            Cadastrar_ItemVenda cadastro2 = new Cadastrar_ItemVenda(1,1.2,1,true); 
-            
-            ItemVenda.Controls.Add(cadastro2);
+        }
+
+        private void btnComprar_Click(object sender, EventArgs e)
+        {
+            Cadastrar_Venda cadastro = new Cadastrar_Venda();
+            cadastro.Show();
         }
     }
 }

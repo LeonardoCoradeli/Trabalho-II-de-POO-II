@@ -144,6 +144,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.btnComprar.TabIndex = 4;
             this.btnComprar.Text = "Comprar";
             this.btnComprar.UseVisualStyleBackColor = true;
+            this.btnComprar.Click += new System.EventHandler(this.btnComprar_Click);
             // 
             // CatalogoJogo
             // 

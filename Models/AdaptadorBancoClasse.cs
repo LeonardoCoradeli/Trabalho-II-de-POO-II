@@ -12,7 +12,7 @@ namespace Trabalho_II_de_POO_II.Models
 { 
     public class AdaptadorBancoDados
     {
-        public AdaptadorBancoDados()
+      public AdaptadorBancoDados()
         {
 
         }

@@ -37,22 +37,7 @@ namespace Trabalho_II_de_POO_II.GUI
 
         private void btnCadastrarCliente_Click(object sender, EventArgs e)
         {
-            List<object> campos = new List<object> { nomeCliente.Text, cpfCliente.ValidateText(), rgCliente.ValidateText(), dataNascCliente.ValidateText(), cepCliente.ValidateText(), emailCliente.ValidateText(), enderecoCliente.ValidateText()};
-            VerificarVazio.verificarVazio(campos);
-            ControladorUsuario.CadastrarCliente(
-                (string)campos[0],  // Nome
-                (string)campos[1],  // CPF
-                (string)campos[2],  // RG
-                (DateTime)campos[3],  // Data de Nascimento
-                (string)campos[6],
-                (string)campos[4],  // CEP
-                (string)campos[5],  // E-mail
-                DateTime.Now,
-                0,
-                epicoCliente.Checked// Endereço
-            );
-            MessageBox.Show("Cliente cadastrado com sucesso!");
-            this.Close();
+            
         }
 
         private void epicoCliente_CheckedChanged(object sender, EventArgs e)
@@ -123,6 +108,26 @@ namespace Trabalho_II_de_POO_II.GUI
         private void nomeCliente_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCadastrarCliente_Click_1(object sender, EventArgs e)
+        {
+            List<object> campos = new List<object> { nomeCliente.Text, cpfCliente.ValidateText(), rgCliente.ValidateText(), dataNascCliente.ValidateText(), cepCliente.ValidateText(), emailCliente.ValidateText(), enderecoCliente.ValidateText() };
+            VerificarVazio.verificarVazio(campos);
+            ControladorUsuario.CadastrarCliente(
+                (string)campos[0],  // Nome
+                (string)campos[1],  // CPF
+                (string)campos[2],  // RG
+                (DateTime)campos[3],  // Data de Nascimento
+                (string)campos[6],
+                (string)campos[4],  // CEP
+                (string)campos[5],  // E-mail
+                DateTime.Now,
+                0,
+                epicoCliente.Checked// Endereço
+            );
+            MessageBox.Show("Cliente cadastrado com sucesso!");
+            this.Close();
         }
     }
 }

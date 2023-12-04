@@ -66,14 +66,14 @@ public sealed class Arquivos
         return RecuperarLista<Transportadora>(caminhoArquivotransportadora);
     }
 
-    public void SalvarVendas(List<Cadastrar_Venda> listaVendas)
+    public void SalvarVendas(List<Venda> listaVendas)
     {
         SalvarLista(listaVendas, caminhoArquivoVenda);
     }
 
-    public List<Cadastrar_Venda> RecuperarVendas()
+    public List<Venda> RecuperarVendas()
     {
-        return RecuperarLista<Cadastrar_Venda>(caminhoArquivoVenda);
+        return RecuperarLista<Venda>(caminhoArquivoVenda);
     }
 
     public void SalvarClientes(List<Usuario> listaClientes)
@@ -144,7 +144,7 @@ public sealed class Arquivos
         }
     }
 
-    public void SalvarDados(List<Jogo> jogos,List<Usuario> clientes, List<Usuario> gerentes, List<Cadastrar_Venda> vendas, List<Desenvolvedora> desenvolvedoras, List<Transportadora> transportadoras)
+    public void SalvarDados(List<Jogo> jogos,List<Usuario> clientes, List<Usuario> gerentes, List<Venda> vendas, List<Desenvolvedora> desenvolvedoras, List<Transportadora> transportadoras)
     {
         SalvarJogos(jogos);
         SalvarClientes(clientes);

@@ -70,7 +70,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 16);
+            this.label1.Size = new System.Drawing.Size(47, 16);
             this.label1.TabIndex = 2;
             this.label1.Text = "Nome:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -81,7 +81,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 40);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 16);
+            this.label2.Size = new System.Drawing.Size(36, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "CPF:";
             // 
@@ -91,7 +91,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(12, 68);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 16);
+            this.label3.Size = new System.Drawing.Size(30, 16);
             this.label3.TabIndex = 4;
             this.label3.Text = "RG:";
             // 
@@ -118,7 +118,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(326, 68);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 16);
+            this.label4.Size = new System.Drawing.Size(69, 16);
             this.label4.TabIndex = 8;
             this.label4.Text = "Endereço:";
             // 
@@ -128,7 +128,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(12, 96);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 16);
+            this.label5.Size = new System.Drawing.Size(98, 16);
             this.label5.TabIndex = 7;
             this.label5.Text = "Dada de Nasc:";
             // 
@@ -156,7 +156,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(326, 37);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(45, 16);
+            this.label8.Size = new System.Drawing.Size(44, 16);
             this.label8.TabIndex = 16;
             this.label8.Text = "Email:";
             // 
@@ -166,7 +166,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(326, 9);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(38, 16);
+            this.label9.Size = new System.Drawing.Size(37, 16);
             this.label9.TabIndex = 15;
             this.label9.Text = "CEP:";
             // 
@@ -185,7 +185,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.epicoCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.epicoCliente.Location = new System.Drawing.Point(377, 96);
             this.epicoCliente.Name = "epicoCliente";
-            this.epicoCliente.Size = new System.Drawing.Size(69, 20);
+            this.epicoCliente.Size = new System.Drawing.Size(68, 20);
             this.epicoCliente.TabIndex = 19;
             this.epicoCliente.Text = "Épico?";
             this.epicoCliente.UseVisualStyleBackColor = true;
@@ -198,6 +198,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.btnCadastrarCliente.TabIndex = 20;
             this.btnCadastrarCliente.Text = "Cadastrar";
             this.btnCadastrarCliente.UseVisualStyleBackColor = true;
+            this.btnCadastrarCliente.Click += new System.EventHandler(this.btnCadastrarCliente_Click_1);
             // 
             // Cadastrar_Cliente
             // 

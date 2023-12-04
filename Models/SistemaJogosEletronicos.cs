@@ -10,7 +10,7 @@ namespace Trabalho_II_de_POO_II.GUI
     public class SistemaJogosEletronicos
     {
         public string NomePlataforma { get; set; }
-        public List<Cadastrar_Venda> Vendas { get; set; }
+        public List<Venda> Vendas { get; set; }
         public List<Jogo> Jogos { get; set; }
         public List<Desenvolvedora> Desenvolvedoras { get; set; }
         public List<Transportadora> Transportadoras { get; set; }
@@ -125,24 +125,24 @@ namespace Trabalho_II_de_POO_II.GUI
             List<Cliente> top10ClientesMaiorNivel = clientes.OrderByDescending(cliente => cliente.Nivel).Take(10).ToList();
             return top10ClientesMaiorNivel;
         }
-        public List<Cadastrar_Venda> ListarHistoricoVendasCliente(Usuario cliente)
+        public List<Venda> ListarHistoricoVendasCliente(Usuario cliente)
         {
-            List<Cadastrar_Venda> historicoVendas = Vendas.Where(venda => venda.Cliente == cliente).ToList();
+            List<Venda> historicoVendas = Vendas.Where(venda => venda.Cliente == cliente).ToList();
             return historicoVendas;
         }
-        public List<Cadastrar_Venda> ListarTodasVendas()
+        public List<Venda> ListarTodasVendas()
         {
             return Vendas;
         }
-        public (float lucro, List<Cadastrar_Venda>) CalcularLucroEListarVendasMesEspecifico(int mes, List<Cadastrar_Venda> vendas)
+        public (float lucro, List<Venda>) CalcularLucroEListarVendasMesEspecifico(int mes, List<Venda> vendas)
         {
-            List<Cadastrar_Venda> vendasMesEspecifico = vendas.Where(venda => venda.DataVenda.Month == mes).ToList();
+            List<Venda> vendasMesEspecifico = vendas.Where(venda => venda.DataVenda.Month == mes).ToList();
             float lucroMesEspecifico = vendasMesEspecifico.Sum(venda => venda.CalcularValorTotal());
             return (lucroMesEspecifico, vendasMesEspecifico);
         }
-        public (float lucro, List<Cadastrar_Venda> vendas) ListarVendasECalcularLucroDesenvolvedoraMesEspecifico(string nomeDesenvolvedora, int mes)
+        public (float lucro, List<Venda> vendas) ListarVendasECalcularLucroDesenvolvedoraMesEspecifico(string nomeDesenvolvedora, int mes)
         {
-            List<Cadastrar_Venda> vendasDaDesenvolvedoraNoMes = new List<Cadastrar_Venda>();
+            List<Venda> vendasDaDesenvolvedoraNoMes = new List<Venda>();
 
             foreach (var venda in Vendas)
             {
@@ -160,20 +160,20 @@ namespace Trabalho_II_de_POO_II.GUI
             return (lucroTotal, vendasDaDesenvolvedoraNoMes);
         }
 
-        public List<Cadastrar_Venda> ListarVendasComFormaPagamentoBoleto(List<Cadastrar_Venda> vendas)
+        public List<Venda> ListarVendasComFormaPagamentoBoleto(List<Venda> vendas)
         {
-            List<Cadastrar_Venda> vendasComFormaPagamentoBoleto = vendas.Where(venda => venda.FormaPagamento is Boleto).ToList();
+            List<Venda> vendasComFormaPagamentoBoleto = vendas.Where(venda => venda.FormaPagamento is Boleto).ToList();
             return vendasComFormaPagamentoBoleto;
         }
-        public List<Cadastrar_Venda> ListarVendasComFormaPagamentoCartaoCredito(List<Cadastrar_Venda> vendas)
+        public List<Venda> ListarVendasComFormaPagamentoCartaoCredito(List<Venda> vendas)
         {
-            List<Cadastrar_Venda> vendasComFormaPagamentoCartaoCredito = vendas.Where(venda => venda.FormaPagamento is CartaoCredito).ToList();
+            List<Venda> vendasComFormaPagamentoCartaoCredito = vendas.Where(venda => venda.FormaPagamento is CartaoCredito).ToList();
             return vendasComFormaPagamentoCartaoCredito;
         }
 
-        public List<Cadastrar_Venda> ListarVendasComFormaPagamentoPix(List<Cadastrar_Venda> vendas)
+        public List<Venda> ListarVendasComFormaPagamentoPix(List<Venda> vendas)
         {
-            List<Cadastrar_Venda> vendasComFormaPagamentoPix = vendas.Where(venda => venda.FormaPagamento is Pix).ToList();
+            List<Venda> vendasComFormaPagamentoPix = vendas.Where(venda => venda.FormaPagamento is Pix).ToList();
             return vendasComFormaPagamentoPix;
         }
 
@@ -263,12 +263,12 @@ namespace Trabalho_II_de_POO_II.GUI
             }
             return "Não encontrado";
         }
-        public void CadastrarVenda(int codCliente, int codGerente, DateTime dataVenda, List<Cadastrar_ItemVenda> itensVenda, Pagamento formaPagamento, Transportadora transportadora = null)
+        public void CadastrarVenda(int codCliente, int codGerente, DateTime dataVenda, List<ItemVenda> itensVenda, Pagamento formaPagamento, Transportadora transportadora = null)
         {
             Cliente cliente = (Cliente) Clientes.Find(escolherClente => escolherClente.Codigo == codCliente);
             Gerente gerente = (Gerente) Gerentes.Find(escolherGerente => escolherGerente.Codigo == codGerente);
 
-            Cadastrar_Venda venda = new Venda(-1,cliente,gerente,dataVenda);
+            Venda venda = new Venda(-1,cliente,gerente,dataVenda);
             venda.ItensVenda = itensVenda;
             venda.CalcularValorTotal();
             venda.CalcularValorComDesconto();
@@ -281,7 +281,7 @@ namespace Trabalho_II_de_POO_II.GUI
 
         public string buscarVenda(int codigo)
         {
-            foreach (Cadastrar_Venda venda in Vendas)
+            foreach (Venda venda in Vendas)
             {
                 if (venda.Codigo == codigo)
                 {
