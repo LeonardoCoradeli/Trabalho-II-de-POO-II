@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.Label = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.valorProduto = new System.Windows.Forms.Label();
             this.codigoProduto = new System.Windows.Forms.Label();
@@ -38,14 +38,14 @@
             this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // Label
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Código:";
+            this.Label.AutoSize = true;
+            this.Label.Location = new System.Drawing.Point(4, 11);
+            this.Label.Name = "Label";
+            this.Label.Size = new System.Drawing.Size(43, 13);
+            this.Label.TabIndex = 0;
+            this.Label.Text = "Código:";
             // 
             // label2
             // 
@@ -110,7 +110,7 @@
             this.label8.TabIndex = 6;
             this.label8.Text = "Fisico:";
             // 
-            // ItemVenda
+            // Cadastrar_ItemVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -121,9 +121,10 @@
             this.Controls.Add(this.codigoProduto);
             this.Controls.Add(this.valorProduto);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Name = "ItemVenda";
+            this.Controls.Add(this.Label);
+            this.Name = "Cadastrar_ItemVenda";
             this.Size = new System.Drawing.Size(132, 110);
+            this.Load += new System.EventHandler(this.Cadastrar_ItemVenda_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,7 +132,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Label;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label valorProduto;
         private System.Windows.Forms.Label codigoProduto;

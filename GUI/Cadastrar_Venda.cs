@@ -18,6 +18,8 @@ namespace Trabalho_II_de_POO_II.GUI
             InitializeComponent();
             PreencherComboBoxComClientes();
             PreencherComboBoxComGerentes();
+            PreencherComboBoxComTransportadoras();
+            PreencherComboBoxComJogos();
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -73,6 +75,48 @@ namespace Trabalho_II_de_POO_II.GUI
                     GerenteLabel.Text = selectedGerente.Nome;
                 }
             };
+        }
+        private void FisicoCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void FisicoCheckBox_CheckedChanged_1(object sender, EventArgs e)
+        {
+            bool isChecked = FisicoCheckBox.Checked;
+
+            LabelTransportadora.Visible = isChecked;
+            CTransportadora.Visible = isChecked;
+            DTLabel.Visible = isChecked;
+            EntregaDT.Visible = isChecked;
+        }
+        void PreencherComboBoxComTransportadoras()
+        {
+            List<Transportadora> transportadoras = ControladorUsuario.listarTransportadoras();
+
+            CTransportadora.DataSource = transportadoras;
+            CTransportadora.DisplayMember = "Nome";
+        }
+
+        private void CTransportadora_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedTransportadora = CTransportadora.SelectedItem as Transportadora;
+            if (selectedTransportadora != null)
+            {
+                EntregaDT.Value = DateTime.Now.AddDays(selectedTransportadora.TempoDeEntrega);
+            }
+        }
+        void PreencherComboBoxComJogos()
+        {
+            List<Jogo> jogos = ControladorJogo.GetTodosJogos();
+
+            CJogos.DataSource = jogos;
+            CJogos.DisplayMember = "Nome";
+        }
+
+        private void BAdicionar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

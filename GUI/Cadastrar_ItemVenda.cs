@@ -20,5 +20,10 @@ namespace Trabalho_II_de_POO_II.GUI
             quantidadeProduto.Text = quantidade.ToString();
             fisicoProduto.Text = fisico?"Sim":"Não";
         }
+
+        private void Cadastrar_ItemVenda_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

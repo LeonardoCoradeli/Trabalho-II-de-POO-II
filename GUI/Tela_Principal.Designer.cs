@@ -81,7 +81,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.panel1.Controls.Add(this.chbVisualizacaoJogos);
             this.panel1.Location = new System.Drawing.Point(0, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(156, 449);
+            this.panel1.Size = new System.Drawing.Size(156, 604);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -94,7 +94,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.JogosComprados.Location = new System.Drawing.Point(3, 35);
             this.JogosComprados.MultiSelect = false;
             this.JogosComprados.Name = "JogosComprados";
-            this.JogosComprados.Size = new System.Drawing.Size(149, 410);
+            this.JogosComprados.Size = new System.Drawing.Size(149, 561);
             this.JogosComprados.TabIndex = 2;
             this.JogosComprados.UseCompatibleStateImageBehavior = false;
             this.JogosComprados.View = System.Windows.Forms.View.List;
@@ -119,7 +119,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.TabPrincipal.Location = new System.Drawing.Point(158, 1);
             this.TabPrincipal.Name = "TabPrincipal";
             this.TabPrincipal.SelectedIndex = 0;
-            this.TabPrincipal.Size = new System.Drawing.Size(768, 449);
+            this.TabPrincipal.Size = new System.Drawing.Size(1070, 608);
             this.TabPrincipal.TabIndex = 1;
             // 
             // tabComprar
@@ -130,7 +130,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.tabComprar.Location = new System.Drawing.Point(4, 22);
             this.tabComprar.Name = "tabComprar";
             this.tabComprar.Padding = new System.Windows.Forms.Padding(3);
-            this.tabComprar.Size = new System.Drawing.Size(635, 423);
+            this.tabComprar.Size = new System.Drawing.Size(1062, 582);
             this.tabComprar.TabIndex = 0;
             this.tabComprar.Text = "Comprar";
             this.tabComprar.UseVisualStyleBackColor = true;
@@ -150,7 +150,7 @@ namespace Trabalho_II_de_POO_II.GUI
             // 
             this.CatalogoJogo.Location = new System.Drawing.Point(1, 34);
             this.CatalogoJogo.Name = "CatalogoJogo";
-            this.CatalogoJogo.Size = new System.Drawing.Size(634, 389);
+            this.CatalogoJogo.Size = new System.Drawing.Size(1058, 545);
             this.CatalogoJogo.TabIndex = 3;
             // 
             // CBTipoJogo
@@ -179,7 +179,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.tabCadastrar.Location = new System.Drawing.Point(4, 22);
             this.tabCadastrar.Name = "tabCadastrar";
             this.tabCadastrar.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCadastrar.Size = new System.Drawing.Size(635, 423);
+            this.tabCadastrar.Size = new System.Drawing.Size(1062, 582);
             this.tabCadastrar.TabIndex = 1;
             this.tabCadastrar.Text = "Cadastrar";
             this.tabCadastrar.UseVisualStyleBackColor = true;
@@ -193,7 +193,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.jogoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(3, 3);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(629, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1056, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -248,7 +248,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.tabRelatorios.Location = new System.Drawing.Point(4, 22);
             this.tabRelatorios.Name = "tabRelatorios";
             this.tabRelatorios.Padding = new System.Windows.Forms.Padding(3);
-            this.tabRelatorios.Size = new System.Drawing.Size(760, 423);
+            this.tabRelatorios.Size = new System.Drawing.Size(1062, 582);
             this.tabRelatorios.TabIndex = 2;
             this.tabRelatorios.Text = "Relatorios";
             this.tabRelatorios.UseVisualStyleBackColor = true;
@@ -256,12 +256,11 @@ namespace Trabalho_II_de_POO_II.GUI
             // 
             // Relatorios
             // 
-            this.Relatorios.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.Relatorios.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.Relatorios.FormattingEnabled = true;
-            this.Relatorios.ItemHeight = 12;
             this.Relatorios.Location = new System.Drawing.Point(0, 111);
             this.Relatorios.Name = "Relatorios";
-            this.Relatorios.Size = new System.Drawing.Size(760, 316);
+            this.Relatorios.Size = new System.Drawing.Size(1062, 472);
             this.Relatorios.TabIndex = 0;
             this.Relatorios.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged_1);
             // 
@@ -275,7 +274,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.vendasToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(3, 3);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(754, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(1056, 24);
             this.menuStrip2.TabIndex = 1;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -404,7 +403,7 @@ namespace Trabalho_II_de_POO_II.GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(928, 450);
+            this.ClientSize = new System.Drawing.Size(1230, 609);
             this.Controls.Add(this.TabPrincipal);
             this.Controls.Add(this.panel1);
             this.MainMenuStrip = this.menuStrip1;
