@@ -38,13 +38,13 @@ namespace Trabalho_II_de_POO_II.GUI
             this.enderecoCliente = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.dataNascCliente = new System.Windows.Forms.MaskedTextBox();
             this.emailCliente = new System.Windows.Forms.MaskedTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.cepCliente = new System.Windows.Forms.MaskedTextBox();
             this.epicoCliente = new System.Windows.Forms.CheckBox();
             this.btnCadastrarCliente = new System.Windows.Forms.Button();
+            this.dataNascimentoCliente = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // nomeCliente
@@ -132,16 +132,6 @@ namespace Trabalho_II_de_POO_II.GUI
             this.label5.TabIndex = 7;
             this.label5.Text = "Dada de Nasc:";
             // 
-            // dataNascCliente
-            // 
-            this.dataNascCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataNascCliente.Location = new System.Drawing.Point(117, 93);
-            this.dataNascCliente.Mask = "00/00/0000";
-            this.dataNascCliente.Name = "dataNascCliente";
-            this.dataNascCliente.Size = new System.Drawing.Size(166, 22);
-            this.dataNascCliente.TabIndex = 6;
-            this.dataNascCliente.ValidatingType = typeof(System.DateTime);
-            // 
             // emailCliente
             // 
             this.emailCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -200,11 +190,21 @@ namespace Trabalho_II_de_POO_II.GUI
             this.btnCadastrarCliente.UseVisualStyleBackColor = true;
             this.btnCadastrarCliente.Click += new System.EventHandler(this.btnCadastrarCliente_Click_1);
             // 
+            // dataNascimentoCliente
+            // 
+            this.dataNascimentoCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataNascimentoCliente.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dataNascimentoCliente.Location = new System.Drawing.Point(117, 95);
+            this.dataNascimentoCliente.Name = "dataNascimentoCliente";
+            this.dataNascimentoCliente.Size = new System.Drawing.Size(166, 22);
+            this.dataNascimentoCliente.TabIndex = 21;
+            // 
             // Cadastrar_Cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(574, 192);
+            this.Controls.Add(this.dataNascimentoCliente);
             this.Controls.Add(this.btnCadastrarCliente);
             this.Controls.Add(this.epicoCliente);
             this.Controls.Add(this.emailCliente);
@@ -214,7 +214,6 @@ namespace Trabalho_II_de_POO_II.GUI
             this.Controls.Add(this.enderecoCliente);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dataNascCliente);
             this.Controls.Add(this.rgCliente);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -240,12 +239,12 @@ namespace Trabalho_II_de_POO_II.GUI
         private System.Windows.Forms.MaskedTextBox enderecoCliente;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.MaskedTextBox dataNascCliente;
         private System.Windows.Forms.MaskedTextBox emailCliente;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.MaskedTextBox cepCliente;
         private System.Windows.Forms.CheckBox epicoCliente;
         private System.Windows.Forms.Button btnCadastrarCliente;
+        private System.Windows.Forms.DateTimePicker dataNascimentoCliente;
     }
 }
