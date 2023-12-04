@@ -46,7 +46,6 @@ namespace Trabalho_II_de_POO_II.GUI
             this.desenvolvedoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jogoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabRelatorios = new System.Windows.Forms.TabPage();
-            this.Relatorios = new System.Windows.Forms.ListBox();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.desenvolvedorasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.todasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,6 +64,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.cartãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pixToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            this.Relatorios = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             this.TabPrincipal.SuspendLayout();
             this.tabComprar.SuspendLayout();
@@ -254,15 +254,6 @@ namespace Trabalho_II_de_POO_II.GUI
             this.tabRelatorios.UseVisualStyleBackColor = true;
             this.tabRelatorios.Click += new System.EventHandler(this.tabRelatorios_Click);
             // 
-            // Relatorios
-            // 
-            this.Relatorios.FormattingEnabled = true;
-            this.Relatorios.Location = new System.Drawing.Point(1, 108);
-            this.Relatorios.Name = "Relatorios";
-            this.Relatorios.Size = new System.Drawing.Size(595, 316);
-            this.Relatorios.TabIndex = 0;
-            this.Relatorios.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged_1);
-            // 
             // menuStrip2
             // 
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -331,7 +322,7 @@ namespace Trabalho_II_de_POO_II.GUI
             // todosToolStripMenuItem
             // 
             this.todosToolStripMenuItem.Name = "todosToolStripMenuItem";
-            this.todosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.todosToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.todosToolStripMenuItem.Text = "Todos";
             this.todosToolStripMenuItem.Click += new System.EventHandler(this.todosToolStripMenuItem_Click);
             // 
@@ -398,6 +389,17 @@ namespace Trabalho_II_de_POO_II.GUI
             this.fileSystemWatcher1.SynchronizingObject = this;
             this.fileSystemWatcher1.Changed += new System.IO.FileSystemEventHandler(this.fileSystemWatcher1_Changed);
             // 
+            // Relatorios
+            // 
+            this.Relatorios.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.Relatorios.FormattingEnabled = true;
+            this.Relatorios.ItemHeight = 12;
+            this.Relatorios.Location = new System.Drawing.Point(1, 108);
+            this.Relatorios.Name = "Relatorios";
+            this.Relatorios.Size = new System.Drawing.Size(634, 316);
+            this.Relatorios.TabIndex = 0;
+            this.Relatorios.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged_1);
+            // 
             // Tela_Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -442,7 +444,6 @@ namespace Trabalho_II_de_POO_II.GUI
         private System.Windows.Forms.ToolStripMenuItem transportadoraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem desenvolvedoraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem jogoToolStripMenuItem;
-        private System.Windows.Forms.ListBox Relatorios;
         private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripMenuItem desenvolvedorasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem maisJogosToolStripMenuItem;
@@ -464,5 +465,6 @@ namespace Trabalho_II_de_POO_II.GUI
         private System.Windows.Forms.ListView JogosComprados;
         private System.Windows.Forms.FlowLayoutPanel CatalogoJogo;
         private System.Windows.Forms.Button btnComprar;
+        private System.Windows.Forms.ListBox Relatorios;
     }
 }

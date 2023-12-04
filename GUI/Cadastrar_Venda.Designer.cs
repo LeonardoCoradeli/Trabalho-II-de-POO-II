@@ -37,7 +37,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.FisicoCheckBox = new System.Windows.Forms.CheckBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
@@ -46,9 +46,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.LabelTransportadora = new System.Windows.Forms.Label();
+            this.CTransportadora = new System.Windows.Forms.ComboBox();
+            this.DTLabel = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -141,16 +141,16 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(121, 22);
             this.dateTimePicker1.TabIndex = 8;
             // 
-            // checkBox1
+            // FisicoCheckBox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(16, 163);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(69, 20);
-            this.checkBox1.TabIndex = 9;
-            this.checkBox1.Text = "Fisico?";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.FisicoCheckBox.AutoSize = true;
+            this.FisicoCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FisicoCheckBox.Location = new System.Drawing.Point(16, 163);
+            this.FisicoCheckBox.Name = "FisicoCheckBox";
+            this.FisicoCheckBox.Size = new System.Drawing.Size(69, 20);
+            this.FisicoCheckBox.TabIndex = 9;
+            this.FisicoCheckBox.Text = "Fisico?";
+            this.FisicoCheckBox.UseVisualStyleBackColor = true;
             // 
             // comboBox3
             // 
@@ -176,7 +176,11 @@
             // 
             this.comboBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(102, 113);
+            this.comboBox4.Items.AddRange(new object[] {
+            "Boleto",
+            "Pix",
+            "Cartão de Credito"});
+            this.comboBox4.Location = new System.Drawing.Point(103, 113);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(121, 24);
             this.comboBox4.TabIndex = 14;
@@ -232,37 +236,37 @@
             this.textBox1.Size = new System.Drawing.Size(100, 22);
             this.textBox1.TabIndex = 13;
             // 
-            // label9
+            // LabelTransportadora
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(358, 13);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(104, 16);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "Transportadora:";
-            this.label9.Visible = false;
+            this.LabelTransportadora.AutoSize = true;
+            this.LabelTransportadora.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelTransportadora.Location = new System.Drawing.Point(358, 13);
+            this.LabelTransportadora.Name = "LabelTransportadora";
+            this.LabelTransportadora.Size = new System.Drawing.Size(104, 16);
+            this.LabelTransportadora.TabIndex = 16;
+            this.LabelTransportadora.Text = "Transportadora:";
+            this.LabelTransportadora.Visible = false;
             // 
-            // comboBox5
+            // CTransportadora
             // 
-            this.comboBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(468, 10);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(121, 24);
-            this.comboBox5.TabIndex = 17;
-            this.comboBox5.Visible = false;
+            this.CTransportadora.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CTransportadora.FormattingEnabled = true;
+            this.CTransportadora.Location = new System.Drawing.Point(468, 10);
+            this.CTransportadora.Name = "CTransportadora";
+            this.CTransportadora.Size = new System.Drawing.Size(121, 24);
+            this.CTransportadora.TabIndex = 17;
+            this.CTransportadora.Visible = false;
             // 
-            // label10
+            // DTLabel
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(358, 59);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(107, 16);
-            this.label10.TabIndex = 18;
-            this.label10.Text = "Data de entrega:";
-            this.label10.Visible = false;
+            this.DTLabel.AutoSize = true;
+            this.DTLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DTLabel.Location = new System.Drawing.Point(358, 59);
+            this.DTLabel.Name = "DTLabel";
+            this.DTLabel.Size = new System.Drawing.Size(107, 16);
+            this.DTLabel.TabIndex = 18;
+            this.DTLabel.Text = "Data de entrega:";
+            this.DTLabel.Visible = false;
             // 
             // textBox2
             // 
@@ -279,13 +283,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(625, 450);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.comboBox5);
-            this.Controls.Add(this.label9);
+            this.Controls.Add(this.DTLabel);
+            this.Controls.Add(this.CTransportadora);
+            this.Controls.Add(this.LabelTransportadora);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.comboBox4);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.FisicoCheckBox);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.CGerente);
@@ -316,7 +320,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox FisicoCheckBox;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBox4;
@@ -325,9 +329,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label LabelTransportadora;
+        private System.Windows.Forms.ComboBox CTransportadora;
+        private System.Windows.Forms.Label DTLabel;
         private System.Windows.Forms.TextBox textBox2;
     }
 }

@@ -60,7 +60,7 @@ namespace Trabalho_II_de_POO_II.GUI
 
         public override string ToString()
         {
-            return $"Data de Cadastro: {DataCadastro}, Nível: {Nivel}, Cliente Épico: {ClienteEpico}";
+            return $"Usuario: {Nome}, CPF: {CPF}, RG: {RG}, Data de Nascimento: {DataNascimento}, Endereço: {Endereco}, CEP: {Cep}, Email: {Email}Data de Cadastro: {DataCadastro}, Nível: {Nivel}, Cliente Épico: {ClienteEpico}";
         }
     }
 

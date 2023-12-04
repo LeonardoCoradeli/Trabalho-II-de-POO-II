@@ -37,7 +37,6 @@ namespace Trabalho_II_de_POO_II.GUI
             this.enderecoGerente = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.dataNascGerente = new System.Windows.Forms.MaskedTextBox();
             this.rgGerente = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,6 +46,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.pisGerente = new System.Windows.Forms.MaskedTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.dataNascGerente = new System.Windows.Forms.DateTimePicker();
             this.salarioGerente = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -124,16 +124,6 @@ namespace Trabalho_II_de_POO_II.GUI
             this.label5.Size = new System.Drawing.Size(98, 16);
             this.label5.TabIndex = 28;
             this.label5.Text = "Dada de Nasc:";
-            // 
-            // dataNascGerente
-            // 
-            this.dataNascGerente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataNascGerente.Location = new System.Drawing.Point(117, 93);
-            this.dataNascGerente.Mask = "00/00/0000";
-            this.dataNascGerente.Name = "dataNascGerente";
-            this.dataNascGerente.Size = new System.Drawing.Size(166, 22);
-            this.dataNascGerente.TabIndex = 27;
-            this.dataNascGerente.ValidatingType = typeof(System.DateTime);
             // 
             // rgGerente
             // 
@@ -222,6 +212,15 @@ namespace Trabalho_II_de_POO_II.GUI
             this.label7.Text = "Salário:";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
+            // dataNascGerente
+            // 
+            this.dataNascGerente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.dataNascGerente.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dataNascGerente.Location = new System.Drawing.Point(117, 93);
+            this.dataNascGerente.Name = "dataNascGerente";
+            this.dataNascGerente.Size = new System.Drawing.Size(166, 23);
+            this.dataNascGerente.TabIndex = 42;
+            // 
             // salarioGerente
             // 
             this.salarioGerente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -235,6 +234,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(578, 224);
+            this.Controls.Add(this.dataNascGerente);
             this.Controls.Add(this.salarioGerente);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.pisGerente);
@@ -247,7 +247,6 @@ namespace Trabalho_II_de_POO_II.GUI
             this.Controls.Add(this.enderecoGerente);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dataNascGerente);
             this.Controls.Add(this.rgGerente);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -272,7 +271,6 @@ namespace Trabalho_II_de_POO_II.GUI
         private System.Windows.Forms.MaskedTextBox enderecoGerente;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.MaskedTextBox dataNascGerente;
         private System.Windows.Forms.MaskedTextBox rgGerente;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -282,6 +280,7 @@ namespace Trabalho_II_de_POO_II.GUI
         private System.Windows.Forms.MaskedTextBox pisGerente;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DateTimePicker dataNascGerente;
         private System.Windows.Forms.TextBox salarioGerente;
     }
 }

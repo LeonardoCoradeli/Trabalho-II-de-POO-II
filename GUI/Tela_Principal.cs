@@ -284,6 +284,8 @@ namespace Trabalho_II_de_POO_II.GUI
 
         private void todosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Relatorios.Items.Clear();
+            Relatorios.Items.AddRange(ControladorUsuario.listarClientes().ToArray());
             Relatorios.Text = ControladorUsuario.ListarClientesParaTextbox(ControladorUsuario.listarClientes());
         }
 

@@ -38,7 +38,7 @@ namespace Trabalho_II_de_POO_II.GUI
                nomeGerente.Text,
                cpfGerente.Text,
                rgGerente.Text,
-               dataNascGerente.ValidateText(),
+               dataNascGerente,
                enderecoGerente.Text,
                cepGerente.Text,
                emailGerente.Text,
@@ -47,7 +47,7 @@ namespace Trabalho_II_de_POO_II.GUI
             };
 
             VerificarVazio.verificarVazio(campos);
-            ControladorUsuario.CadastrarGerente((string)campos[0], (string)campos[1], (string)campos[2], (DateTime)campos[3], (string)campos[4], (string)campos[5], (string)campos[6], double.Parse((string)campos[7]), (string)campos[8],DateTime.Now);
+            ControladorUsuario.CadastrarGerente((string)campos[0], (string)campos[1], (string)campos[2], dataNascGerente.Value,  (string)campos[4], (string)campos[5], (string)campos[6], double.Parse((string)campos[7]), (string)campos[8],DateTime.Now);
             MessageBox.Show("Gerente cadastrado com sucesso!");
             this.Close();
         }
