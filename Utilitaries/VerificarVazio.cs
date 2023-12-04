@@ -11,19 +11,18 @@ namespace Trabalho_II_de_POO_II.Utilitaries
     {
         public static bool verificarVazio(List<object> campos)
         {
-            List<object> camposVazios = new List<object>();
             foreach (var campo in campos)
             {
-                if (campo == null || string.IsNullOrWhiteSpace(campo.ToString()))
+                if (campo == null)
                 {
-                    camposVazios.Add(campo);
+                    MessageBox.Show("Preencha todos os campos corretamente", "Erro de validação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
                 }
-            }
-            if (camposVazios.Count > 0)
-            {
-
-                MessageBox.Show("Preencha todos os campos corretamente", "Erro de validação", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                else if (campo is string && string.IsNullOrWhiteSpace(campo.ToString()))
+                {
+                    MessageBox.Show("Preencha todos os campos corretamente", "Erro de validação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
             }
             return true;
         }
