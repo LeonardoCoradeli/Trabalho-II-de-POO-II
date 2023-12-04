@@ -34,6 +34,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.chbVisualizacaoJogos = new System.Windows.Forms.CheckBox();
             this.TabPrincipal = new System.Windows.Forms.TabControl();
             this.tabComprar = new System.Windows.Forms.TabPage();
+            this.btnComprar = new System.Windows.Forms.Button();
             this.CatalogoJogo = new System.Windows.Forms.FlowLayoutPanel();
             this.CBTipoJogo = new System.Windows.Forms.ComboBox();
             this.tabCadastrar = new System.Windows.Forms.TabPage();
@@ -64,7 +65,6 @@ namespace Trabalho_II_de_POO_II.GUI
             this.cartãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pixToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
-            this.btnComprar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.TabPrincipal.SuspendLayout();
             this.tabComprar.SuspendLayout();
@@ -135,6 +135,15 @@ namespace Trabalho_II_de_POO_II.GUI
             this.tabComprar.Text = "Comprar";
             this.tabComprar.UseVisualStyleBackColor = true;
             this.tabComprar.Click += new System.EventHandler(this.TabComprar_Click);
+            // 
+            // btnComprar
+            // 
+            this.btnComprar.Location = new System.Drawing.Point(149, 6);
+            this.btnComprar.Name = "btnComprar";
+            this.btnComprar.Size = new System.Drawing.Size(75, 23);
+            this.btnComprar.TabIndex = 4;
+            this.btnComprar.Text = "Comprar";
+            this.btnComprar.UseVisualStyleBackColor = true;
             // 
             // CatalogoJogo
             // 
@@ -229,6 +238,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.jogoToolStripMenuItem.Name = "jogoToolStripMenuItem";
             this.jogoToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.jogoToolStripMenuItem.Text = "Jogo";
+            this.jogoToolStripMenuItem.Click += new System.EventHandler(this.jogoToolStripMenuItem_Click);
             // 
             // tabRelatorios
             // 
@@ -385,15 +395,6 @@ namespace Trabalho_II_de_POO_II.GUI
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
             this.fileSystemWatcher1.Changed += new System.IO.FileSystemEventHandler(this.fileSystemWatcher1_Changed);
-            // 
-            // btnComprar
-            // 
-            this.btnComprar.Location = new System.Drawing.Point(149, 6);
-            this.btnComprar.Name = "btnComprar";
-            this.btnComprar.Size = new System.Drawing.Size(75, 23);
-            this.btnComprar.TabIndex = 4;
-            this.btnComprar.Text = "Comprar";
-            this.btnComprar.UseVisualStyleBackColor = true;
             // 
             // Tela_Principal
             // 

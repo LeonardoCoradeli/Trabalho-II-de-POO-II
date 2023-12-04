@@ -11,7 +11,7 @@ namespace Trabalho_II_de_POO_II.Controllers
     {
         public static SistemaJogosEletronicos SJE { get; set; }
 
-        public static void CadastrarVenda(int codCliente, int codGerente, DateTime dataVenda, List<ItemVenda> itensVenda, Pagamento formaPagamento, Transportadora transportadora = null)
+        public static void CadastrarVenda(int codCliente, int codGerente, DateTime dataVenda, List<Cadastrar_ItemVenda> itensVenda, Pagamento formaPagamento, Transportadora transportadora = null)
         {
             SJE.CadastrarVenda(codCliente, codGerente, dataVenda, itensVenda, formaPagamento, transportadora);
         }
@@ -19,31 +19,31 @@ namespace Trabalho_II_de_POO_II.Controllers
         {
             return SJE.buscarVenda(codigo);
         }
-        public static List<Venda> ListarHistoricoVendasCliente(Usuario cliente)
+        public static List<Cadastrar_Venda> ListarHistoricoVendasCliente(Usuario cliente)
         {
             return SJE.ListarHistoricoVendasCliente(cliente);
         }
-        public static List<Venda> ListarTodasVendas()
+        public static List<Cadastrar_Venda> ListarTodasVendas()
         {
             return SJE.ListarTodasVendas();
         }
-        public static (float lucro, List<Venda>) CalcularLucroEListarVendasMesEspecifico(int mes, List<Venda> vendas)
+        public static (float lucro, List<Cadastrar_Venda>) CalcularLucroEListarVendasMesEspecifico(int mes, List<Cadastrar_Venda> vendas)
         {
             return SJE.CalcularLucroEListarVendasMesEspecifico(mes, vendas);
         }
-        public static (float lucro, List<Venda> vendas) ListarVendasECalcularLucroDesenvolvedoraMesEspecifico(string nomeDesenvolvedora, int mes)
+        public static (float lucro, List<Cadastrar_Venda> vendas) ListarVendasECalcularLucroDesenvolvedoraMesEspecifico(string nomeDesenvolvedora, int mes)
         {
             return SJE.ListarVendasECalcularLucroDesenvolvedoraMesEspecifico(nomeDesenvolvedora, mes);
         }
-        public static List<Venda> ListarVendasComFormaPagamentoBoleto(List<Venda> vendas)
+        public static List<Cadastrar_Venda> ListarVendasComFormaPagamentoBoleto(List<Cadastrar_Venda> vendas)
         {
             return SJE.ListarVendasComFormaPagamentoBoleto(vendas);
         }
-        public static List<Venda> ListarVendasComFormaPagamentoCartaoCredito(List<Venda> vendas)
+        public static List<Cadastrar_Venda> ListarVendasComFormaPagamentoCartaoCredito(List<Cadastrar_Venda> vendas)
         {
             return SJE.ListarVendasComFormaPagamentoCartaoCredito(vendas);
         }
-        public static List<Venda> ListarVendasComFormaPagamentoPix(List<Venda> vendas)
+        public static List<Cadastrar_Venda> ListarVendasComFormaPagamentoPix(List<Cadastrar_Venda> vendas)
         {
             return SJE.ListarVendasComFormaPagamentoPix(vendas);
         }

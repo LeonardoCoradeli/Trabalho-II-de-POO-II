@@ -65,6 +65,12 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="xunit.abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>packages\xunit.abstractions.2.0.3\lib\net35\xunit.abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.core, Version=2.6.2.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>packages\xunit.extensibility.core.2.6.2\lib\net452\xunit.core.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\ControladorJogo.cs" />
@@ -124,6 +130,12 @@
     <Compile Include="GUI\Informacoes_jogo.Designer.cs">
       <DependentUpon>Informacoes_jogo.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Cadastrar_ItemVenda.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Cadastrar_ItemVenda.Designer.cs">
+      <DependentUpon>Cadastrar_ItemVenda.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Jogo_personalizado.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -135,6 +147,12 @@
     </Compile>
     <Compile Include="GUI\Tela_Principal.Designer.cs">
       <DependentUpon>Tela_Principal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Cadastrar_Venda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Cadastrar_Venda.Designer.cs">
+      <DependentUpon>Cadastrar_Venda.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Configuracao.cs" />
     <Compile Include="Models\Desenvolvedora.cs" />
@@ -162,6 +180,9 @@
     <EmbeddedResource Include="GUI\Cadastrar_Gerente.resx">
       <DependentUpon>Cadastrar_Gerente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Cadastrar_Jogo.resx">
+      <DependentUpon>Cadastrar_Jogo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Cadastrar_Transportadora.resx">
       <DependentUpon>Cadastrar_Transportadora.cs</DependentUpon>
     </EmbeddedResource>
@@ -177,11 +198,17 @@
     <EmbeddedResource Include="GUI\Informacoes_jogo.resx">
       <DependentUpon>Informacoes_jogo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Cadastrar_ItemVenda.resx">
+      <DependentUpon>Cadastrar_ItemVenda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Jogo_personalizado.resx">
       <DependentUpon>Jogo_personalizado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Tela_Principal.resx">
       <DependentUpon>Tela_Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Cadastrar_Venda.resx">
+      <DependentUpon>Cadastrar_Venda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

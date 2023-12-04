@@ -22,9 +22,9 @@ namespace Trabalho_II_de_POO_II.GUI
         public Transportadora Transportadora { get; set; }
 
 
-        public Venda(int codigo,Cliente cliente, Gerente gerente, DateTime dataVenda)
+        public Venda(int codigo, Cliente cliente, Gerente gerente, DateTime dataVenda)
         {
-            Codigo = (codigo == -1)? NumAleatorio.Gerar<Venda>(): codigo;
+            Codigo = (codigo == -1) ? NumAleatorio.Gerar<Venda>() : codigo;
             Cliente = cliente;
             Gerente = gerente;
             DataVenda = dataVenda;
@@ -50,7 +50,7 @@ namespace Trabalho_II_de_POO_II.GUI
         //se precisar mudar para boll
         public bool possuiItemFisico()
         {
-            foreach(ItemVenda itens in ItensVenda)
+            foreach (ItemVenda itens in ItensVenda)
             {
                 if (itens.Fisico)
                 {
@@ -66,7 +66,7 @@ namespace Trabalho_II_de_POO_II.GUI
         {
             if (Cliente.ClienteEpico)
             {
-                ValorComDesconto =(float) ValorTotal - (ValorTotal * (float)0.05);
+                ValorComDesconto = (float)ValorTotal - (ValorTotal * (float)0.05);
                 return ValorComDesconto;
             }
             ValorComDesconto = ValorTotal;

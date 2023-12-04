@@ -17,9 +17,9 @@ namespace Trabalho_II_de_POO_II.GUI
 
         public ItemVenda() { }
 
-        public ItemVenda(int codigoProduto, float valor, int quantidade, Jogo jogo,bool fisico)
+        public ItemVenda(int codigoProduto, float valor, int quantidade, Jogo jogo, bool fisico)
         {
-            CodigoProduto = (codigoProduto == -1)? NumAleatorio.Gerar<ItemVenda>(): codigoProduto;
+            CodigoProduto = (codigoProduto == -1) ? NumAleatorio.Gerar<ItemVenda>() : codigoProduto;
             Valor = valor;
             Quantidade = quantidade;
             Jogo = jogo;

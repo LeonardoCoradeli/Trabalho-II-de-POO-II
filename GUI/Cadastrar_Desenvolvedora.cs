@@ -33,8 +33,8 @@ namespace Trabalho_II_de_POO_II.GUI
             };
             VerificarVazio.verificarVazio(campos);
             ControladorUsuario.CadastrarDesenvolvedora(
-                (string)campos[0],
                 (string)campos[1],
+                (string)campos[0],
                 (string)campos[2],
                 (string)campos[3],
                 (string)campos[4],

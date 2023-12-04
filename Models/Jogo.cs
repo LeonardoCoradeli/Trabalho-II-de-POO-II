@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Trabalho_II_de_POO_II.GUI
 {
-    //Criar a interface simplesmente para poder criar variaveis do tipo IJogo, vai ser util na factory
+    
     public interface IJogo
     {
 

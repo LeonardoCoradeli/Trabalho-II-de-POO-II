@@ -269,5 +269,14 @@ namespace Trabalho_II_de_POO_II.GUI
             Cadastrar_Transportadora cadastro = new Cadastrar_Transportadora();
             cadastro.Show();
         }
+
+        private void jogoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Cadastrar_Jogo cadastro = new Cadastrar_Jogo();
+            cadastro.Show();
+            Cadastrar_ItemVenda cadastro2 = new Cadastrar_ItemVenda(1,1.2,1,true); 
+            
+            ItemVenda.Controls.Add(cadastro2);
+        }
     }
 }
