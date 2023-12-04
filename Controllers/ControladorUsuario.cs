@@ -9,22 +9,22 @@ namespace Trabalho_II_de_POO_II.Controllers
 {
     public static class ControladorUsuario
     {
-        public static  SistemaJogosEletronicos SJE;
+        public static SistemaJogosEletronicos SJE;
         public static void CadastrarCliente(string nome, string cpf, string rg, DateTime dataNascimento, string endereco, string cep, string email, DateTime dataCadastro, int nivel, bool clienteEpico)
         {
             SJE.CadastrarCliente(nome, cpf, rg, dataNascimento, endereco, cep, email, dataCadastro, nivel, clienteEpico);
         }
         public static void CadastrarGerente(string nome, string cpf, string rg, DateTime dataNascimento, string endereco, string cep, string email, double salario, string pis, DateTime dataContratacao)
         {
-            SJE.CadastrarGerente(nome,cpf,rg,dataNascimento,endereco,cep,email,salario,pis,dataContratacao);
+            SJE.CadastrarGerente(nome, cpf, rg, dataNascimento, endereco, cep, email, salario, pis, dataContratacao);
         }
-        public static void CadastrarDesenvolvedora(string cnpj,string nome,string email,string site, string redeSocial, string endereco)
+        public static void CadastrarDesenvolvedora(string cnpj, string nome, string email, string site, string redeSocial, string endereco)
         {
-            SJE.CadastrarDesenvolvedora(cnpj,nome,email,site,redeSocial,endereco);
+            SJE.CadastrarDesenvolvedora(cnpj, nome, email, site, redeSocial, endereco);
         }
-        public static void CadastrarTransportadora(string nome, string cnpj, string endereco, string email, string telefone,int tempo)
+        public static void CadastrarTransportadora(string nome, string cnpj, string endereco, string email, string telefone, int tempo)
         {
-            SJE.CadastrarTransportadora(cnpj, nome, email, telefone,endereco,tempo);
+            SJE.CadastrarTransportadora(cnpj, nome, email, telefone, endereco, tempo);
         }
         public static string BuscarCliente(int codigo)
         {
@@ -34,7 +34,7 @@ namespace Trabalho_II_de_POO_II.Controllers
         {
             return SJE.BuscarGerente(codigo);
         }
-        public static  string BuscarDesenvolvedora(int codigo)
+        public static string BuscarDesenvolvedora(int codigo)
         {
             return SJE.BuscarDesenvolvedora(codigo);
         }
@@ -79,6 +79,89 @@ namespace Trabalho_II_de_POO_II.Controllers
             StringBuilder sb = new StringBuilder();
 
             foreach (var cliente in clientes)
+            {
+                sb.AppendLine(cliente.ToString());
+            }
+
+            return sb.ToString();
+        }
+        public static string ListarDesenvolvedorasParaTextbox(List<Desenvolvedora> desenvolvedoras)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var desenvolvedora in desenvolvedoras)
+            {
+                sb.AppendLine(desenvolvedora.ToString());
+            }
+
+            return sb.ToString();
+        }
+        public static string ListarDesenvolvedorasMaisVendidosParaTextbox(List<Desenvolvedora> desenvolvedoras)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (var desenvolvedora in SJE.ListarDesenvolvedorasMaisVendidos())
+            {
+                sb.AppendLine(desenvolvedora.ToString());
+            }
+            return sb.ToString();
+        }
+
+        public static string ListarDesenvolvedorasMaiorLucro(List<Desenvolvedora> desenvolvedoras)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (var desenvolvedora in SJE.ListarDesenvolvedorasComMaiorLucro())
+            {
+                sb.AppendLine(desenvolvedora.ToString());
+            }
+            return sb.ToString();
+        }
+
+        public static string ListarTransportadorasParaTextbox(List<Transportadora> transportadoras)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var transportadora in transportadoras)
+            {
+                sb.AppendLine(transportadora.ToString());
+            }
+
+            return sb.ToString();
+        }
+
+        public static string ListarGerentesParaTextbox(List<Usuario> gerentes)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var gerente in gerentes)
+            {
+                sb.AppendLine(gerente.ToString());
+            }
+
+            return sb.ToString();
+        }
+
+        public static string ListarClientesEpicosParaTextbox(List<Cliente> clientes)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var cliente in SJE.ListarClientesEpicos(clientes))
+            {
+                sb.AppendLine(cliente.ToString());
+            }
+
+            return sb.ToString();
+        }
+
+        public static List<Cliente> TransformarUsuariosEmClientes(List<Usuario> usuarios)
+        {
+            return SJE.TransformarUsuariosEmClientes(usuarios);
+        }
+
+        public static string ListarClientesMaiorNivelParaTextbox(List<Cliente> clientes)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var cliente in SJE.ListarTop10ClientesMaiorNivel(clientes))
             {
                 sb.AppendLine(cliente.ToString());
             }

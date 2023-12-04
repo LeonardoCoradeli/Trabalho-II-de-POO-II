@@ -24,6 +24,8 @@ namespace Trabalho_II_de_POO_II.GUI
             AdicionarItensJogosComprados(ControladorJogo.GetJogosComprados(),jogo =>jogo.Nome,jogo=>jogo.Avaliacao.ToString());
             CatalogoJogo.Controls.Clear();
             AdicionarItensJogosDisponiveis(ControladorJogo.GetJogosDisponiveis(),jogo=>jogo.Nome);
+            PreencherComboBoxComClientes();
+            PreencherComboBoxComDesenvolvedoras();
             this.Resize += new EventHandler(Tela_Principal_Resize);
         }
         private void SetFullScreen()
@@ -188,7 +190,9 @@ namespace Trabalho_II_de_POO_II.GUI
 
         private void transportadorasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Relatorios.Items.Clear();
+            Relatorios.Items.AddRange(ControladorUsuario.listarTransportadoras().ToArray());
+            Relatorios.Text = ControladorUsuario.ListarTransportadorasParaTextbox(ControladorUsuario.listarTransportadoras());
         }
 
         private void vendasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -198,14 +202,15 @@ namespace Trabalho_II_de_POO_II.GUI
 
         private void desenvolvedoraToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Desenvolvedora_Especifico desenvolvedora = new Desenvolvedora_Especifico();
-            desenvolvedora.ShowDialog();
+            
         }
 
         private void clienteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Cliente_Especifico cliente = new Cliente_Especifico();
-            cliente.ShowDialog();
+            Relatorios.Items.Clear();
+            Relatorios.Items.AddRange(ControladorVendas.ListarHistoricoVendasCliente((Usuario)CCliente.SelectedItem).ToArray());
+            Relatorios.Text = ControladorVendas.ListarVendasClienteParaTextBox((Usuario)CCliente.SelectedItem);
+
         }
 
         private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -308,5 +313,123 @@ namespace Trabalho_II_de_POO_II.GUI
             Relatorios.Text = ControladorUsuario.ListarClientesParaTextbox(ControladorUsuario.listarClientes());
         }
 
+        private void todasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Relatorios.Items.Clear();
+            Relatorios.Items.AddRange(ControladorUsuario.listarDesenvolvedoras().ToArray());
+            Relatorios.Text = ControladorUsuario.ListarDesenvolvedorasParaTextbox(ControladorUsuario.listarDesenvolvedoras());
+        }
+
+        private void maisJogosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Relatorios.Items.Clear();
+            Relatorios.Items.AddRange(ControladorUsuario.listarDesenvolvedorasMaisVendidos().ToArray());
+            Relatorios.Text = ControladorUsuario.ListarDesenvolvedorasParaTextbox(ControladorUsuario.listarDesenvolvedorasMaisVendidos());
+        }
+
+        private void maiorLucroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Relatorios.Items.Clear();
+            Relatorios.Items.AddRange(ControladorUsuario.ListarDesenvolvedorasComMaiorLucro().ToArray());
+            Relatorios.Text = ControladorUsuario.ListarDesenvolvedorasParaTextbox(ControladorUsuario.ListarDesenvolvedorasComMaiorLucro());
+        }
+
+        private void gerentesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Relatorios.Items.Clear();
+            Relatorios.Items.AddRange(ControladorUsuario.listarGerentes().ToArray());
+            Relatorios.Text = ControladorUsuario.ListarClientesParaTextbox(ControladorUsuario.listarGerentes());
+        }
+
+        private void clientesÉpicosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Relatorios.Items.Clear();
+            Relatorios.Items.AddRange(ControladorUsuario.listarClientesEpicos(ControladorUsuario.TransformarUsuariosEmClientes(ControladorUsuario.listarClientes())).ToArray());
+            Relatorios.Text = ControladorUsuario.ListarClientesEpicosParaTextbox(ControladorUsuario.listarClientesEpicos(ControladorUsuario.TransformarUsuariosEmClientes(ControladorUsuario.listarClientes())));
+        }
+
+        private void maiorNivelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Relatorios.Items.Clear();
+            Relatorios.Items.AddRange(ControladorUsuario.listarTop10ClientesMaiorNivel(ControladorUsuario.TransformarUsuariosEmClientes(ControladorUsuario.listarClientes())).ToArray());
+            Relatorios.Text = ControladorUsuario.ListarClientesEpicosParaTextbox(ControladorUsuario.listarTop10ClientesMaiorNivel(ControladorUsuario.TransformarUsuariosEmClientes(ControladorUsuario.listarClientes())));
+        }
+        
+
+        private void mesEspecificoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Relatorios.Items.Clear();
+            Relatorios.Items.AddRange(ControladorVendas.ListarTodasVendas().ToArray());
+            Relatorios.Text = ControladorVendas.ListarCalcularLucroEListarVendasMesEspecificoParaTextBox(DTMes.Value.Month, ControladorVendas.ListarTodasVendas());
+
+        }
+
+        private void todasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Relatorios.Items.Clear();
+            Relatorios.Items.AddRange(ControladorVendas.ListarTodasVendas().ToArray());
+            Relatorios.Text = ControladorVendas.ListarTodasVendasParaTextBox();
+        }
+
+        private void boletoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Relatorios.Items.Clear();
+            Relatorios.Items.AddRange(ControladorVendas.ListarVendasComFormaPagamentoBoleto(ControladorVendas.ListarTodasVendas()).ToArray());
+            Relatorios.Text = ControladorVendas.ListarVendasComFormaPagamentoBoletoParaTextBox();
+        }
+
+        private void cartãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Relatorios.Items.Clear();
+            Relatorios.Items.AddRange(ControladorVendas.ListarVendasComFormaPagamentoCartaoCredito(ControladorVendas.ListarTodasVendas()).ToArray());
+            Relatorios.Text = ControladorVendas.ListarVendasComFormaPagamentoCartaoCreditoParaTextBox();
+        }
+
+        private void pixToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Relatorios.Items.Clear();
+            Relatorios.Items.AddRange(ControladorVendas.ListarVendasComFormaPagamentoPix(ControladorVendas.ListarTodasVendas()).ToArray());
+            Relatorios.Text = ControladorVendas.ListarVendasComFormaPagamentoPixParaTextBox();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        void PreencherComboBoxComClientes()
+        {
+            List<Usuario> clientes = ControladorUsuario.listarClientes();
+
+            CCliente.DataSource = clientes;
+            CCliente.DisplayMember = "Codigo";
+            CCliente.ValueMember = "Nome";
+
+            CCliente.SelectedIndexChanged += (sender, e) =>
+            {
+                var selectedCliente = CCliente.SelectedItem as Usuario;
+            };
+        }
+
+        void PreencherComboBoxComDesenvolvedoras()
+        {
+            List<Desenvolvedora> desenvolvedoras = ControladorUsuario.listarDesenvolvedoras();
+
+            CDesenvolvedora.DataSource = desenvolvedoras;
+            CDesenvolvedora.DisplayMember = "Codigo";
+            CDesenvolvedora.ValueMember = "Nome";
+
+            CDesenvolvedora.SelectedIndexChanged += (sender, e) =>
+            {
+                var selectedDesenvolvedora = CDesenvolvedora.SelectedItem as Desenvolvedora;
+            };
+        }
+
+        private void desenvolvedoraToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            Relatorios.Items.Clear();
+            Relatorios.Items.AddRange(ControladorVendas.ListarVendasDesenvolvedoras((Desenvolvedora)CDesenvolvedora.SelectedItem).ToArray());
+            Relatorios.Text = ControladorVendas.ListarVendasECalcularLucroDesenvolvedoraMesEspecificoParaTextBox(((Desenvolvedora)CDesenvolvedora.SelectedItem).Nome, DTMes.Value.Month);
+        }
     }
 }

@@ -51,11 +51,15 @@ namespace Trabalho_II_de_POO_II.GUI
             this.requisitosJogo = new System.Windows.Forms.TextBox();
             this.comentariosJogo = new System.Windows.Forms.TextBox();
             this.Avaliação = new System.Windows.Forms.GroupBox();
+            this.LAvaliacao = new System.Windows.Forms.Label();
             this.btnAvaliarJogo = new System.Windows.Forms.Button();
             this.avaliarJogo = new System.Windows.Forms.TrackBar();
+            this.Comentario = new System.Windows.Forms.GroupBox();
+            this.ComentarioJogo = new System.Windows.Forms.TextBox();
             this.Desenvolvedora.SuspendLayout();
             this.Avaliação.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.avaliarJogo)).BeginInit();
+            this.Comentario.SuspendLayout();
             this.SuspendLayout();
             // 
             // Desenvolvedora
@@ -96,7 +100,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(8, 34);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 16);
+            this.label6.Size = new System.Drawing.Size(54, 16);
             this.label6.TabIndex = 8;
             this.label6.Text = "Código:";
             // 
@@ -106,7 +110,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(113, 34);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(51, 16);
+            this.label7.Size = new System.Drawing.Size(50, 16);
             this.label7.TabIndex = 7;
             this.label7.Text = "Nome: ";
             // 
@@ -116,7 +120,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(104, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 16);
+            this.label1.Size = new System.Drawing.Size(50, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome: ";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -127,7 +131,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(12, 25);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 16);
+            this.label3.Size = new System.Drawing.Size(54, 16);
             this.label3.TabIndex = 2;
             this.label3.Text = "Código:";
             // 
@@ -137,7 +141,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(402, 25);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 16);
+            this.label4.Size = new System.Drawing.Size(75, 16);
             this.label4.TabIndex = 5;
             this.label4.Text = "Descrição: ";
             // 
@@ -147,7 +151,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(12, 59);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(139, 16);
+            this.label11.Size = new System.Drawing.Size(138, 16);
             this.label11.TabIndex = 7;
             this.label11.Text = "Data de Lançamento: ";
             // 
@@ -157,7 +161,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(12, 91);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(128, 16);
+            this.label13.Size = new System.Drawing.Size(127, 16);
             this.label13.TabIndex = 9;
             this.label13.Text = "Requisitos Mínimos:";
             // 
@@ -167,7 +171,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(377, 59);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(72, 16);
+            this.label15.Size = new System.Drawing.Size(71, 16);
             this.label15.TabIndex = 11;
             this.label15.Text = "Avaliação:";
             // 
@@ -177,7 +181,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(207, 91);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(87, 16);
+            this.label17.Size = new System.Drawing.Size(86, 16);
             this.label17.TabIndex = 13;
             this.label17.Text = "Comentários:";
             this.label17.Click += new System.EventHandler(this.label17_Click);
@@ -188,7 +192,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.Location = new System.Drawing.Point(255, 59);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(39, 16);
+            this.label19.Size = new System.Drawing.Size(38, 16);
             this.label19.TabIndex = 15;
             this.label19.Text = "Tipo:";
             // 
@@ -272,10 +276,11 @@ namespace Trabalho_II_de_POO_II.GUI
             // Avaliação
             // 
             this.Avaliação.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Avaliação.Controls.Add(this.LAvaliacao);
             this.Avaliação.Controls.Add(this.btnAvaliarJogo);
             this.Avaliação.Controls.Add(this.avaliarJogo);
             this.Avaliação.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Avaliação.Location = new System.Drawing.Point(210, 195);
+            this.Avaliação.Location = new System.Drawing.Point(15, 195);
             this.Avaliação.Name = "Avaliação";
             this.Avaliação.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Avaliação.Size = new System.Drawing.Size(327, 100);
@@ -283,9 +288,19 @@ namespace Trabalho_II_de_POO_II.GUI
             this.Avaliação.TabStop = false;
             this.Avaliação.Text = "Avaliação";
             // 
+            // LAvaliacao
+            // 
+            this.LAvaliacao.AutoSize = true;
+            this.LAvaliacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.LAvaliacao.Location = new System.Drawing.Point(240, 38);
+            this.LAvaliacao.Name = "LAvaliacao";
+            this.LAvaliacao.Size = new System.Drawing.Size(16, 17);
+            this.LAvaliacao.TabIndex = 2;
+            this.LAvaliacao.Text = "0";
+            // 
             // btnAvaliarJogo
             // 
-            this.btnAvaliarJogo.Location = new System.Drawing.Point(242, 48);
+            this.btnAvaliarJogo.Location = new System.Drawing.Point(243, 60);
             this.btnAvaliarJogo.Name = "btnAvaliarJogo";
             this.btnAvaliarJogo.Size = new System.Drawing.Size(75, 23);
             this.btnAvaliarJogo.TabIndex = 1;
@@ -296,15 +311,38 @@ namespace Trabalho_II_de_POO_II.GUI
             // avaliarJogo
             // 
             this.avaliarJogo.Location = new System.Drawing.Point(10, 38);
+            this.avaliarJogo.Maximum = 5;
             this.avaliarJogo.Name = "avaliarJogo";
             this.avaliarJogo.Size = new System.Drawing.Size(207, 45);
             this.avaliarJogo.TabIndex = 0;
+            this.avaliarJogo.Scroll += new System.EventHandler(this.avaliarJogo_Scroll);
+            // 
+            // Comentario
+            // 
+            this.Comentario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Comentario.Controls.Add(this.ComentarioJogo);
+            this.Comentario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Comentario.Location = new System.Drawing.Point(394, 195);
+            this.Comentario.Name = "Comentario";
+            this.Comentario.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Comentario.Size = new System.Drawing.Size(327, 100);
+            this.Comentario.TabIndex = 26;
+            this.Comentario.TabStop = false;
+            this.Comentario.Text = "Comentario";
+            // 
+            // ComentarioJogo
+            // 
+            this.ComentarioJogo.Location = new System.Drawing.Point(11, 21);
+            this.ComentarioJogo.Name = "ComentarioJogo";
+            this.ComentarioJogo.Size = new System.Drawing.Size(310, 22);
+            this.ComentarioJogo.TabIndex = 0;
             // 
             // Informacoes_jogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(766, 307);
+            this.Controls.Add(this.Comentario);
             this.Controls.Add(this.Avaliação);
             this.Controls.Add(this.comentariosJogo);
             this.Controls.Add(this.requisitosJogo);
@@ -331,6 +369,8 @@ namespace Trabalho_II_de_POO_II.GUI
             this.Avaliação.ResumeLayout(false);
             this.Avaliação.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.avaliarJogo)).EndInit();
+            this.Comentario.ResumeLayout(false);
+            this.Comentario.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -362,5 +402,8 @@ namespace Trabalho_II_de_POO_II.GUI
         private System.Windows.Forms.GroupBox Avaliação;
         private System.Windows.Forms.Button btnAvaliarJogo;
         private System.Windows.Forms.TrackBar avaliarJogo;
+        private System.Windows.Forms.GroupBox Comentario;
+        private System.Windows.Forms.TextBox ComentarioJogo;
+        private System.Windows.Forms.Label LAvaliacao;
     }
 }

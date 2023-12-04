@@ -11,9 +11,9 @@ namespace Trabalho_II_de_POO_II.Controllers
     {
         public static SistemaJogosEletronicos SJE { get; set; }
 
-        public static void CadastrarVenda(int codCliente, int codGerente, DateTime dataVenda, List<ItemVenda> itensVenda, Pagamento formaPagamento, Transportadora transportadora = null)
+        public static void CadastrarVenda(Venda vendas)
         {
-            SJE.CadastrarVenda(codCliente, codGerente, dataVenda, itensVenda, formaPagamento, transportadora);
+            SJE.CadastrarVenda(vendas);
         }
         public static string buscarVenda(int codigo)
         {
@@ -47,5 +47,80 @@ namespace Trabalho_II_de_POO_II.Controllers
         {
             return SJE.ListarVendasComFormaPagamentoPix(vendas);
         }
+        public static string ListarCalcularLucroEListarVendasMesEspecificoParaTextBox(int mes, List<Venda> vendas)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"Lucro: {CalcularLucroEListarVendasMesEspecifico(mes, vendas).lucro}");
+            foreach (Venda venda in CalcularLucroEListarVendasMesEspecifico(mes, vendas).Item2)
+            {
+                sb.AppendLine(venda.ToString());
+            }
+            return sb.ToString();
+
+        }
+
+        public static string ListarTodasVendasParaTextBox()
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (Venda venda in ListarTodasVendas())
+            {
+                sb.AppendLine(venda.ToString());
+            }
+            return sb.ToString();
+        }
+
+        public static string ListarVendasComFormaPagamentoBoletoParaTextBox()
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (Venda venda in ListarVendasComFormaPagamentoBoleto(ListarTodasVendas()))
+            {
+                sb.AppendLine(venda.ToString());
+            }
+            return sb.ToString();
+        }
+        public static string ListarVendasComFormaPagamentoCartaoCreditoParaTextBox()
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (Venda venda in ListarVendasComFormaPagamentoCartaoCredito(ListarTodasVendas()))
+            {
+                sb.AppendLine(venda.ToString());
+            }
+            return sb.ToString();
+        }
+        public static string ListarVendasComFormaPagamentoPixParaTextBox()
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (Venda venda in ListarVendasComFormaPagamentoPix(ListarTodasVendas()))
+            {
+                sb.AppendLine(venda.ToString());
+            }
+            return sb.ToString();
+        }
+
+        public static string ListarVendasClienteParaTextBox(Usuario cliente)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (Venda venda in ListarHistoricoVendasCliente(cliente))
+            {
+                sb.AppendLine(venda.ToString());
+            }
+            return sb.ToString();
+        }
+
+        public static string ListarVendasECalcularLucroDesenvolvedoraMesEspecificoParaTextBox(string nomeDesenvolvedora, int mes)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"Lucro: {ListarVendasECalcularLucroDesenvolvedoraMesEspecifico(nomeDesenvolvedora, mes).lucro}");
+            foreach (Venda venda in ListarVendasECalcularLucroDesenvolvedoraMesEspecifico(nomeDesenvolvedora, mes).vendas)
+            {
+                sb.AppendLine(venda.ToString());
+            }
+            return sb.ToString();
+        }
+        public static List<Venda> ListarVendasDesenvolvedoras(Desenvolvedora desenvolvedora)
+        {
+            return SJE.ListarTodasVendasDesenvolvedora(desenvolvedora);
+        }
+        
     }
 }

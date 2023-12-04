@@ -12,12 +12,13 @@ namespace Trabalho_II_de_POO_II.GUI
     {
         public int Codigo { get; protected set; }
         public string Nome { get; protected set; }
-        protected string CPF { get; set; }
-        protected string RG { get; set; }
-        protected DateTime DataNascimento { get; set; }
-        protected string Endereco { get; set; }
-        protected string Cep { get; set; }
-        protected string Email { get; set; }
+        public string CPF { get; protected set; }
+        public string RG { get; protected set; }
+        public DateTime DataNascimento { get; protected set; }
+        public string Endereco { get; protected set; }
+        public string Cep { get; protected set; }
+        public string Email { get; protected 
+                set; }
 
 
         public Usuario() { }
@@ -37,6 +38,11 @@ namespace Trabalho_II_de_POO_II.GUI
         public override string ToString()
         {
             return $"Usuario: {Nome}, CPF: {CPF}, RG: {RG}, Data de Nascimento: {DataNascimento}, Endereço: {Endereco}, CEP: {Cep}, Email: {Email}";
+        }
+        public void redefinirNomeeEmail(string nome, string email)
+        {
+            Nome = nome;
+            Email = email;
         }
     }
 

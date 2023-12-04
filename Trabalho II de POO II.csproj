@@ -76,6 +76,12 @@
     <Compile Include="Controllers\ControladorJogo.cs" />
     <Compile Include="Controllers\ControladorUsuario.cs" />
     <Compile Include="Controllers\ControladorVendas.cs" />
+    <Compile Include="GUI\Boleto_Tela.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Boleto_Tela.Designer.cs">
+      <DependentUpon>Boleto_Tela.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Cadastrar_Cliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,12 @@
     <Compile Include="GUI\Jogo_personalizado.Designer.cs">
       <DependentUpon>Jogo_personalizado.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\PIX_Tela.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\PIX_Tela.Designer.cs">
+      <DependentUpon>PIX_Tela.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Tela_Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +183,9 @@
     <Compile Include="Utilitaries\Iterador Coleção.cs" />
     <Compile Include="Utilitaries\NumAleatorio.cs" />
     <Compile Include="Utilitaries\VerificarVazio.cs" />
+    <EmbeddedResource Include="GUI\Boleto_Tela.resx">
+      <DependentUpon>Boleto_Tela.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Cadastrar_Cliente.resx">
       <DependentUpon>Cadastrar_Cliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -204,6 +219,9 @@
     <EmbeddedResource Include="GUI\Jogo_personalizado.resx">
       <DependentUpon>Jogo_personalizado.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\PIX_Tela.resx">
+      <DependentUpon>PIX_Tela.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Tela_Principal.resx">
       <DependentUpon>Tela_Principal.cs</DependentUpon>
     </EmbeddedResource>
@@ -218,6 +236,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="bin\Debug\Banco.sqlite3" />
     <None Include="Models\SistemaJogosEletronicos.cspublic string VendaToString%28Venda venda%29{return venda.ToString%28%29%3b}```" />
@@ -385,6 +404,8 @@
     <Content Include="packages\System.Data.SQLite.Linq.1.0.118.0\lib\net451\System.Data.SQLite.Linq.dll" />
     <Content Include="packages\System.Data.SQLite.Linq.1.0.118.0\lib\net45\System.Data.SQLite.Linq.dll" />
     <Content Include="packages\System.Data.SQLite.Linq.1.0.118.0\lib\net46\System.Data.SQLite.Linq.dll" />
+    <None Include="Resources\qrcode.jpg" />
+    <None Include="Resources\vecteezy_codigo-de-barras_1199361.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

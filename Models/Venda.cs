@@ -73,5 +73,10 @@ namespace Trabalho_II_de_POO_II.GUI
             return ValorComDesconto;
         }
 
+        public override string ToString()
+        {
+            return $"Venda: Código - {Codigo}, Cliente - {Cliente}, Gerente - {Gerente}, Data da Venda - {DataVenda}, Data da Entrega - {DataDaEntrega}, Valor Total - {ValorTotal}, Valor com Desconto - {ValorComDesconto}, Forma de Pagamento - {FormaPagamento}, Transportadora - {Transportadora}";
+        }
+
     }
 }

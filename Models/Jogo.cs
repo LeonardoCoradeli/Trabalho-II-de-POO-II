@@ -54,10 +54,19 @@ namespace Trabalho_II_de_POO_II.GUI
             Avaliacao = avaliacao;
             return Avaliacao;
         }
+        public string AtualizarComentarios(string comentarios)
+        {
+            Comentarios = comentarios;
+            return Comentarios;
+        }
 
         public bool EstaDisponivel()
         {
             return Disponivel;
+        }
+        public void tornarIndisponivel()
+        {
+            Disponivel = false;
         }
 
         public override string ToString()
@@ -169,6 +178,8 @@ namespace Trabalho_II_de_POO_II.GUI
             // Retorna o valor mais 7.25% do valor
             return Valor * 1.0725f;
         }
+        
+        
 
         public override string ToString()
         {

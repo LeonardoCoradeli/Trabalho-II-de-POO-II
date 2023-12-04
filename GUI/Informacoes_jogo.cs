@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Trabalho_II_de_POO_II.Controllers;
 
 namespace Trabalho_II_de_POO_II.GUI
 {
@@ -60,7 +61,14 @@ namespace Trabalho_II_de_POO_II.GUI
 
         private void btnAvaliarJogo_Click(object sender, EventArgs e)
         {
+            ControladorJogo.atualizarAvalicao(int.Parse(codigoJogo.Text), avaliarJogo.Value);
+            ControladorJogo.atualizarComentarios(int.Parse(codigoJogo.Text), ComentarioJogo.Text);
+        }
 
+        private void avaliarJogo_Scroll(object sender, EventArgs e)
+        {
+            LAvaliacao.Text = avaliarJogo.Value.ToString();
+            
         }
     }
 }

@@ -70,5 +70,17 @@ namespace Trabalho_II_de_POO_II.Controllers
         {
             return SJE.ListarNomesOrdenadosPorAvaliacao2();
         }
+        public static void TornarJogoIndisponivel(int codigo)
+        {
+            SJE.tornarJogoIndisponivel(codigo);
+        }
+        public static void atualizarAvalicao(int codigo, int avaliacao)
+        {
+            SJE.atualizarAvalicao(codigo, avaliacao);
+        }
+        public static void atualizarComentarios(int codigo, string comentarios)
+        {
+            SJE.atualizarComentarios(codigo, comentarios);
+        }
     }
 }

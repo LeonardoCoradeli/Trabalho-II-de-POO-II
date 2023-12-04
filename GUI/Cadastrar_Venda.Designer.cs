@@ -50,6 +50,13 @@
             this.DTLabel = new System.Windows.Forms.Label();
             this.EntregaDT = new System.Windows.Forms.DateTimePicker();
             this.PainelJogo = new System.Windows.Forms.FlowLayoutPanel();
+            this.BFinalizar = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TotalLabel = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.TNumeroC = new System.Windows.Forms.TextBox();
+            this.TBandeira = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -174,6 +181,7 @@
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(121, 24);
             this.comboBox4.TabIndex = 14;
+            this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -279,12 +287,89 @@
             this.PainelJogo.Size = new System.Drawing.Size(597, 125);
             this.PainelJogo.TabIndex = 20;
             // 
+            // BFinalizar
+            // 
+            this.BFinalizar.AutoSize = true;
+            this.BFinalizar.Location = new System.Drawing.Point(522, 459);
+            this.BFinalizar.Name = "BFinalizar";
+            this.BFinalizar.Size = new System.Drawing.Size(91, 23);
+            this.BFinalizar.TabIndex = 21;
+            this.BFinalizar.Text = "FinalizarCompra";
+            this.BFinalizar.UseVisualStyleBackColor = true;
+            this.BFinalizar.Click += new System.EventHandler(this.BFinalizar_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 464);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(88, 13);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Total da Compra:";
+            // 
+            // TotalLabel
+            // 
+            this.TotalLabel.AutoSize = true;
+            this.TotalLabel.Location = new System.Drawing.Point(100, 464);
+            this.TotalLabel.Name = "TotalLabel";
+            this.TotalLabel.Size = new System.Drawing.Size(16, 13);
+            this.TotalLabel.TabIndex = 23;
+            this.TotalLabel.Text = "...";
+            this.TotalLabel.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label3.Location = new System.Drawing.Point(645, 59);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(108, 17);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "Numero Cartão:";
+            this.label3.Visible = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label9.Location = new System.Drawing.Point(645, 17);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(69, 17);
+            this.label9.TabIndex = 26;
+            this.label9.Text = "Bandeira:";
+            this.label9.Visible = false;
+            // 
+            // TNumeroC
+            // 
+            this.TNumeroC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.TNumeroC.Location = new System.Drawing.Point(785, 59);
+            this.TNumeroC.Name = "TNumeroC";
+            this.TNumeroC.Size = new System.Drawing.Size(198, 23);
+            this.TNumeroC.TabIndex = 27;
+            this.TNumeroC.Visible = false;
+            // 
+            // TBandeira
+            // 
+            this.TBandeira.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.TBandeira.Location = new System.Drawing.Point(785, 17);
+            this.TBandeira.Name = "TBandeira";
+            this.TBandeira.Size = new System.Drawing.Size(198, 23);
+            this.TBandeira.TabIndex = 28;
+            this.TBandeira.Visible = false;
+            // 
             // Cadastrar_Venda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(625, 499);
+            this.ClientSize = new System.Drawing.Size(995, 492);
+            this.Controls.Add(this.TBandeira);
+            this.Controls.Add(this.TNumeroC);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.TotalLabel);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.BFinalizar);
             this.Controls.Add(this.PainelJogo);
             this.Controls.Add(this.EntregaDT);
             this.Controls.Add(this.DTLabel);
@@ -334,5 +419,12 @@
         private System.Windows.Forms.Label DTLabel;
         private System.Windows.Forms.DateTimePicker EntregaDT;
         private System.Windows.Forms.FlowLayoutPanel PainelJogo;
+        private System.Windows.Forms.Button BFinalizar;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label TotalLabel;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox TNumeroC;
+        private System.Windows.Forms.TextBox TBandeira;
     }
 }

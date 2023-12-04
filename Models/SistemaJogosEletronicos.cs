@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Trabalho_II_de_POO_II.Models;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Trabalho_II_de_POO_II.GUI
 {
@@ -17,7 +18,7 @@ namespace Trabalho_II_de_POO_II.GUI
         public List<Usuario> Clientes { get; set; }
         public List<Usuario> Gerentes { get; set; }
         public Arquivos Arquivo { get; set; }
-        
+
         public SistemaJogosEletronicos(Arquivos Arq)
         {
             Arquivo = Arq;
@@ -117,7 +118,7 @@ namespace Trabalho_II_de_POO_II.GUI
         }
         public List<Cliente> ListarClientesEpicos(List<Cliente> clientes)
         {
-            List<Cliente> clientesEpicos = clientes.Where(cliente => cliente.ClienteEpico).ToList();
+            List<Cliente> clientesEpicos = clientes.Where(cliente => cliente.ClienteEpico == true).ToList();
             return clientesEpicos;
         }
         public List<Cliente> ListarTop10ClientesMaiorNivel(List<Cliente> clientes)
@@ -179,27 +180,27 @@ namespace Trabalho_II_de_POO_II.GUI
 
         public void CadastrarCliente(string nome, string cpf, string rg, DateTime dataNascimento, string endereco, string cep, string email, DateTime dataCadastro, int nivel, bool clienteEpico)
         {
-            Cliente cliente = new Cliente(-1,nome, cpf, rg, dataNascimento, endereco, cep, email, dataCadastro, nivel, clienteEpico);
+            Cliente cliente = new Cliente(-1, nome, cpf, rg, dataNascimento, endereco, cep, email, dataCadastro, nivel, clienteEpico);
             Clientes.Add(cliente);
         }
         public void CadastrarGerente(string nome, string cpf, string rg, DateTime dataNascimento, string endereco, string cep, string email, double salario, string pis, DateTime dataContratacao)
         {
-            Gerente gerente = new Gerente(-1,nome, cpf, rg, dataNascimento, endereco, cep, email, salario, pis, dataContratacao);
+            Gerente gerente = new Gerente(-1, nome, cpf, rg, dataNascimento, endereco, cep, email, salario, pis, dataContratacao);
             Gerentes.Add(gerente);
         }
         public void CadastrarDesenvolvedora(string cnpj, string nome, string email, string site, string redeSocial, string endereco)
         {
-            Desenvolvedora desenvolvedora = new Desenvolvedora(-1,cnpj, nome, email, site, redeSocial, endereco);
+            Desenvolvedora desenvolvedora = new Desenvolvedora(-1, cnpj, nome, email, site, redeSocial, endereco);
             Desenvolvedoras.Add(desenvolvedora);
         }
-        public void CadastrarTransportadora(string cnpj, string nome, string email, string telefone,string endereco, int tempo)
+        public void CadastrarTransportadora(string cnpj, string nome, string email, string telefone, string endereco, int tempo)
         {
-            Transportadora transportadora = new Transportadora(-1,cnpj, nome, email, telefone,endereco,tempo);
+            Transportadora transportadora = new Transportadora(-1, cnpj, nome, email, telefone, endereco, tempo);
             Transportadoras.Add(transportadora);
         }
-        public void CadastrarJogo(string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, double valor,string requisitosMinimos, double avaliacao, string comentarios, bool disponivel,string tipo)
+        public void CadastrarJogo(string nome, string descricao, Desenvolvedora desenvolvedora, DateTime dataLancamento, double valor, string requisitosMinimos, double avaliacao, string comentarios, bool disponivel, string tipo)
         {
-            Jogos.Add(FactoryJogo.CreateJogo(-1,nome,descricao,desenvolvedora,dataLancamento,valor,requisitosMinimos,avaliacao,comentarios,disponivel,tipo));
+            Jogos.Add(FactoryJogo.CreateJogo(-1, nome, descricao, desenvolvedora, dataLancamento, valor, requisitosMinimos, avaliacao, comentarios, disponivel, tipo));
         }
         public string BuscarCliente(int codigo)
         {
@@ -263,20 +264,9 @@ namespace Trabalho_II_de_POO_II.GUI
             }
             return "Não encontrado";
         }
-        public void CadastrarVenda(int codCliente, int codGerente, DateTime dataVenda, List<ItemVenda> itensVenda, Pagamento formaPagamento, Transportadora transportadora = null)
+        public void CadastrarVenda(Venda venda)
         {
-            Cliente cliente = (Cliente) Clientes.Find(escolherClente => escolherClente.Codigo == codCliente);
-            Gerente gerente = (Gerente) Gerentes.Find(escolherGerente => escolherGerente.Codigo == codGerente);
-
-            Venda venda = new Venda(-1,cliente,gerente,dataVenda);
-            venda.ItensVenda = itensVenda;
-            venda.CalcularValorTotal();
-            venda.CalcularValorComDesconto();
-            if (venda.possuiItemFisico())
-            {
-                venda.Transportadora = transportadora;
-                venda.CalcularDataEntrega();
-            }
+            Vendas.Add(venda);
         }
 
         public string buscarVenda(int codigo)
@@ -292,7 +282,66 @@ namespace Trabalho_II_de_POO_II.GUI
             return "Não encontrado";
         }
 
-        
+        public void tornarJogoIndisponivel(int codigo)
+        {
+            foreach (Jogo jogo in Jogos)
+            {
+                if (jogo.Codigo == codigo)
+                {
+                    jogo.tornarIndisponivel();
+                }
+            }
+        }
+        public void atualizarAvalicao(int codigo, int avaliacao)
+        {
+            foreach (Jogo jogo in Jogos)
+            {
+                if (jogo.Codigo == codigo)
+                {
+                    jogo.AtualizarAvaliacao(avaliacao);
+                }
+            }
+        }
+        public void atualizarComentarios(int codigo, string comentarios)
+        {
+            foreach (Jogo jogo in Jogos)
+            {
+                if (jogo.Codigo == codigo)
+                {
+                    jogo.AtualizarComentarios(comentarios);
+                }
+            }
+        }
 
+        public List<Cliente> TransformarUsuariosEmClientes(List<Usuario> usuarios)
+        {
+            List<Cliente> clientes = new List<Cliente>();
+
+            foreach (var usuario in usuarios)
+            {
+                Cliente cliente = new Cliente(-1, usuario.Nome, usuario.CPF, usuario.RG, usuario.DataNascimento, usuario.Endereco, usuario.Cep, usuario.Email, DateTime.Now, 0, false);
+
+                clientes.Add(cliente);
+            }
+
+            return clientes;
+        }
+        public List<Venda> ListarTodasVendasDesenvolvedora(Desenvolvedora desenvolvedora)
+        {
+            List<Venda> vendasDesenvolvedora = new List<Venda>();
+
+            foreach (var venda in Vendas)
+            {
+                foreach (var itemVenda in venda.ItensVenda)
+                {
+                    if (itemVenda.Jogo.Desenvolvedora == desenvolvedora)
+                    {
+                        vendasDesenvolvedora.Add(venda);
+                    }
+                }
+            }
+
+            return vendasDesenvolvedora;
+        }
     }
 }
