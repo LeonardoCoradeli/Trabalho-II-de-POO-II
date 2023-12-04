@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Painel = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.ClienteLabel = new System.Windows.Forms.Label();
             this.CCliente = new System.Windows.Forms.ComboBox();
@@ -45,24 +44,14 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.BAdicionar = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Tquantidade = new System.Windows.Forms.TextBox();
             this.LabelTransportadora = new System.Windows.Forms.Label();
             this.CTransportadora = new System.Windows.Forms.ComboBox();
             this.DTLabel = new System.Windows.Forms.Label();
             this.EntregaDT = new System.Windows.Forms.DateTimePicker();
+            this.PainelJogo = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // Painel
-            // 
-            this.Painel.ColumnCount = 1;
-            this.Painel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.Painel.Location = new System.Drawing.Point(12, 354);
-            this.Painel.Name = "Painel";
-            this.Painel.RowCount = 1;
-            this.Painel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.Painel.Size = new System.Drawing.Size(270, 49);
-            this.Painel.TabIndex = 0;
             // 
             // label1
             // 
@@ -145,7 +134,7 @@
             // 
             this.FisicoCheckBox.AutoSize = true;
             this.FisicoCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FisicoCheckBox.Location = new System.Drawing.Point(16, 163);
+            this.FisicoCheckBox.Location = new System.Drawing.Point(293, 64);
             this.FisicoCheckBox.Name = "FisicoCheckBox";
             this.FisicoCheckBox.Size = new System.Drawing.Size(69, 20);
             this.FisicoCheckBox.TabIndex = 9;
@@ -200,19 +189,20 @@
             // 
             this.groupBox1.Controls.Add(this.BAdicionar);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.Tquantidade);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.CJogos);
+            this.groupBox1.Controls.Add(this.FisicoCheckBox);
             this.groupBox1.Location = new System.Drawing.Point(16, 189);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(410, 100);
+            this.groupBox1.Size = new System.Drawing.Size(410, 118);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Itens Vendidos";
             // 
             // BAdicionar
             // 
-            this.BAdicionar.Location = new System.Drawing.Point(160, 62);
+            this.BAdicionar.Location = new System.Drawing.Point(158, 89);
             this.BAdicionar.Name = "BAdicionar";
             this.BAdicionar.Size = new System.Drawing.Size(75, 23);
             this.BAdicionar.TabIndex = 15;
@@ -230,13 +220,13 @@
             this.label8.TabIndex = 14;
             this.label8.Text = "Quantidade:";
             // 
-            // textBox1
+            // Tquantidade
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(293, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 13;
+            this.Tquantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tquantidade.Location = new System.Drawing.Point(293, 19);
+            this.Tquantidade.Name = "Tquantidade";
+            this.Tquantidade.Size = new System.Drawing.Size(100, 22);
+            this.Tquantidade.TabIndex = 13;
             // 
             // LabelTransportadora
             // 
@@ -279,12 +269,23 @@
             this.EntregaDT.Name = "EntregaDT";
             this.EntregaDT.Size = new System.Drawing.Size(121, 23);
             this.EntregaDT.TabIndex = 19;
+            this.EntregaDT.Visible = false;
+            // 
+            // PainelJogo
+            // 
+            this.PainelJogo.AutoSize = true;
+            this.PainelJogo.Location = new System.Drawing.Point(16, 313);
+            this.PainelJogo.Name = "PainelJogo";
+            this.PainelJogo.Size = new System.Drawing.Size(597, 125);
+            this.PainelJogo.TabIndex = 20;
             // 
             // Cadastrar_Venda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(625, 450);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(625, 499);
+            this.Controls.Add(this.PainelJogo);
             this.Controls.Add(this.EntregaDT);
             this.Controls.Add(this.DTLabel);
             this.Controls.Add(this.CTransportadora);
@@ -292,7 +293,6 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.comboBox4);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.FisicoCheckBox);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.CGerente);
@@ -301,7 +301,6 @@
             this.Controls.Add(this.CCliente);
             this.Controls.Add(this.ClienteLabel);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.Painel);
             this.Name = "Cadastrar_Venda";
             this.Text = "Venda";
             this.Load += new System.EventHandler(this.Cadastrar_Venda_Load);
@@ -313,8 +312,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TableLayoutPanel Painel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label ClienteLabel;
         private System.Windows.Forms.ComboBox CCliente;
@@ -331,10 +328,11 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button BAdicionar;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Tquantidade;
         private System.Windows.Forms.Label LabelTransportadora;
         private System.Windows.Forms.ComboBox CTransportadora;
         private System.Windows.Forms.Label DTLabel;
         private System.Windows.Forms.DateTimePicker EntregaDT;
+        private System.Windows.Forms.FlowLayoutPanel PainelJogo;
     }
 }

@@ -8,11 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trabalho_II_de_POO_II.Controllers;
+using Trabalho_II_de_POO_II.Models;
 
 namespace Trabalho_II_de_POO_II.GUI
 {
     public partial class Cadastrar_Venda : Form
     {
+        private List<ItemVenda> jogoTemp = new List<ItemVenda>();
+        private int cont = 0;
         public Cadastrar_Venda()
         {
             InitializeComponent();
@@ -116,7 +119,17 @@ namespace Trabalho_II_de_POO_II.GUI
 
         private void BAdicionar_Click(object sender, EventArgs e)
         {
+            jogoTemp.Add(new ItemVenda(-1,((Jogo)CJogos.SelectedItem).Valor,int.Parse(Tquantidade.Text), (Jogo)CJogos.SelectedItem, FisicoCheckBox.Checked));
 
+            Cadastrar_ItemVenda teste = new Cadastrar_ItemVenda(jogoTemp[cont].CodigoProduto, jogoTemp[cont].Valor, jogoTemp[cont].Quantidade, jogoTemp[cont].Fisico);
+
+            
+            PainelJogo.Controls.Add(teste);
+
+            CJogos.SelectedIndex = -1;
+            Tquantidade.Text = "";
+            FisicoCheckBox.Checked = false;
+            cont++;
         }
     }
 }

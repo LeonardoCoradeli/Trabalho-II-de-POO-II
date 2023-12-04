@@ -22,13 +22,13 @@ namespace Trabalho_II_de_POO_II.GUI
         public Transportadora Transportadora { get; set; }
 
 
-        public Venda(int codigo, Cliente cliente, Gerente gerente, DateTime dataVenda)
+        public Venda(int codigo, Cliente cliente, Gerente gerente, DateTime dataVenda,List<ItemVenda> itens)
         {
             Codigo = (codigo == -1) ? NumAleatorio.Gerar<Venda>() : codigo;
             Cliente = cliente;
             Gerente = gerente;
             DataVenda = dataVenda;
-            ItensVenda = new List<ItemVenda>();
+            ItensVenda = itens;
         }
 
         public float CalcularValorTotal()
@@ -73,9 +73,5 @@ namespace Trabalho_II_de_POO_II.GUI
             return ValorComDesconto;
         }
 
-        public void AddItemVenda(ItemVenda item)
-        {
-            ItensVenda.Add(item);
-        }
     }
 }

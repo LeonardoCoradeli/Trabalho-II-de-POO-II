@@ -114,6 +114,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.fisicoProduto);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.quantidadeProduto);
@@ -123,7 +124,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Label);
             this.Name = "Cadastrar_ItemVenda";
-            this.Size = new System.Drawing.Size(132, 110);
+            this.Size = new System.Drawing.Size(130, 108);
             this.Load += new System.EventHandler(this.Cadastrar_ItemVenda_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

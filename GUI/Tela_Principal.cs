@@ -18,13 +18,32 @@ namespace Trabalho_II_de_POO_II.GUI
         public Tela_Principal()
         {
 
-
+            SetFullScreen();
             InitializeComponent();
             JogosComprados.Items.Clear();
             AdicionarItensJogosComprados(ControladorJogo.GetJogosComprados(),jogo =>jogo.Nome,jogo=>jogo.Avaliacao.ToString());
             CatalogoJogo.Controls.Clear();
             AdicionarItensJogosDisponiveis(ControladorJogo.GetJogosDisponiveis(),jogo=>jogo.Nome);
-            
+            this.Resize += new EventHandler(Tela_Principal_Resize);
+        }
+        private void SetFullScreen()
+        {
+            this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void Tela_Principal_Resize(object sender, EventArgs e)
+        {
+            TabPrincipal.Width = this.Width;
+            TabPrincipal.Height = this.Height;
+
+            SideBar.Width = this.Width;
+            SideBar.Height = this.Height;
+
+            JogosComprados.Width = this.Width;
+            JogosComprados.Height = this.Height;
+
+            Relatorios.Width = this.Width;
+            Relatorios.Height = this.Height;
         }
 
         private void AdicionarItensJogosComprados<T>(List<T> lista, Func<T, string> obterNome, Func<T, string> obterAvaliacao)

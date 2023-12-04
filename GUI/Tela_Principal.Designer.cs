@@ -29,7 +29,7 @@ namespace Trabalho_II_de_POO_II.GUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.SideBar = new System.Windows.Forms.Panel();
             this.JogosComprados = new System.Windows.Forms.ListView();
             this.chbVisualizacaoJogos = new System.Windows.Forms.CheckBox();
             this.TabPrincipal = new System.Windows.Forms.TabControl();
@@ -65,7 +65,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.cartãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pixToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
-            this.panel1.SuspendLayout();
+            this.SideBar.SuspendLayout();
             this.TabPrincipal.SuspendLayout();
             this.tabComprar.SuspendLayout();
             this.tabCadastrar.SuspendLayout();
@@ -75,15 +75,15 @@ namespace Trabalho_II_de_POO_II.GUI
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // SideBar
             // 
-            this.panel1.Controls.Add(this.JogosComprados);
-            this.panel1.Controls.Add(this.chbVisualizacaoJogos);
-            this.panel1.Location = new System.Drawing.Point(0, 1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(156, 604);
-            this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.SideBar.Controls.Add(this.JogosComprados);
+            this.SideBar.Controls.Add(this.chbVisualizacaoJogos);
+            this.SideBar.Location = new System.Drawing.Point(0, 1);
+            this.SideBar.Name = "SideBar";
+            this.SideBar.Size = new System.Drawing.Size(156, 604);
+            this.SideBar.TabIndex = 0;
+            this.SideBar.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // JogosComprados
             // 
@@ -120,6 +120,7 @@ namespace Trabalho_II_de_POO_II.GUI
             this.TabPrincipal.Name = "TabPrincipal";
             this.TabPrincipal.SelectedIndex = 0;
             this.TabPrincipal.Size = new System.Drawing.Size(1070, 608);
+            this.TabPrincipal.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.TabPrincipal.TabIndex = 1;
             // 
             // tabComprar
@@ -405,13 +406,13 @@ namespace Trabalho_II_de_POO_II.GUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1230, 609);
             this.Controls.Add(this.TabPrincipal);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.SideBar);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Tela_Principal";
             this.Text = "Teste";
             this.Load += new System.EventHandler(this.Tela_Principal_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.SideBar.ResumeLayout(false);
+            this.SideBar.PerformLayout();
             this.TabPrincipal.ResumeLayout(false);
             this.tabComprar.ResumeLayout(false);
             this.tabCadastrar.ResumeLayout(false);
@@ -429,7 +430,7 @@ namespace Trabalho_II_de_POO_II.GUI
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel SideBar;
         private System.Windows.Forms.TabControl TabPrincipal;
         private System.Windows.Forms.TabPage tabComprar;
         private System.Windows.Forms.TabPage tabCadastrar;
