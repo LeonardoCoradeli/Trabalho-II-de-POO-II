@@ -331,8 +331,9 @@ namespace Trabalho_II_de_POO_II.GUI
             // todosToolStripMenuItem
             // 
             this.todosToolStripMenuItem.Name = "todosToolStripMenuItem";
-            this.todosToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.todosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.todosToolStripMenuItem.Text = "Todos";
+            this.todosToolStripMenuItem.Click += new System.EventHandler(this.todosToolStripMenuItem_Click);
             // 
             // clientesÉpicosToolStripMenuItem
             // 

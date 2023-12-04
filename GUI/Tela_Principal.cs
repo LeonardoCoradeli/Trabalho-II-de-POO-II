@@ -281,5 +281,12 @@ namespace Trabalho_II_de_POO_II.GUI
             Cadastrar_Venda cadastro = new Cadastrar_Venda();
             cadastro.Show();
         }
+
+        private void todosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<Usuario> clientes = ControladorUsuario.listarClientes();
+            Relatorios.Text = ControladorUsuario.ListarClientesParaTextbox(clientes);
+        }
+
     }
 }

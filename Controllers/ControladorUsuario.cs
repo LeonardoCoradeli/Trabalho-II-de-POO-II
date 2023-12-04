@@ -74,5 +74,16 @@ namespace Trabalho_II_de_POO_II.Controllers
         {
             return SJE.ListarTop10ClientesMaiorNivel(clientes);
         }
+        public static string ListarClientesParaTextbox(List<Usuario> clientes)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var cliente in clientes)
+            {
+                sb.AppendLine(cliente.ToString());
+            }
+
+            return sb.ToString();
+        }
     }
 }
